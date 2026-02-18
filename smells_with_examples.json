@@ -1,0 +1,599 @@
+{
+  "ml_code_smells": {
+    "description": "A catalog of ML-specific code smells and anti-patterns with definitions and example code illustrating the problematic pattern.",
+    "frameworks": {
+      "General ML": {
+        "smells": [
+          {
+            "name": "Missing Imports",
+"definition": "A module or function does not import necessary libraries or modules, leading to undefined behavior or runtime errors.",
+"example": {
+  "bad_code": "import numpy as np\nimport pandas as pd\n# Missing import: sklearn.preprocessing"
+}},
+          {
+            "name": "Potential Data Leakage",
+            "definition": "Preprocessing is applied to the full dataset before performing a train-test split, causing information from the test set to influence model training.",
+            "example": {
+              "bad_code": "scaler = StandardScaler()\nX_scaled = scaler.fit_transform(X)  # fit on full dataset\nX_train, X_test, y_train, y_test = train_test_split(X_scaled, y)"
+            }
+          },
+          {
+            "name": "Magic Numbers",
+            "definition": "Numeric literals are used directly in code without named constants or explanation, reducing readability and making future changes error-prone.",
+            "example": {
+              "bad_code": "model = RandomForestClassifier(n_estimators=137, max_depth=7)\nX_train, X_test = train_test_split(X, test_size=0.23)"
+            }
+          },
+          {
+            "name": "Inconsistent Feature Scaling",
+            "definition": "Multiple different scaling methods are used within the same pipeline, leading to inconsistent preprocessing.",
+            "example": {
+              "bad_code": "scaler1 = StandardScaler()\nX_train_scaled = scaler1.fit_transform(X_train)\n\nscaler2 = MinMaxScaler()\nX_val_scaled = scaler2.fit_transform(X_val)"
+            }
+          },
+          {
+            "name": "Missing Cross-Validation",
+            "definition": "Model training code lacks any cross-validation strategy, resulting in potentially unreliable performance estimates.",
+            "example": {
+              "bad_code": "model = LogisticRegression()\nmodel.fit(X_train, y_train)\nscore = model.score(X_test, y_test)\n# No KFold, cross_val_score, or GridSearchCV used"
+            }
+          },
+          {
+            "name": "No Imbalanced Dataset Handling",
+            "definition": "A classification task is performed without any technique to address class imbalance.",
+            "example": {
+              "bad_code": "clf = RandomForestClassifier()\nclf.fit(X_train, y_train)\n# class distribution: {0: 9800, 1: 200} — no SMOTE, no class_weight, no stratify"
+            }
+          },
+          {
+            "name": "Feature Selection Without Validation",
+            "definition": "Feature selection is performed without a proper validation strategy, risking selection bias.",
+            "example": {
+              "bad_code": "selector = SelectKBest(k=10)\nX_new = selector.fit_transform(X, y)\n# No train_test_split or cross-validation wrapping the selection"
+            }
+          },
+          {
+            "name": "Inappropriate Metric Selection",
+            "definition": "Only a single or overly simplistic evaluation metric is used, failing to capture important aspects of model performance.",
+            "example": {
+              "bad_code": "from sklearn.metrics import accuracy_score\nscore = accuracy_score(y_test, y_pred)\n# Dataset is imbalanced; only accuracy used, no F1 or AUC"
+            }
+          },
+          {
+            "name": "Model Saved Without Preprocessing",
+            "definition": "A trained model is persisted to disk without saving the associated preprocessing steps.",
+            "example": {
+              "bad_code": "scaler = StandardScaler().fit(X_train)\nX_train_scaled = scaler.transform(X_train)\nmodel.fit(X_train_scaled, y_train)\njoblib.dump(model, 'model.pkl')  # scaler not saved!"
+            }
+          },
+          {
+            "name": "Model Saved Without Versioning",
+            "definition": "Model artifacts are saved without any version identifier or timestamp.",
+            "example": {
+              "bad_code": "joblib.dump(model, 'model.pkl')  # no version, no timestamp in filename"
+            }
+          },
+          {
+            "name": "Missing Random Seed",
+            "definition": "No random seed is set before ML operations, making results non-reproducible across runs.",
+            "example": {
+              "bad_code": "model = RandomForestClassifier()\nX_train, X_test, y_train, y_test = train_test_split(X, y)\nmodel.fit(X_train, y_train)\n# No np.random.seed(), no random_state set anywhere"
+            }
+          },
+          {
+            "name": "Incomplete Seed Setting",
+            "definition": "A random seed is set for some but not all relevant libraries, leading to partial non-reproducibility.",
+            "example": {
+              "bad_code": "import numpy as np\nimport torch\nnp.random.seed(42)\n# torch.manual_seed() never called despite using torch operations"
+            }
+          },
+          {
+            "name": "Data Loading Without Size Checks",
+            "definition": "Data is loaded from disk without any mechanism to handle large files.",
+            "example": {
+              "bad_code": "df1 = pd.read_csv('dataset_part1.csv')\ndf2 = pd.read_csv('dataset_part2.csv')\n# No chunksize, no nrows, no memory_usage check"
+            }
+          },
+          {
+            "name": "Potentially Unused Features",
+            "definition": "Variables are assigned values but never used in any subsequent ML operation.",
+            "example": {
+              "bad_code": "feature_importances = model.feature_importances_\nconfusion = confusion_matrix(y_test, y_pred)\n# feature_importances is never printed, plotted, or used further"
+            }
+          },
+          {
+            "name": "Feature Engineering Without Train/Test Separation",
+            "definition": "A feature engineering function operates on the entire dataset without clearly distinguishing between training and test data.",
+            "example": {
+              "bad_code": "def process_features(df):\n    df['mean_encoded'] = df.groupby('category')['target'].transform('mean')\n    scaler.fit_transform(df[['age', 'income']])\n    return df\n\ndf_processed = process_features(full_df)  # applied before split"
+            }
+          },
+          {
+            "name": "Missing Error Handling",
+            "definition": "Critical ML operations are performed without try-except blocks or input validation.",
+            "example": {
+              "bad_code": "df = pd.read_csv('data.csv')\nmodel = joblib.load('model.pkl')\npredictions = model.predict(df)\n# No try-except; file may not exist, model may be incompatible"
+            }
+          },
+          {
+            "name": "Hardcoded File Paths",
+            "definition": "File or directory paths are written as string literals in the code rather than being sourced from configuration files or environment variables.",
+            "example": {
+              "bad_code": "df = pd.read_csv('/home/user/projects/ml/data/train.csv')\nmodel_path = 'C:\\\\Users\\\\user\\\\models\\\\classifier.pkl'"
+            }
+          },
+          {
+            "name": "Missing Documentation",
+            "definition": "Functions or classes that contain parameters or return values lack docstrings.",
+            "example": {
+              "bad_code": "def train_model(X, y, n_estimators, learning_rate):\n    model = GradientBoostingClassifier(n_estimators=n_estimators, learning_rate=learning_rate)\n    model.fit(X, y)\n    return model\n# No docstring describing parameters or return value"
+            }
+          }
+        ]
+      },
+      "Pandas": {
+        "smells": [
+          {
+            "name": "Unnecessary Iteration",
+            "definition": "iterrows() is used to apply operations that could be performed with vectorized Pandas functions.",
+            "example": {
+              "bad_code": "for idx, row in df.iterrows():\n    df.at[idx, 'total'] = row['price'] * row['quantity']"
+            }
+          },
+          {
+            "name": "Chain Indexing",
+            "definition": "DataFrame elements are accessed via chained subscript operations, which can produce unexpected SettingWithCopyWarning errors.",
+            "example": {
+              "bad_code": "df['column']['row'] = value\ndf[df['col'] > 0]['new_col'] = 1  # chained assignment"
+            }
+          },
+          {
+            "name": "Missing Merge Parameters",
+            "definition": "pd.merge() is called without specifying key parameters, risking silent data loss or incorrect join behavior.",
+            "example": {
+              "bad_code": "result = pd.merge(df_left, df_right)  # no 'how', 'on', or 'validate'"
+            }
+          },
+          {
+            "name": "Inplace Operations",
+            "definition": "Operations are called with inplace=True, which can lead to unexpected side effects and makes code harder to debug.",
+            "example": {
+              "bad_code": "df.sort_values('score', inplace=True)\ndf.fillna(0, inplace=True)\ndf.drop(columns=['id'], inplace=True)"
+            }
+          },
+          {
+            "name": "Using .values Instead of .to_numpy()",
+            "definition": "The .values attribute is used instead of the preferred .to_numpy() method.",
+            "example": {
+              "bad_code": "arr = df['feature'].values\nresult = np.reshape(df.values, (-1, 1))"
+            }
+          },
+          {
+            "name": "Missing dtype Specification on Read",
+            "definition": "pd.read_csv() is called without specifying dtypes, risking incorrect type inference.",
+            "example": {
+              "bad_code": "df = pd.read_csv('data.csv')\n# 'id' column inferred as int64, 'code' column inferred incorrectly"
+            }
+          },
+          {
+            "name": "Suboptimal Column Selection",
+            "definition": "Columns are selected one at a time using single-bracket notation instead of selecting multiple columns at once.",
+            "example": {
+              "bad_code": "col_a = df['feature_a']\ncol_b = df['feature_b']\nX = pd.concat([col_a, col_b], axis=1)"
+            }
+          },
+          {
+            "name": "DataFrame Modification in Loop",
+            "definition": "A DataFrame is modified inside a for-loop without using safe indexing methods.",
+            "example": {
+              "bad_code": "for i in range(len(df)):\n    df['new_col'][i] = compute(df['col'][i])  # no .loc or .iloc"
+            }
+          }
+        ]
+      },
+      "NumPy": {
+        "smells": [
+          {
+            "name": "NaN Equality Comparison",
+            "definition": "NaN values are compared using == which always returns False. np.isnan() should be used instead.",
+            "example": {
+              "bad_code": "if value == np.nan:  # always False\n    handle_nan()"
+            }
+          },
+          {
+            "name": "Missing Random Seed (NumPy)",
+            "definition": "NumPy random operations are used without setting np.random.seed(), making results non-reproducible.",
+            "example": {
+              "bad_code": "samples = np.random.randn(1000, 10)\nnoise = np.random.uniform(0, 1, size=(100,))\n# np.random.seed() never called"
+            }
+          },
+          {
+            "name": "Inefficient Array Creation",
+            "definition": "Arrays are created without specifying a dtype, leading to unnecessary memory usage or type conversions.",
+            "example": {
+              "bad_code": "arr = np.array([1, 2, 3, 4])\nzeros = np.zeros((100, 100))\nones = np.ones((50, 50))\n# No dtype specified; defaults may not be optimal"
+            }
+          },
+          {
+            "name": "Non-Vectorized Operations",
+            "definition": "Aggregate functions are called inside for-loops instead of being applied directly to the array.",
+            "example": {
+              "bad_code": "result = []\nfor row in matrix:\n    result.append(np.sum(row))  # should be np.sum(matrix, axis=1)"
+            }
+          },
+          {
+            "name": "Dtype Inconsistency",
+            "definition": "Arithmetic operations are performed between arrays of mixed integer and float types.",
+            "example": {
+              "bad_code": "a = np.int32([1, 2, 3])\nb = np.float64([1.5, 2.5, 3.5])\nresult = a + b  # silent casting, potential precision issues"
+            }
+          },
+          {
+            "name": "Broadcasting Risk",
+            "definition": "Binary operations are performed between reshaped or transposed arrays without verifying shape compatibility.",
+            "example": {
+              "bad_code": "a = np.reshape(arr1, (10, 1))\nb = np.transpose(arr2)\nresult = a + b  # shape mismatch may broadcast unexpectedly"
+            }
+          },
+          {
+            "name": "Copy-View Confusion",
+            "definition": "A slice of a NumPy array is assigned and then modified without explicitly calling .copy(), potentially modifying the original array.",
+            "example": {
+              "bad_code": "subset = data[10:20]  # this is a view, not a copy\nsubset[0] = 999  # silently modifies original 'data' array"
+            }
+          },
+          {
+            "name": "Missing Axis Specification",
+            "definition": "Reduction operations are called without specifying an axis, causing them to collapse the entire array.",
+            "example": {
+              "bad_code": "total = np.sum(matrix)   # sums everything; likely wanted axis=0 or axis=1\nbest = np.argmax(scores) # collapses to scalar unexpectedly"
+            }
+          }
+        ]
+      },
+      "Scikit-learn": {
+        "smells": [
+          {
+            "name": "Missing Feature Scaling",
+            "definition": "Scaling-sensitive estimators are used without applying a feature scaler beforehand.",
+            "example": {
+              "bad_code": "from sklearn.svm import SVC\nmodel = SVC()\nmodel.fit(X_train, y_train)  # no StandardScaler applied before SVC"
+            }
+          },
+          {
+            "name": "Missing Pipeline",
+            "definition": "Multiple preprocessing and model-fitting steps are written sequentially without a Pipeline, increasing leakage risk.",
+            "example": {
+              "bad_code": "scaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\npca = PCA(n_components=5)\nX_pca = pca.fit_transform(X_train_scaled)\nmodel = LogisticRegression()\nmodel.fit(X_pca, y_train)\n# No Pipeline wrapping these steps"
+            }
+          },
+          {
+            "name": "Missing Cross-Validation (Sklearn)",
+            "definition": "Model training is performed without any cross-validation.",
+            "example": {
+              "bad_code": "model = RandomForestClassifier()\nmodel.fit(X_train, y_train)\nprint(model.score(X_test, y_test))\n# No cross_val_score, KFold, or GridSearchCV"
+            }
+          },
+          {
+            "name": "Missing Random State",
+            "definition": "Estimators or splitting functions are called without setting random_state.",
+            "example": {
+              "bad_code": "X_train, X_test, y_train, y_test = train_test_split(X, y)\nmodel = RandomForestClassifier()\n# No random_state on either call"
+            }
+          },
+          {
+            "name": "Missing Verbose Mode",
+            "definition": "Long-running operations are called without verbose=True, providing no progress feedback.",
+            "example": {
+              "bad_code": "gs = GridSearchCV(estimator, param_grid, cv=5)\ngs.fit(X_train, y_train)  # no verbose=True; silent for minutes"
+            }
+          },
+          {
+            "name": "Threshold-Dependent Metrics Only",
+            "definition": "Only accuracy is used for classification evaluation without threshold-independent metrics like ROC AUC.",
+            "example": {
+              "bad_code": "from sklearn.metrics import accuracy_score\nprint(accuracy_score(y_test, y_pred))\n# No roc_auc_score, no average_precision_score"
+            }
+          },
+          {
+            "name": "Missing Unit Tests",
+            "definition": "ML pipeline components lack unit tests.",
+            "example": {
+              "bad_code": "def preprocess(df):\n    df = df.dropna()\n    df['log_income'] = np.log1p(df['income'])\n    return df\n# No pytest or unittest tests for this function"
+            }
+          },
+          {
+            "name": "Data Leakage (Sklearn)",
+            "definition": "Preprocessing transformers are fitted on the full dataset before splitting.",
+            "example": {
+              "bad_code": "scaler = StandardScaler()\nX_all_scaled = scaler.fit_transform(X)\nX_train, X_test = train_test_split(X_all_scaled, test_size=0.2)"
+            }
+          },
+          {
+            "name": "Missing Exception Handling (Sklearn)",
+            "definition": "Critical Sklearn operations are not wrapped in try-except blocks.",
+            "example": {
+              "bad_code": "model = joblib.load('model.pkl')\npredictions = model.predict(X_new)\n# No try-except; fails hard if file missing or data shape wrong"
+            }
+          }
+        ]
+      },
+      "PyTorch": {
+        "smells": [
+          {
+            "name": "Missing Random Seed (PyTorch)",
+            "definition": "PyTorch random operations are used without calling torch.manual_seed().",
+            "example": {
+              "bad_code": "x = torch.randn(100, 10)\nweights = torch.rand(10, 5)\n# torch.manual_seed() never called"
+            }
+          },
+          {
+            "name": "Non-Deterministic Algorithm Usage",
+            "definition": "Deterministic algorithm mode is not enabled, meaning results may vary across hardware or runs.",
+            "example": {
+              "bad_code": "model = nn.Sequential(nn.Conv2d(3, 64, 3), nn.Linear(64, 10))\n# torch.use_deterministic_algorithms(True) never set"
+            }
+          },
+          {
+            "name": "DataLoader Without Random Control",
+            "definition": "A shuffled DataLoader is created without setting worker_init_fn or generator.",
+            "example": {
+              "bad_code": "loader = DataLoader(dataset, batch_size=32, shuffle=True)\n# No worker_init_fn or generator for reproducible shuffling"
+            }
+          },
+          {
+            "name": "Missing Numerical Mask",
+            "definition": "torch.log() is applied to inputs that may contain zeros or negative values without masking.",
+            "example": {
+              "bad_code": "probs = model(x)  # output may contain zeros\nloss = -torch.log(probs)  # produces -inf for zero probabilities"
+            }
+          },
+          {
+            "name": "Direct forward() Call",
+            "definition": "model.forward() is called directly instead of using model(input), bypassing hooks.",
+            "example": {
+              "bad_code": "output = model.forward(input_tensor)  # bypasses __call__ and hooks"
+            }
+          },
+          {
+            "name": "Missing Gradient Zeroing",
+            "definition": "Gradients are not cleared before each backward pass, causing unintended gradient accumulation.",
+            "example": {
+              "bad_code": "for batch in dataloader:\n    output = model(batch)\n    loss = criterion(output, labels)\n    loss.backward()  # optimizer.zero_grad() never called\n    optimizer.step()"
+            }
+          },
+          {
+            "name": "Missing Batch Normalization",
+            "definition": "A deep or convolutional network is defined without BatchNorm layers.",
+            "example": {
+              "bad_code": "model = nn.Sequential(\n    nn.Conv2d(3, 64, 3),\n    nn.ReLU(),\n    nn.Conv2d(64, 128, 3),\n    nn.ReLU(),\n    nn.Linear(128, 10)\n)  # no BatchNorm2d layers"
+            }
+          },
+          {
+            "name": "Missing Dropout",
+            "definition": "A complex model with multiple layers is trained without Dropout layers.",
+            "example": {
+              "bad_code": "model = nn.Sequential(\n    nn.Linear(512, 256),\n    nn.ReLU(),\n    nn.Linear(256, 128),\n    nn.ReLU(),\n    nn.Linear(128, 10)\n)  # no nn.Dropout layers"
+            }
+          },
+          {
+            "name": "Missing Data Augmentation (PyTorch)",
+            "definition": "A computer vision model is trained without applying torchvision.transforms augmentations.",
+            "example": {
+              "bad_code": "dataset = ImageFolder(root='data/train', transform=transforms.ToTensor())\n# No RandomHorizontalFlip, RandomCrop, ColorJitter, etc."
+            }
+          },
+          {
+            "name": "Missing Learning Rate Scheduler (PyTorch)",
+            "definition": "A model is trained for many epochs with a fixed learning rate.",
+            "example": {
+              "bad_code": "optimizer = torch.optim.Adam(model.parameters(), lr=0.001)\nfor epoch in range(100):\n    train_one_epoch()\n# No StepLR, CosineAnnealingLR, or ReduceLROnPlateau"
+            }
+          },
+          {
+            "name": "Missing Training Logging (PyTorch)",
+            "definition": "Training metrics are tracked without using a logging tool.",
+            "example": {
+              "bad_code": "for epoch in range(epochs):\n    loss = train(model, loader)\n    print(f'Loss: {loss}')  # only print, no TensorBoard or W&B"
+            }
+          },
+          {
+            "name": "Missing Evaluation Mode",
+            "definition": "The model is not switched to eval() mode during validation or inference.",
+            "example": {
+              "bad_code": "# Validation loop\nfor batch in val_loader:\n    output = model(batch)  # model still in train mode; Dropout active\n    val_loss += criterion(output, labels)"
+            }
+          }
+        ]
+      },
+      "TensorFlow": {
+        "smells": 
+          [
+  {
+    "name": "Unit Testing Checker",
+    "definition": "Detects the absence of structured unit tests for machine learning components, which can lead to undetected bugs, unstable model behavior, and unreliable code evolution.",
+    "example": {
+      "bad_code": "import tensorflow as tf\n\nmodel = tf.keras.Sequential([\n    tf.keras.layers.Dense(10, activation='relu'),\n    tf.keras.layers.Dense(1)\n])\n\nmodel.compile(optimizer='adam', loss='mse')\nmodel.fit(x_train, y_train, epochs=5)"
+
+    }
+  },
+  {
+    "name": "Exception Handling Checker",
+    "definition": "Identifies missing or inadequate exception handling in machine learning code that may cause silent failures, crashes, or unclear error reporting during data processing and model execution.",
+    "example": {
+      "bad_code": "import tensorflow as tf\n\ndata = tf.io.read_file('missing_file.csv')\nparsed = tf.io.decode_csv(data)"
+
+    }
+  },
+
+
+          {
+            "name": "Missing Random Seed (TensorFlow)",
+            "definition": "Random operations are used without calling tf.random.set_seed().",
+            "example": {
+              "bad_code": "x = tf.random.normal([100, 10])\nmodel = tf.keras.Sequential([tf.keras.layers.Dense(64)])\n# tf.random.set_seed() never called"
+            }
+          },
+          {
+            "name": "Missing Early Stopping",
+            "definition": "A model is trained for multiple epochs without an EarlyStopping callback.",
+            "example": {
+              "bad_code": "model.fit(X_train, y_train, epochs=100, validation_data=(X_val, y_val))\n# No EarlyStopping callback; trains all 100 epochs regardless of val loss"
+            }
+          },
+          {
+            "name": "Missing Checkpointing",
+            "definition": "A model is trained without a ModelCheckpoint callback.",
+            "example": {
+              "bad_code": "model.fit(X_train, y_train, epochs=50)\n# If training crashes at epoch 40, all progress is lost"
+            }
+          },
+          {
+            "name": "Missing Memory Release",
+            "definition": "Memory-intensive operations are performed without calling tf.keras.backend.clear_session().",
+            "example": {
+              "bad_code": "for trial in range(10):\n    model = build_model()\n    model.fit(X_train, y_train)\n    # tf.keras.backend.clear_session() never called between trials"
+            }
+          },
+          {
+            "name": "Missing Numerical Mask (TensorFlow)",
+            "definition": "tf.math.log() is applied without masking inputs that may be zero or negative.",
+            "example": {
+              "bad_code": "probs = model(inputs)\nloss = -tf.math.log(probs)  # -inf if probs contains 0"
+            }
+          },
+          {
+            "name": "Python List Instead of TensorArray",
+            "definition": "Python lists are used to accumulate tensors in dynamic loops instead of tf.TensorArray.",
+            "example": {
+              "bad_code": "outputs = []\nfor step in tf.range(sequence_length):\n    out = rnn_cell(inputs[step])\n    outputs.append(out)  # should use tf.TensorArray"
+            }
+          },
+          {
+            "name": "Threshold-Dependent Metrics Only (TensorFlow)",
+            "definition": "A classification model is evaluated with only basic metrics without AUC.",
+            "example": {
+              "bad_code": "model.compile(optimizer='adam', loss='binary_crossentropy',\n              metrics=['accuracy'])  # no AUC metric"
+            }
+          },
+          {
+            "name": "Missing Training Logging (TensorFlow)",
+            "definition": "Training metrics are not logged to TensorBoard or any other monitoring system.",
+            "example": {
+              "bad_code": "model.fit(X_train, y_train, epochs=20)\n# No TensorBoard callback, no CSVLogger, no experiment tracker"
+            }
+          },
+          {
+            "name": "Missing Batch Normalization (TensorFlow)",
+            "definition": "A deep network with multiple layers does not include BatchNormalization layers.",
+            "example": {
+              "bad_code": "model = tf.keras.Sequential([\n    tf.keras.layers.Dense(256, activation='relu'),\n    tf.keras.layers.Dense(128, activation='relu'),\n    tf.keras.layers.Dense(10, activation='softmax')\n])  # no BatchNormalization layers"
+            }
+          },
+          {
+            "name": "Missing Dropout (TensorFlow)",
+            "definition": "A model with multiple layers is trained without Dropout layers.",
+            "example": {
+              "bad_code": "model = tf.keras.Sequential([\n    tf.keras.layers.Dense(512, activation='relu'),\n    tf.keras.layers.Dense(256, activation='relu'),\n    tf.keras.layers.Dense(1, activation='sigmoid')\n])  # no Dropout"
+            }
+          },
+          {
+            "name": "Missing Data Augmentation (TensorFlow)",
+            "definition": "A computer vision model is trained without image augmentation.",
+            "example": {
+              "bad_code": "train_ds = tf.data.Dataset.from_tensor_slices((images, labels)).batch(32)\nmodel.fit(train_ds, epochs=30)\n# No RandomFlip, RandomRotation, or ImageDataGenerator"
+            }
+          },
+          {
+            "name": "Missing Learning Rate Scheduler (TensorFlow)",
+            "definition": "Training uses a fixed learning rate without any scheduler callback.",
+            "example": {
+              "bad_code": "model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.001), loss='mse')\nmodel.fit(X_train, y_train, epochs=50)\n# No ReduceLROnPlateau or LearningRateScheduler"
+            }
+          },
+          {
+            "name": "Missing Model Evaluation",
+            "definition": "A trained model is not evaluated using model.evaluate() on validation or test data.",
+            "example": {
+              "bad_code": "model.fit(X_train, y_train, epochs=20)\n# model.evaluate(X_test, y_test) never called; performance unknown"
+            }
+          }
+        ]
+      },
+      "Hugging Face": {
+        "smells": [
+          {
+            "name": "Model Version Not Specified",
+            "definition": "A pre-trained model is loaded without specifying a revision tag, making reproducibility impossible if the hosted model changes.",
+            "example": {
+              "bad_code": "model = AutoModel.from_pretrained('bert-base-uncased')\n# No revision/commit hash specified; model may silently change"
+            }
+          },
+          {
+            "name": "Tokenizer Caching Not Used",
+            "definition": "A tokenizer is loaded without specifying cache_dir or local_files_only, causing unnecessary re-downloads.",
+            "example": {
+              "bad_code": "tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')\n# Re-downloads on every run if cache not specified"
+            }
+          },
+          {
+            "name": "Model Caching Not Used",
+            "definition": "A model is loaded without specifying cache_dir or local_files_only, causing unnecessary re-downloads.",
+            "example": {
+              "bad_code": "model = AutoModel.from_pretrained('bert-base-uncased')\n# Large model re-downloaded every time"
+            }
+          },
+          {
+            "name": "Non-Deterministic Tokenization Settings",
+            "definition": "A tokenizer is loaded without explicitly setting parameters like do_lower_case, truncation, or padding.",
+            "example": {
+              "bad_code": "tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')\n# do_lower_case, truncation, padding, max_length all at defaults"
+            }
+          },
+          {
+            "name": "Inefficient Data Loading",
+            "definition": "Standard I/O is used instead of the HuggingFace datasets library or a DataLoader.",
+            "example": {
+              "bad_code": "import json\nwith open('data.json') as f:\n    data = json.load(f)\n# No load_dataset(), no DataLoader, no IterableDataset"
+            }
+          },
+          {
+            "name": "Distributed Training Not Configured",
+            "definition": "TrainingArguments is used without configuring distributed training parameters.",
+            "example": {
+              "bad_code": "args = TrainingArguments(\n    output_dir='output',\n    num_train_epochs=3,\n    per_device_train_batch_size=16\n    # No local_rank, n_gpu, or tpu_num_cores\n)"
+            }
+          },
+          {
+            "name": "Mixed Precision Not Enabled",
+            "definition": "TrainingArguments does not set fp16=True or bf16=True, missing speed and memory benefits.",
+            "example": {
+              "bad_code": "args = TrainingArguments(\n    output_dir='output',\n    num_train_epochs=5\n    # No fp16=True or bf16=True\n)"
+            }
+          },
+          {
+            "name": "Gradient Accumulation Not Configured",
+            "definition": "Training is configured without setting gradient_accumulation_steps > 1, limiting effective batch size.",
+            "example": {
+              "bad_code": "args = TrainingArguments(\n    output_dir='output',\n    per_device_train_batch_size=4\n    # No gradient_accumulation_steps to compensate for small batch size\n)"
+            }
+          },
+          {
+            "name": "Learning Rate Scheduler Not Detected",
+            "definition": "No lr_scheduler_type is specified in TrainingArguments.",
+            "example": {
+              "bad_code": "args = TrainingArguments(\n    output_dir='output',\n    learning_rate=5e-5\n    # No lr_scheduler_type specified\n)"
+            }
+          },
+          {
+            "name": "Missing Early Stopping (HuggingFace)",
+            "definition": "Training code does not include EarlyStoppingCallback, risking overfitting during fine-tuning.",
+            "example": {
+              "bad_code": "trainer = Trainer(\n    model=model,\n    args=args,\n    train_dataset=train_ds,\n    eval_dataset=eval_ds\n    # No EarlyStoppingCallback in callbacks\n)\ntrainer.train()"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

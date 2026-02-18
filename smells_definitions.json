@@ -1,0 +1,354 @@
+{
+  "ml_code_smells": {
+    "description": "A catalog of ML-specific code smells and anti-patterns detected by MLScent across major ML frameworks and libraries.",
+    "frameworks": {
+      "General ML": {
+        "smells": [
+            {
+            "name": "Missing Imports",
+"definition": "A module or function does not import necessary libraries or modules, leading to undefined behavior or runtime errors."          },
+          {
+            "name": "Potential Data Leakage",
+            "definition": "Preprocessing (e.g., fit or fit_transform) is applied to the full dataset before performing a train-test split, causing information from the test set to influence model training."
+          },
+          {
+            "name": "Magic Numbers",
+            "definition": "Numeric literals are used directly in code without named constants or explanation, reducing readability and making future changes error-prone."
+          },
+          {
+            "name": "Inconsistent Feature Scaling",
+            "definition": "Multiple different scaling methods (e.g., StandardScaler and MinMaxScaler) are used within the same pipeline, leading to inconsistent preprocessing."
+          },
+          {
+            "name": "Missing Cross-Validation",
+            "definition": "Model training code lacks any cross-validation strategy, resulting in potentially unreliable performance estimates that depend heavily on a single train-test split."
+          },
+          {
+            "name": "No Imbalanced Dataset Handling",
+            "definition": "A classification task is performed without any technique to address class imbalance, such as SMOTE, class weights, or stratified sampling."
+          },
+          {
+            "name": "Feature Selection Without Validation",
+            "definition": "Feature selection is performed without a proper validation strategy, risking selection bias where features are chosen based on information that leaks from the test set."
+          },
+          {
+            "name": "Inappropriate Metric Selection",
+            "definition": "Only a single or overly simplistic evaluation metric is used (e.g., accuracy for classification or MSE for regression), failing to capture important aspects of model performance."
+          },
+          {
+            "name": "Model Saved Without Preprocessing",
+            "definition": "A trained model is persisted to disk without saving the associated preprocessing steps (e.g., scalers, encoders), making deployment and inference unreliable."
+          },
+          {
+            "name": "Model Saved Without Versioning",
+            "definition": "Model artifacts are saved without any version identifier, timestamp, or release tag, making it difficult to track and reproduce specific model versions."
+          },
+          {
+            "name": "Missing Random Seed",
+            "definition": "No random seed is set before ML operations, making results non-reproducible across runs."
+          },
+          {
+            "name": "Incomplete Seed Setting",
+            "definition": "A random seed is set for some but not all relevant libraries (e.g., set for NumPy but not for PyTorch or TensorFlow), leading to partial non-reproducibility."
+          },
+          {
+            "name": "Data Loading Without Size Checks",
+            "definition": "Data is loaded from disk without any mechanism to handle large files, such as batch processing, chunked reading, or memory usage checks."
+          },
+          {
+            "name": "Potentially Unused Features",
+            "definition": "Variables are assigned values but never used in any subsequent ML operation, suggesting dead code or forgotten preprocessing steps."
+          },
+          {
+            "name": "Overfit Prone Practices",
+            "definition": "A feature engineering function operates on the entire dataset without clearly distinguishing between training and test data, risking data leakage."
+          },
+          {
+            "name": "Missing Error Handling",
+            "definition": "Critical ML operations such as data loading, model fitting, or model saving are performed without try-except blocks or input validation, reducing robustness."
+          },
+          {
+            "name": "Hardcoded File Paths",
+            "definition": "File or directory paths are written as string literals in the code rather than being sourced from configuration files or environment variables."
+          },
+          {
+            "name": "Missing Documentation",
+            "definition": "Functions or classes that contain parameters or return values lack docstrings, making the code harder to understand and maintain."
+          }
+        ]
+      },
+      "Pandas": {
+        "smells": [
+          {
+            "name": "Unnecessary Iteration",
+            "definition": "iterrows() is used to apply operations row-by-row that could be performed more efficiently using vectorized Pandas functions."
+          },
+          {
+            "name": "Chain Indexing",
+            "definition": "DataFrame elements are accessed via chained subscript operations (e.g., df['col']['row']), which can produce unexpected SettingWithCopyWarning errors and is less performant."
+          },
+          {
+            "name": "Missing Merge Parameters",
+            "definition": "pd.merge() is called without specifying key parameters such as how, on, or validate, risking silent data loss or incorrect join behavior."
+          },
+          {
+            "name": "Inplace Operations",
+            "definition": "Operations like sort_values or fillna are called with inplace=True, which can lead to unexpected side effects and makes code harder to debug."
+          },
+          {
+            "name": "Using .values Instead of .to_numpy()",
+            "definition": "The .values attribute is used to convert a DataFrame or Series to an array, instead of the preferred .to_numpy() method, which is more explicit and future-proof."
+          },
+          {
+            "name": "Missing dtype Specification on Read",
+            "definition": "pd.read_csv() or similar functions are called without specifying dtypes, risking incorrect type inference and increased memory usage."
+          },
+          {
+            "name": "Suboptimal Column Selection",
+            "definition": "Columns are selected one at a time using single-bracket notation instead of selecting multiple columns at once using double-bracket notation, reducing clarity."
+          },
+          {
+            "name": "DataFrame Modification in Loop",
+            "definition": "A DataFrame is modified inside a for-loop without using safe indexing methods like .loc or .iloc, risking SettingWithCopyWarning and corrupted data."
+          }
+        ]
+      },
+      "NumPy": {
+        "smells": [
+          {
+            "name": "NaN Equality Comparison",
+            "definition": "NaN values are compared using the == operator, which always returns False due to IEEE 754 semantics. np.isnan() should be used instead."
+          },
+          {
+            "name": "Missing Random Seed (NumPy)",
+            "definition": "NumPy random operations are used without setting np.random.seed(), making results non-reproducible."
+          },
+          {
+            "name": "Inefficient Array Creation",
+            "definition": "Arrays are created with np.array, np.zeros, np.ones, or np.empty without specifying a dtype, leading to unnecessary memory usage or type conversions."
+          },
+          {
+            "name": "Non-Vectorized Operations",
+            "definition": "Aggregate functions like np.sum or np.mean are called inside for-loops over array elements instead of being applied directly to the array."
+          },
+          {
+            "name": "Dtype Inconsistency",
+            "definition": "Arithmetic operations are performed between NumPy arrays of mixed integer and float types, which can cause silent precision loss or unexpected casting behavior."
+          },
+          {
+            "name": "Broadcasting Risk",
+            "definition": "Binary operations are performed between arrays that have been reshaped or transposed without verifying shape compatibility, risking incorrect broadcasting behavior."
+          },
+          {
+            "name": "Copy-View Confusion",
+            "definition": "A slice of a NumPy array is assigned to a new variable and then modified, without explicitly calling .copy(), potentially modifying the original array unexpectedly."
+          },
+          {
+            "name": "Missing Axis Specification",
+            "definition": "Reduction operations (e.g., np.sum, np.mean) are called without specifying an axis, causing them to operate on the entire array and potentially producing scalar results when row- or column-wise behavior is intended."
+          }
+        ]
+      },
+      "Scikit-learn": {
+        "smells": [
+          {
+            "name": "Missing Feature Scaling",
+            "definition": "Scaling-sensitive estimators such as SVM, PCA, or LogisticRegression are used without applying a feature scaler beforehand, degrading model performance."
+          },
+          {
+            "name": "Missing Pipeline",
+            "definition": "Multiple preprocessing and model-fitting steps are written sequentially without being wrapped in a sklearn Pipeline, increasing the risk of data leakage and reducing reproducibility."
+          },
+          {
+            "name": "Missing Cross-Validation (Sklearn)",
+            "definition": "Model training is performed without any cross-validation, resulting in a performance estimate that is highly sensitive to the random train-test split."
+          },
+          {
+            "name": "Missing Random State",
+            "definition": "Estimators or splitting functions that accept a random_state parameter are called without setting it, making results non-reproducible."
+          },
+          {
+            "name": "Missing Verbose Mode",
+            "definition": "Long-running operations such as GridSearchCV or GradientBoosting are called without verbose=True, providing no progress feedback during training."
+          },
+          {
+            "name": "Threshold-Dependent Metrics Only",
+            "definition": "Only threshold-dependent metrics (accuracy, precision, recall, F1) are used for classification evaluation, without including threshold-independent metrics like ROC AUC."
+          },
+          {
+            "name": "Missing Unit Tests",
+            "definition": "ML pipeline components lack unit tests, making it difficult to verify correctness and catch regressions as the code evolves."
+          },
+          {
+            "name": "Data Leakage (Sklearn)",
+            "definition": "Preprocessing transformers are fitted on the full dataset before splitting into train and test sets, leaking test-set information into the model."
+          },
+          {
+            "name": "Missing Exception Handling (Sklearn)",
+            "definition": "Critical Scikit-learn operations such as fit, predict, or model loading are not wrapped in try-except blocks, reducing robustness."
+          }
+        ]
+      },
+      "PyTorch": {
+        "smells": [
+          {
+            "name": "Missing Random Seed (PyTorch)",
+            "definition": "PyTorch random operations are used without calling torch.manual_seed(), producing non-reproducible results."
+          },
+          {
+            "name": "Non-Deterministic Algorithm Usage",
+            "definition": "Deterministic algorithm mode is not enabled via torch.use_deterministic_algorithms(True), meaning results may vary across hardware or runs even with a fixed seed."
+          },
+          {
+            "name": "DataLoader Without Random Control",
+            "definition": "A shuffled DataLoader is created without setting worker_init_fn or generator, causing non-reproducible data loading order."
+          },
+          {
+            "name": "Missing Numerical Mask",
+            "definition": "torch.log() is applied to inputs that may contain zeros or negative values without masking, risking -inf or NaN in the computation graph."
+          },
+          {
+            "name": "Direct forward() Call",
+            "definition": "model.forward() is called directly instead of using the callable syntax model(input), bypassing registered hooks and violating PyTorch conventions."
+          },
+          {
+            "name": "Missing Gradient Zeroing",
+            "definition": "Gradients are not cleared before each backward pass with optimizer.zero_grad(), causing unintended gradient accumulation."
+          },
+          {
+            "name": "Missing Batch Normalization",
+            "definition": "A deep or convolutional network is defined without BatchNorm layers, missing an opportunity to stabilize training and improve convergence."
+          },
+          {
+            "name": "Missing Dropout",
+            "definition": "A complex model with multiple layers is trained without Dropout layers, increasing the risk of overfitting."
+          },
+          {
+            "name": "Missing Data Augmentation (PyTorch)",
+            "definition": "A computer vision model is trained without applying torchvision.transforms augmentations, limiting generalization."
+          },
+          {
+            "name": "Missing Learning Rate Scheduler (PyTorch)",
+            "definition": "A model is trained for many epochs with a fixed learning rate without using a torch.optim.lr_scheduler, potentially missing better convergence."
+          },
+          {
+            "name": "Missing Training Logging (PyTorch)",
+            "definition": "Training metrics such as loss and accuracy are tracked without using a logging tool like TensorBoard or Weights & Biases."
+          },
+          {
+            "name": "Missing Evaluation Mode",
+            "definition": "The model is not switched to eval() mode during validation or inference, causing BatchNorm and Dropout layers to behave incorrectly."
+          }
+        ]
+      },
+      "TensorFlow": {
+        "smells": [
+          {
+            "name": "Missing Random Seed (TensorFlow)",
+            "definition": "Random operations are used without calling tf.random.set_seed(), producing non-reproducible training outcomes."
+          },
+          {
+            "name": "Missing Early Stopping",
+            "definition": "A model is trained for multiple epochs without an EarlyStopping callback, risking overfitting and wasted compute."
+          },
+          {
+            "name": "Missing Checkpointing",
+            "definition": "A complex model is trained without a ModelCheckpoint callback, meaning no intermediate model states are saved if training is interrupted."
+          },
+          {
+            "name": "Missing Memory Release",
+            "definition": "Memory-intensive TensorFlow operations are performed without calling tf.keras.backend.clear_session(), risking memory leaks especially in iterative workflows."
+          },
+          {
+            "name": "Missing Numerical Mask (TensorFlow)",
+            "definition": "tf.math.log() is applied without masking inputs that may be zero or negative, introducing -inf or NaN values into the computation."
+          },
+          {
+            "name": "Python List Instead of TensorArray",
+            "definition": "Python lists with .append() are used to accumulate tensors in dynamic loops instead of tf.TensorArray, leading to inefficient graph construction."
+          },
+          {
+            "name": "Threshold-Dependent Metrics Only (TensorFlow)",
+            "definition": "A classification model is evaluated using only basic metrics (accuracy, precision, recall) without including threshold-independent metrics like AUC."
+          },
+          {
+            "name": "Missing Training Logging (TensorFlow)",
+            "definition": "Training metrics are not logged to TensorBoard or any other monitoring system, reducing experiment observability."
+          },
+          {
+            "name": "Missing Batch Normalization (TensorFlow)",
+            "definition": "A deep network with convolutional or dense layers does not include BatchNormalization layers, missing training stability benefits."
+          },
+          {
+            "name": "Missing Dropout (TensorFlow)",
+            "definition": "A model with multiple layers is trained without Dropout layers, increasing the risk of overfitting."
+          },
+          {
+            "name": "Missing Data Augmentation (TensorFlow)",
+            "definition": "A computer vision model is trained without image augmentation (e.g., ImageDataGenerator, RandomFlip), limiting its ability to generalize."
+          },
+          {
+            "name": "Missing Learning Rate Scheduler (TensorFlow)",
+            "definition": "Training uses a fixed learning rate without any LearningRateScheduler or ReduceLROnPlateau callback, potentially missing better convergence."
+          },
+          {
+            "name": "Missing Model Evaluation",
+            "definition": "A trained model is not evaluated using model.evaluate() on validation or test data, leaving performance unknown."
+          },
+          {
+    "name": "Unit Testing Checker",
+    "definition": "Detects the absence of structured unit tests for machine learning components, which can lead to undetected bugs, unstable model behavior, and unreliable code evolution."
+  },
+  {
+    "name": "Exception Handling Checker",
+    "definition": "Identifies missing or inadequate exception handling in machine learning code that may cause silent failures, crashes, or unclear error reporting during data processing and model execution."
+  }
+        ]
+      },
+      "Hugging Face": {
+        "smells": [
+          {
+            "name": "Model Version Not Specified",
+            "definition": "A pre-trained model is loaded with from_pretrained() without specifying a revision tag, making it impossible to guarantee reproducibility if the hosted model is updated."
+          },
+          {
+            "name": "Tokenizer Caching Not Used",
+            "definition": "A tokenizer is loaded without specifying cache_dir or local_files_only, causing unnecessary re-downloads on every run."
+          },
+          {
+            "name": "Model Caching Not Used",
+            "definition": "A model is loaded without specifying cache_dir or local_files_only, causing unnecessary re-downloads on every run."
+          },
+          {
+            "name": "Non-Deterministic Tokenization Settings",
+            "definition": "A tokenizer is loaded without explicitly setting parameters like do_lower_case, truncation, padding, or max_length, producing inconsistent preprocessing across runs."
+          },
+          {
+            "name": "Inefficient Data Loading",
+            "definition": "Standard Python I/O or basic Pandas loading is used instead of the HuggingFace datasets library or a PyTorch DataLoader, missing performance optimizations."
+          },
+          {
+            "name": "Distributed Training Not Configured",
+            "definition": "TrainingArguments is used without configuring distributed training parameters (local_rank, n_gpu, tpu_num_cores), failing to leverage available hardware."
+          },
+          {
+            "name": "Mixed Precision Not Enabled",
+            "definition": "TrainingArguments does not set fp16=True or bf16=True, missing significant speed and memory benefits from mixed-precision training."
+          },
+          {
+            "name": "Gradient Accumulation Not Configured",
+            "definition": "Training is configured without setting gradient_accumulation_steps > 1, limiting the effective batch size that can be used."
+          },
+          {
+            "name": "Learning Rate Scheduler Not Detected",
+            "definition": "No lr_scheduler_type is specified in TrainingArguments, meaning the training loop runs with a potentially suboptimal fixed learning rate schedule."
+          },
+          {
+            "name": "Missing Early Stopping (HuggingFace)",
+            "definition": "Training code does not include EarlyStoppingCallback or any early_stopping parameter in TrainingArguments, risking overfitting during fine-tuning."
+          }
+        ]
+      }
+    }
+  }
+}
