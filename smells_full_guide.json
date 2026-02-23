@@ -2,6 +2,7 @@
   "ml_code_smells": {
     "description": "A full catalog of ML-specific code smells and anti-patterns with definitions, bad code examples, and actionable fix guidance.",
     "frameworks": {
+
       "General ML": {
         "smells": [
             {
@@ -76,24 +77,24 @@
               "benefits": "Guarantees uniform feature distributions across all splits and prevents subtle performance regressions."
             }
           },
-          {
-            "name": "Missing Cross-Validation",
-            "definition": "Model training code lacks any cross-validation strategy, resulting in potentially unreliable performance estimates.",
-            "example": {
-              "bad_code": "model = LogisticRegression()\nmodel.fit(X_train, y_train)\nscore = model.score(X_test, y_test)",
-              "good_code": "from sklearn.model_selection import cross_val_score, StratifiedKFold\ncv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\nscores = cross_val_score(model, X, y, cv=cv, scoring='f1')\nprint(f'CV F1: {scores.mean():.3f} ± {scores.std():.3f}')"
-            },
-            "fix_guide": {
-              "summary": "Replace or supplement single-split evaluation with k-fold cross-validation.",
-              "steps": [
-                "Use cross_val_score or cross_validate with cv=5 or cv=10.",
-                "Use StratifiedKFold for classification to preserve class ratios.",
-                "Use TimeSeriesSplit if data has temporal ordering.",
-                "Report mean and standard deviation of scores across folds."
-              ],
-              "benefits": "Produces more reliable performance estimates and reveals variance due to data split choice."
-            }
-          },
+{
+  "name": "Missing Cross-Validation",
+  "definition": "Model training code lacks any cross-validation strategy, resulting in potentially unreliable performance estimates.",
+  "example": {
+    "bad_code": "from sklearn.linear_model import LogisticRegression\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.datasets import load_breast_cancer\n\nX, y = load_breast_cancer(return_X_y=True)\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42\n)\n\nmodel = LogisticRegression(max_iter=1000)\nmodel.fit(X_train, y_train)\naccuracy = model.score(X_test, y_test)\nprint(f\"Test Accuracy: {accuracy:.3f}\")",
+    "good_code": "from sklearn.linear_model import LogisticRegression\nfrom sklearn.model_selection import cross_val_score, StratifiedKFold\nfrom sklearn.datasets import load_breast_cancer\nimport numpy as np\n\nX, y = load_breast_cancer(return_X_y=True)\n\nmodel = LogisticRegression(max_iter=1000)\n\ncv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\n\nscores = cross_val_score(model, X, y, cv=cv, scoring=\"accuracy\")\nprint(f\"CV Accuracy: {np.mean(scores):.3f} \u00b1 {np.std(scores):.3f}\")"
+  },
+  "fix_guide": {
+    "summary": "Replace or supplement single-split evaluation with k-fold cross-validation.",
+    "steps": [
+      "Use cross_val_score or cross_validate with cv=5 or cv=10.",
+      "Use StratifiedKFold for classification to preserve class ratios.",
+      "Use TimeSeriesSplit if data has temporal ordering.",
+      "Report mean and standard deviation of scores across folds."
+    ],
+    "benefits": "Produces more reliable performance estimates and reveals variance due to data split choice."
+  }
+},
           {
             "name": "No Imbalanced Dataset Handling",
             "definition": "A classification task is performed without any technique to address class imbalance.",
@@ -149,22 +150,22 @@
               "benefits": "Provides a complete picture of model behavior, especially when classes are imbalanced."
             }
           },
-          {
-            "name": "Model Saved Without Preprocessing",
-            "definition": "A trained model is persisted to disk without saving the associated preprocessing steps.",
-            "example": {
-              "bad_code": "scaler = StandardScaler().fit(X_train)\nX_train_scaled = scaler.transform(X_train)\nmodel.fit(X_train_scaled, y_train)\njoblib.dump(model, 'model.pkl')  # scaler not saved!",
-              "good_code": "from sklearn.pipeline import Pipeline\nimport joblib\n\npipe = Pipeline([('scaler', StandardScaler()), ('model', LogisticRegression())])\npipe.fit(X_train, y_train)\njoblib.dump(pipe, 'pipeline.pkl')  # scaler included in pipeline artifact"
-            },
-            "fix_guide": {
-              "summary": "Save the complete preprocessing pipeline together with the model as a single artifact.",
-              "steps": [
-                "Wrap preprocessing steps and the model in a single sklearn Pipeline.",
-                "Serialize the Pipeline (not just the model) with joblib.dump or pickle.",
-                "At inference time, load the Pipeline and call pipeline.predict(raw_X) directly."
-              ],
-              "benefits": "Guarantees identical preprocessing at inference time and eliminates training-serving skew."
-            }
+ {
+  "name": "Model Saved Without Preprocessing",
+  "definition": "Detects when a trained model is persisted to disk without saving the associated preprocessing steps, which can lead to inconsistencies during inference.",
+  "example": {
+    "bad_code": "from sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nimport joblib\n\nscaler = StandardScaler().fit(X_train)\nX_train_scaled = scaler.transform(X_train)\nmodel = LogisticRegression().fit(X_train_scaled, y_train)\njoblib.dump(model, 'model.pkl')  # scaler not saved!",
+    "good_code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nimport joblib\n\npipe = Pipeline([('scaler', StandardScaler()), ('model', LogisticRegression())])\npipe.fit(X_train, y_train)\njoblib.dump(pipe, 'pipeline.pkl')  # scaler included in pipeline artifact"
+  },
+  "fix_guide": {
+    "summary": "Always save the preprocessing pipeline together with the trained model to ensure consistent inference.",
+    "steps": [
+      "Combine preprocessing steps and the model into a single sklearn Pipeline.",
+      "Serialize the Pipeline using joblib.dump or pickle, instead of saving the model alone.",
+      "During inference, load the Pipeline and call pipeline.predict(raw_X) to automatically apply preprocessing."
+    ],
+    "benefits": "Ensures preprocessing at inference matches training, prevents training-serving skew, and improves model reproducibility."
+  }
           },
           {
             "name": "Model Saved Without Versioning",
@@ -291,42 +292,43 @@
               "benefits": "Produces clear error messages and prevents silent failures in production."
             }
           },
-          {
-            "name": "Hardcoded File Paths",
-            "definition": "File or directory paths are written as string literals in the code rather than being sourced from configuration files or environment variables.",
-            "example": {
-              "bad_code": "df = pd.read_csv('/home/user/projects/ml/data/train.csv')\nmodel_path = 'C:\\\\Users\\\\user\\\\models\\\\classifier.pkl'",
-              "good_code": "import os\nDATA_PATH = os.environ.get('DATA_PATH', 'data/train.csv')\nMODEL_PATH = os.environ.get('MODEL_PATH', 'models/classifier.pkl')\n\ndf = pd.read_csv(DATA_PATH)\nmodel = joblib.load(MODEL_PATH)"
-            },
-            "fix_guide": {
-              "summary": "Source all file paths from environment variables or a configuration file.",
-              "steps": [
-                "Replace string literals with os.environ.get() calls with sensible defaults.",
-                "Alternatively, load paths from a config.yaml or .env file.",
-                "Use pathlib.Path for cross-platform path handling.",
-                "Never commit absolute machine-specific paths to version control."
-              ],
-              "benefits": "Makes code portable across machines, environments, and CI/CD pipelines."
-            }
-          },
-          {
-            "name": "Missing Documentation",
-            "definition": "Functions or classes that contain parameters or return values lack docstrings.",
-            "example": {
-              "bad_code": "def train_model(X, y, n_estimators, learning_rate):\n    model = GradientBoostingClassifier(n_estimators=n_estimators, learning_rate=learning_rate)\n    model.fit(X, y)\n    return model",
-              "good_code": "def train_model(X, y, n_estimators: int = 100, learning_rate: float = 0.1):\n    \"\"\"Train a GradientBoosting classifier.\n\n    Args:\n        X: Feature matrix of shape (n_samples, n_features).\n        y: Target labels of shape (n_samples,).\n        n_estimators: Number of boosting stages.\n        learning_rate: Learning rate shrinks contribution of each tree.\n\n    Returns:\n        Fitted GradientBoostingClassifier instance.\n    \"\"\"\n    model = GradientBoostingClassifier(n_estimators=n_estimators, learning_rate=learning_rate)\n    model.fit(X, y)\n    return model"
-            },
-            "fix_guide": {
-              "summary": "Add Google-style or NumPy-style docstrings to all non-trivial functions and classes.",
-              "steps": [
-                "Document Args, Returns, and Raises sections for every public function.",
-                "Add a class-level docstring describing responsibility and key attributes.",
-                "Use type hints on function signatures for machine-readable documentation.",
-                "Enable pydocstyle or pylint docstring checks in CI."
-              ],
-              "benefits": "Reduces onboarding time for new contributors and makes the API self-explanatory."
-            }
-          }
+ {
+  "name": "Hardcoded File Paths",
+  "definition": "Any file or directory path is written as a hardcoded string literal (e.g., '/home/user/data.csv' or 'C:\\Users\\...') instead of being loaded from environment variables (os.environ) or a config file. The fix is to replace every hardcoded path with os.environ.get('VAR_NAME', 'default') or a config loader.",
+  "example": {
+    "bad_code": "import pandas as pd\nimport joblib\n\ndf = pd.read_csv('/home/user/projects/ml/data/train.csv')\nmodel = joblib.load('C:\\\\Users\\\\user\\\\models\\\\classifier.pkl')\n\ndf.to_csv('/home/user/projects/ml/data/processed.csv', index=False)\njoblib.dump(model, 'C:\\\\Users\\\\user\\\\models\\\\classifier_v2.pkl')",
+    "good_code": "import os\nimport pandas as pd\nimport joblib\n\nTRAIN_PATH = os.environ.get('TRAIN_PATH', 'data/train.csv')\nPROCESSED_PATH = os.environ.get('PROCESSED_PATH', 'data/processed.csv')\nMODEL_PATH = os.environ.get('MODEL_PATH', 'models/classifier.pkl')\nMODEL_OUT_PATH = os.environ.get('MODEL_OUT_PATH', 'models/classifier_v2.pkl')\n\ndf = pd.read_csv(TRAIN_PATH)\nmodel = joblib.load(MODEL_PATH)\n\ndf.to_csv(PROCESSED_PATH, index=False)\njoblib.dump(model, MODEL_OUT_PATH)"
+  },
+  "fix_guide": {
+    "summary": "Source all file paths from environment variables or a configuration file.",
+    "steps": [
+      "Replace string literals with os.environ.get() calls with sensible defaults.",
+      "Alternatively, load paths from a config.yaml or .env file.",
+      "Use pathlib.Path for cross-platform path handling.",
+      "Never commit absolute machine-specific paths to version control."
+    ],
+    "benefits": "Makes code portable across machines, environments, and CI/CD pipelines."
+  }
+},
+{
+  "name": "Missing Documentation",
+  "definition": "Functions or classes that contain parameters or return values lack docstrings, making it harder to understand their purpose and usage.",
+  "example": {
+    "bad_code": "def train_model(X, y, n_estimators, learning_rate):\n    model = GradientBoostingClassifier(n_estimators=n_estimators, learning_rate=learning_rate)\n    model.fit(X, y)\n    return model\n\nclass ModelTrainer:\n    def fit(self, X, y):\n        self.model = GradientBoostingClassifier().fit(X, y)",
+    "good_code": "def train_model(X, y, n_estimators: int = 100, learning_rate: float = 0.1):\n    \"\"\"Train a GradientBoosting classifier.\n\n    Args:\n        X: Feature matrix of shape (n_samples, n_features).\n        y: Target labels of shape (n_samples,).\n        n_estimators: Number of boosting stages.\n        learning_rate: Learning rate shrinks contribution of each tree.\n\n    Returns:\n        Fitted GradientBoostingClassifier instance.\n    \"\"\"\n    model = GradientBoostingClassifier(n_estimators=n_estimators, learning_rate=learning_rate)\n    model.fit(X, y)\n    return model\n\nclass ModelTrainer:\n    \"\"\"Class responsible for training ML models.\"\"\"\n    def fit(self, X, y):\n        \"\"\"Fit the model on the training data.\"\"\"\n        self.model = GradientBoostingClassifier().fit(X, y)"
+  },
+  "fix_guide": {
+    "summary": "Add docstrings to all non-trivial functions and classes, especially those with parameters or return values.",
+    "steps": [
+      "Use Google-style or NumPy-style docstrings for functions and classes.",
+      "Document Args, Returns, and Raises sections for every public function.",
+      "Add a class-level docstring describing responsibilities and key attributes.",
+      "Include type hints in function signatures for machine-readable documentation.",
+      "Enable pydocstyle or pylint docstring checks in CI to enforce standards."
+    ],
+    "benefits": "Improves readability, reduces onboarding time for new contributors, and makes the API self-explanatory."
+  }
+}
         ]
       },
       "Pandas": {
@@ -349,23 +351,23 @@
               "benefits": "Vectorized operations are typically 100–1000x faster than iterrows()."
             }
           },
-          {
-            "name": "Chain Indexing",
-            "definition": "DataFrame elements are accessed via chained subscripts (df['col']['row']), risking SettingWithCopyWarning.",
-            "example": {
-              "bad_code": "df['col_a']['row_1'] = 99",
-              "good_code": "df.loc['row_1', 'col_a'] = 99"
-            },
-            "fix_guide": {
-              "summary": "Use .loc[] or .iloc[] for all label-based or positional indexing.",
-              "steps": [
-                "Replace df['col']['row'] with df.loc['row', 'col'].",
-                "Replace df[df['x'] > 0]['y'] = 1 with df.loc[df['x'] > 0, 'y'] = 1.",
-                "Enable pd.set_option('mode.chained_assignment', 'raise') during development to catch violations."
-              ],
-              "benefits": "Prevents silent data loss from operating on a copy instead of the original DataFrame."
-            }
-          },
+  {
+  "name": "Chain Indexing",
+  "definition": "Detects when DataFrame elements are accessed via chained subscripts (e.g., df['col']['row']), which can trigger SettingWithCopyWarning and lead to unintended behavior.",
+  "example": {
+    "bad_code": "df['col_a']['row_1'] = 99\n# or\nsubset = df[df['x'] > 0]['y']\nsubset = 1",
+    "good_code": "df.loc['row_1', 'col_a'] = 99\n# or\ndf.loc[df['x'] > 0, 'y'] = 1"
+  },
+  "fix_guide": {
+    "summary": "Use .loc[] or .iloc[] for all label-based or positional indexing instead of chaining subscripts.",
+    "steps": [
+      "Replace df['col']['row'] with df.loc['row', 'col'].",
+      "Replace df[df['x'] > 0]['y'] = 1 with df.loc[df['x'] > 0, 'y'] = 1.",
+      "Consider enabling pd.set_option('mode.chained_assignment', 'raise') during development to catch accidental chain indexing."
+    ],
+    "benefits": "Ensures you operate on the original DataFrame, preventing silent data loss and avoiding SettingWithCopyWarning."
+  }
+},
           {
             "name": "Missing Merge Parameters",
             "definition": "pd.merge() is called without specifying how, on, or validate, risking incorrect joins.",
@@ -436,24 +438,25 @@
               "benefits": "Reduces memory usage, prevents silent type errors, and speeds up reads."
             }
           },
-          {
-            "name": "Suboptimal Column Selection",
-            "definition": "Columns are selected one at a time instead of selecting multiple columns at once.",
-            "example": {
-              "bad_code": "col_a = df['feature_a']\ncol_b = df['feature_b']\nX = pd.concat([col_a, col_b], axis=1)",
-              "good_code": "feature_cols = ['feature_a', 'feature_b']\nX = df[feature_cols]"
-            },
-            "fix_guide": {
-              "summary": "Select all required columns in a single double-bracket indexing operation.",
-              "steps": [
-                "Define a list of column names and use df[col_list].",
-                "Store the column list as a named variable for reuse and clarity.",
-                "Avoid pd.concat for column assembly; prefer a single selection."
-              ],
-              "benefits": "More readable, less error-prone, and easier to update the feature list."
-            }
-          },
-          {
+{
+  "name": "Column Selection Checker",
+  "definition": "Detects when DataFrame columns are selected one at a time instead of using literal double-bracket indexing (e.g., df[['col1', 'col2']]).",
+  "example": {
+    "bad_code": "col_a = df['feature_a']\ncol_b = df['feature_b']\nX = pd.concat([col_a, col_b], axis=1)",
+    "good_code": "X = df[['feature_a', 'feature_b']]"
+  },
+  "fix_guide": {
+    "summary": "Use literal double-bracket indexing to select multiple columns at once.",
+    "steps": [
+      "Ensure the object is a DataFrame (e.g., df).",
+      "Select multiple columns in a single operation using df[['col1', 'col2', ...]].",
+      "Avoid selecting columns individually and combining them manually (e.g., with pd.concat)."
+    ],
+    "benefits": "Improves readability, reduces errors, and aligns with the detection logic."
+  },
+  "detection_logic": "Flag code if a DataFrame operation exists but no literal double-bracket column selection (df[[...]]) is found."
+},
+      {
             "name": "DataFrame Modification in Loop",
             "definition": "A DataFrame is modified inside a for-loop without safe indexing methods.",
             "example": {
@@ -510,23 +513,25 @@
               "benefits": "Guarantees identical random draws across runs for debugging and reproducibility."
             }
           },
-          {
-            "name": "Inefficient Array Creation",
-            "definition": "Arrays are created without specifying a dtype, leading to unnecessary memory usage.",
-            "example": {
-              "bad_code": "arr = np.array([1, 2, 3, 4])\nzeros = np.zeros((100, 100))",
-              "good_code": "arr = np.array([1, 2, 3, 4], dtype=np.int32)\nzeros = np.zeros((100, 100), dtype=np.float32)"
-            },
-            "fix_guide": {
-              "summary": "Always specify dtype when creating arrays.",
-              "steps": [
-                "Add dtype=np.float32 (or appropriate type) to all np.array, np.zeros, np.ones, np.empty calls.",
-                "Use float32 instead of float64 when precision allows — halves memory use.",
-                "Use np.asarray(x, dtype=...) for defensive conversion of unknown inputs."
-              ],
-              "benefits": "Reduces memory footprint and prevents unintended 64-bit defaults on 32-bit pipelines."
-            }
-          },
+          
+{
+  "name": "Inefficient Array Creation",
+  "definition": "Detects NumPy arrays created without specifying a dtype, which can lead to unnecessary memory usage or slower computations.",
+  "example": {
+    "bad_code": "arr = np.array([1, 2, 3, 4])\nzeros = np.zeros((100, 100))\nones = np.ones((50, 50))\nempty = np.empty((10, 10))",
+    "good_code": "arr = np.array([1, 2, 3, 4], dtype=np.int32)\nzeros = np.zeros((100, 100), dtype=np.float32)\nones = np.ones((50, 50), dtype=np.float32)\nempty = np.empty((10, 10), dtype=np.float32)"
+  },
+  "fix_guide": {
+    "summary": "Always specify a dtype when creating NumPy arrays to optimize memory and performance.",
+    "steps": [
+      "Add dtype=np.float32 or dtype=np.int32 to all np.array, np.zeros, np.ones, and np.empty calls.",
+      "Use float32 instead of float64 when high precision is not required to reduce memory usage.",
+      "Use np.asarray(x, dtype=...) when converting existing data to arrays defensively."
+    ],
+    "benefits": "Reduces memory footprint, prevents unintended 64-bit defaults, and improves computation efficiency on large arrays."
+  }
+ 
+},
           {
             "name": "Non-Vectorized Operations",
             "definition": "Aggregate functions are called inside for-loops instead of being applied to the array.",
@@ -757,26 +762,24 @@
               "benefits": "Produces honest evaluation metrics that reflect real-world performance."
             }
           },
-          {
-            "name": "Missing Exception Handling (Sklearn)",
-            "definition": "Critical Sklearn operations are not wrapped in try-except blocks.",
-            "example": {
-              "bad_code": "model = joblib.load('model.pkl')\npredictions = model.predict(X_new)",
-              "good_code": "try:\n    model = joblib.load('model.pkl')\nexcept FileNotFoundError:\n    raise RuntimeError('Model file not found.')\n\ntry:\n    predictions = model.predict(X_new)\nexcept ValueError as e:\n    raise ValueError(f'Prediction failed — check input shape: {e}')"
-            },
-            "fix_guide": {
-              "summary": "Wrap all critical sklearn operations in try-except with informative messages.",
-              "steps": [
-                "Catch FileNotFoundError for model loading.",
-                "Catch ValueError for shape mismatches in predict.",
-                "Log exceptions with context (file path, input shape) before re-raising.",
-                "Add input validation (assert X.shape[1] == expected_features) before calling predict."
-              ],
-              "benefits": "Provides actionable error messages and prevents silent failures in production."
-            }
-          }
-        ]
-      },
+{
+  "name": "Missing Exception Handling (Sklearn)",
+  "definition": "Detects critical Scikit-learn operations (like fit, predict, transform, load, dump) that are not wrapped in try-except blocks, which can lead to uncaught exceptions in production.",
+  "example": {
+    "bad_code": "model = joblib.load('model.pkl')\npredictions = model.predict(X_new)\nscore = model.score(X_test, y_test)",
+    "good_code": "try:\n    model = joblib.load('model.pkl')\nexcept FileNotFoundError:\n    raise RuntimeError('Model file not found.')\n\ntry:\n    predictions = model.predict(X_new)\nexcept ValueError as e:\n    raise ValueError(f'Prediction failed — check input shape: {e}')\n\ntry:\n    score = model.score(X_test, y_test)\nexcept ValueError as e:\n    raise ValueError(f'Score calculation failed: {e}')"
+  },
+  "fix_guide": {
+    "summary": "Wrap all critical sklearn operations in try-except blocks with informative messages and optional input validation.",
+    "steps": [
+      "Catch FileNotFoundError or IOError for model loading and saving operations.",
+      "Catch ValueError for shape or type mismatches during predict, transform, or score operations.",
+      "Log exceptions with context (file path, input shape) before re-raising.",
+      "Optionally validate inputs before calling risky operations (e.g., assert X.shape[1] == expected_features)."
+    ],
+    "benefits": "Provides actionable error messages, prevents silent failures, and makes debugging production issues easier."
+  }
+}],
       "PyTorch": {
         "smells": [
           {
@@ -954,24 +957,25 @@
               "benefits": "Improves final model accuracy by allowing large initial exploration and fine-grained convergence."
             }
           },
-          {
-            "name": "Missing Training Logging (PyTorch)",
-            "definition": "Training metrics are tracked without using a logging tool.",
-            "example": {
-              "bad_code": "for epoch in range(epochs):\n    loss = train(model, loader)\n    print(f'Loss: {loss}')",
-              "good_code": "from torch.utils.tensorboard import SummaryWriter\nwriter = SummaryWriter('runs/experiment_1')\nfor epoch in range(epochs):\n    loss = train(model, loader)\n    writer.add_scalar('Loss/train', loss, epoch)\nwriter.close()"
-            },
-            "fix_guide": {
-              "summary": "Use TensorBoard, Weights & Biases, or MLflow to log all training metrics.",
-              "steps": [
-                "Integrate SummaryWriter (TensorBoard) or wandb.log() into your training loop.",
-                "Log: loss, metrics, learning rate, and gradient norms each epoch.",
-                "Log model graph with writer.add_graph() for architecture visualization.",
-                "Store logs in a versioned directory per experiment."
-              ],
-              "benefits": "Enables experiment comparison, early detection of divergence, and reproducible reporting."
-            }
-          },
+{
+  "name": "Missing Training Logging (PyTorch)",
+  "definition": "Training metrics (loss, accuracy, etc.) are tracked manually (e.g., printed) without using a proper logging tool like TensorBoard, Weights & Biases, or MLflow.",
+  "example": {
+    "bad_code": "for epoch in range(epochs):\n    loss = train(model, loader)\n    print(f'Loss: {loss}')",
+    "good_code": "from torch.utils.tensorboard import SummaryWriter\nwriter = SummaryWriter('runs/exp_1')\nfor epoch in range(epochs):\n    loss = train(model, loader)\n    writer.add_scalar('Loss/train', loss, epoch)\nwriter.close()"
+  },
+  "fix_guide": {
+    "summary": "Integrate a logging framework to automatically record all training metrics for reproducibility and experiment tracking.",
+    "steps": [
+      "Use TensorBoard (SummaryWriter), wandb.log(), or MLflow to log metrics in your training loop.",
+      "Log all relevant metrics: loss, accuracy, learning rate, gradient norms, etc., each epoch.",
+      "Optionally log the model graph with writer.add_graph() for architecture visualization.",
+      "Store logs in a versioned directory for reproducibility and comparison of experiments."
+    ],
+    "benefits": "Enables structured experiment tracking, early detection of divergence or overfitting, and reproducible reporting of results."
+  },
+  "detection_logic": "Flag PyTorch scripts where train() or backward() calls exist with metric calculations (loss, accuracy, score), but no logging tool (TensorBoard, wandb, MLflow, Neptune) is used."
+},
           {
             "name": "Missing Evaluation Mode",
             "definition": "The model is not switched to eval() mode during validation or inference.",
@@ -1159,24 +1163,25 @@
               "benefits": "Provides evaluation that is not misleadingly optimistic under class imbalance."
             }
           },
-          {
-            "name": "Missing Training Logging (TensorFlow)",
-            "definition": "Training metrics are not logged to TensorBoard.",
-            "example": {
-              "bad_code": "model.fit(X_train, y_train, epochs=20)",
-              "good_code": "tb_callback = tf.keras.callbacks.TensorBoard(log_dir='./logs', histogram_freq=1)\nmodel.fit(X_train, y_train, epochs=20, callbacks=[tb_callback])"
-            },
-            "fix_guide": {
-              "summary": "Add a TensorBoard callback or CSVLogger to model.fit().",
-              "steps": [
-                "Create TensorBoard(log_dir='./logs/exp_name', histogram_freq=1).",
-                "Pass it in the callbacks list.",
-                "Alternatively, use CSVLogger for lightweight metric logging to a file.",
-                "Launch TensorBoard with: tensorboard --logdir logs"
-              ],
-              "benefits": "Enables visual experiment tracking, comparison of runs, and gradient analysis."
-            }
-          },
+  {
+  "name": "Missing Training Logging (TensorFlow)",
+  "definition": "Training metrics (loss, accuracy, etc.) are not logged to TensorBoard or other logging tools, which prevents tracking and analyzing experiments.",
+  "example": {
+    "bad_code": "model.fit(X_train, y_train, epochs=20)\n# No logging callback provided",
+    "good_code": "import tensorflow as tf\ntb_callback = tf.keras.callbacks.TensorBoard(log_dir='./logs/exp_1', histogram_freq=1)\nmodel.fit(X_train, y_train, epochs=20, callbacks=[tb_callback])"
+  },
+  "fix_guide": {
+    "summary": "Add TensorBoard, CSVLogger, or another callback to track metrics during training.",
+    "steps": [
+      "Create a TensorBoard callback with: TensorBoard(log_dir='./logs/exp_name', histogram_freq=1).",
+      "Pass the callback in the callbacks list of model.fit().",
+      "Optionally, use CSVLogger for lightweight logging to a CSV file.",
+      "Launch TensorBoard with: tensorboard --logdir logs to visualize metrics."
+    ],
+    "benefits": "Enables experiment tracking, visual comparison of runs, gradient monitoring, and early detection of training issues."
+  },
+  "detection_logic": "Flag TensorFlow training scripts that call model.fit or train without passing a logging callback (TensorBoard, CSVLogger, MLflow, WandbCallback) while metrics like loss or accuracy are present."
+},
           {
             "name": "Missing Batch Normalization (TensorFlow)",
             "definition": "A deep network does not include BatchNormalization layers.",
@@ -1456,3 +1461,4 @@
     }
   }
 }
+  }

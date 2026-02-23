@@ -1,0 +1,1641 @@
+Processed: uw-madison-gi-tract-image-segmentation_P3_seed2.py | Smells: 17
+Processed: new-york-city-taxi-fare-prediction_P3_seed1.py | Smells: 2
+Processed: rsna-miccai-brain-tumor-radiogenomic-classification_P3_seed3.py | Smells: 2
+FAILED parsing: tensorflow-speech-recognition-challenge_P2_seed0.py
+Processed: plant-seedlings-classification_P3_seed4.py | Smells: 2
+FAILED parsing: tabular-playground-series-dec-2021_P4_seed3.py
+FAILED parsing: freesound-audio-tagging-2019_P2_seed2.py
+Processed: imet-2020-fgvc7_P2_seed0.py | Smells: 8
+Processed: invasive-species-monitoring_P1_seed1.py | Smells: 4
+FAILED parsing: ranzcr-clip-catheter-line-classification_P4_seed2.py
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P3_seed4.py
+Processed: cdiscount-image-classification-challenge_P3_seed1.py | Smells: 8
+Processed: whale-categorization-playground_P2_seed3.py | Smells: 8
+FAILED parsing: imet-2020-fgvc7_P1_seed0.py
+Processed: dogs-vs-cats-redux-kernels-edition_P1_seed1.py | Smells: 8
+Processed: google-quest-challenge_P2_seed0.py | Smells: 2
+FAILED parsing: cdiscount-image-classification-challenge_P2_seed2.py
+FAILED parsing: rsna-2022-cervical-spine-fracture-detection_P4_seed3.py
+FAILED parsing: text-normalization-challenge-english-language_P4_seed2.py
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P1_seed3.py
+Processed: dogs-vs-cats-redux-kernels-edition_P4_seed4.py | Smells: 6
+Processed: invasive-species-monitoring_P2_seed1.py | Smells: 2
+FAILED parsing: billion-word-imputation_P4_seed3.py
+Processed: chaii-hindi-and-tamil-question-answering_P3_seed2.py | Smells: 8
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P4_seed3.py
+Processed: inaturalist-2019-fgvc6_P2_seed3.py | Smells: 3
+Processed: freesound-audio-tagging-2019_P1_seed0.py | Smells: 3
+Processed: billion-word-imputation_P3_seed3.py | Smells: 3
+FAILED parsing: vinbigdata-chest-xray-abnormalities-detection_P4_seed1.py
+FAILED parsing: statoil-iceberg-classifier-challenge_P1_seed4.py
+Processed: predict-volcanic-eruptions-ingv-oe_P4_seed4.py | Smells: 6
+FAILED parsing: new-york-city-taxi-fare-prediction_P4_seed3.py
+Processed: aerial-cactus-identification_P3_seed1.py | Smells: 7
+FAILED parsing: ml2021spring-hw2_P1_seed4.py
+FAILED parsing: tabular-playground-series-may-2022_P4_seed0.py
+Processed: plant-pathology-2021-fgvc8_P3_seed2.py | Smells: 2
+Processed: learning-agency-lab-automated-essay-scoring-2_P2_seed4.py | Smells: 0
+FAILED parsing: ml2021spring-hw2_P4_seed2.py
+FAILED parsing: seti-breakthrough-listen_P1_seed4.py
+FAILED parsing: google-quest-challenge_P2_seed2.py
+Processed: plant-pathology-2020-fgvc7_P3_seed1.py | Smells: 16
+Processed: tweet-sentiment-extraction_P1_seed0.py | Smells: 4
+FAILED parsing: spaceship-titanic_P2_seed2.py
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P4_seed0.py
+FAILED parsing: siim-covid19-detection_P4_seed1.py
+FAILED parsing: herbarium-2020-fgvc7_P3_seed4.py
+Processed: imet-2020-fgvc7_P4_seed4.py | Smells: 6
+FAILED parsing: aerial-cactus-identification_P1_seed1.py
+Processed: tabular-playground-series-may-2022_P1_seed3.py | Smells: 3
+Processed: herbarium-2022-fgvc9_P1_seed2.py | Smells: 10
+Processed: tabular-playground-series-may-2022_P3_seed1.py | Smells: 9
+Processed: tensorflow2-question-answering_P2_seed4.py | Smells: 12
+FAILED parsing: iwildcam-2020-fgvc7_P1_seed2.py
+Processed: plant-seedlings-classification_P1_seed0.py | Smells: 2
+FAILED parsing: dogs-vs-cats-redux-kernels-edition_P1_seed2.py
+Processed: movie-review-sentiment-analysis-kernels-only_P2_seed1.py | Smells: 5
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P2_seed3.py | Smells: 2
+FAILED parsing: icecube-neutrinos-in-deep-ice_P1_seed1.py
+Processed: playground-series-s3e18_P1_seed2.py | Smells: 1
+Processed: spooky-author-identification_P2_seed3.py | Smells: 4
+Processed: leaf-classification_P1_seed2.py | Smells: 4
+Processed: leaf-classification_P3_seed2.py | Smells: 11
+FAILED parsing: vinbigdata-chest-xray-abnormalities-detection_P4_seed2.py
+Processed: iwildcam-2020-fgvc7_P3_seed2.py | Smells: 0
+Processed: nomad2018-predict-transparent-conductors_P3_seed1.py | Smells: 3
+Processed: new-york-city-taxi-fare-prediction_P4_seed4.py | Smells: 6
+FAILED parsing: tabular-playground-series-may-2022_P1_seed1.py
+Processed: google-quest-challenge_P4_seed4.py | Smells: 6
+Processed: seti-breakthrough-listen_P2_seed0.py | Smells: 6
+Processed: h-and-m-personalized-fashion-recommendations_P2_seed0.py | Smells: 0
+Processed: seti-breakthrough-listen_P3_seed0.py | Smells: 4
+FAILED parsing: freesound-audio-tagging-2019_P4_seed3.py
+Processed: osic-pulmonary-fibrosis-progression_P2_seed2.py | Smells: 4
+Processed: champs-scalar-coupling_P3_seed0.py | Smells: 0
+Processed: plant-pathology-2020-fgvc7_P3_seed0.py | Smells: 5
+FAILED parsing: plant-seedlings-classification_P1_seed4.py
+FAILED parsing: siim-covid19-detection_P1_seed1.py
+FAILED parsing: champs-scalar-coupling_P4_seed2.py
+Processed: imet-2020-fgvc7_P1_seed3.py | Smells: 10
+FAILED parsing: spaceship-titanic_P4_seed1.py
+Processed: dogs-vs-cats-redux-kernels-edition_P3_seed3.py | Smells: 5
+FAILED parsing: ml2021spring-hw2_P4_seed0.py
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P2_seed2.py
+Processed: bms-molecular-translation_P3_seed4.py | Smells: 2
+Processed: detecting-insults-in-social-commentary_P1_seed0.py | Smells: 2
+Processed: tgs-salt-identification-challenge_P3_seed0.py | Smells: 2
+FAILED parsing: google-quest-challenge_P4_seed3.py
+Processed: random-acts-of-pizza_P3_seed3.py | Smells: 4
+Processed: vesuvius-challenge-ink-detection_P2_seed2.py | Smells: 15
+FAILED parsing: tensorflow2-question-answering_P4_seed1.py
+Processed: vesuvius-challenge-ink-detection_P3_seed0.py | Smells: 0
+Processed: siim-isic-melanoma-classification_P3_seed4.py | Smells: 5
+Processed: spooky-author-identification_P1_seed4.py | Smells: 4
+FAILED parsing: aptos2019-blindness-detection_P4_seed1.py
+FAILED parsing: tensorflow2-question-answering_P2_seed1.py
+Processed: rsna-miccai-brain-tumor-radiogenomic-classification_P3_seed2.py | Smells: 8
+Processed: smartphone-decimeter-2022_P2_seed4.py | Smells: 2
+FAILED parsing: spaceship-titanic_P4_seed0.py
+Processed: cassava-leaf-disease-classification_P2_seed2.py | Smells: 4
+Processed: dog-breed-identification_P3_seed1.py | Smells: 8
+FAILED parsing: google-quest-challenge_P1_seed1.py
+Processed: whale-categorization-playground_P4_seed4.py | Smells: 6
+Processed: osic-pulmonary-fibrosis-progression_P1_seed2.py | Smells: 2
+FAILED parsing: jigsaw-toxic-comment-classification-challenge_P2_seed3.py
+Processed: aerial-cactus-identification_P2_seed0.py | Smells: 0
+Processed: tabular-playground-series-dec-2021_P2_seed0.py | Smells: 2
+Processed: random-acts-of-pizza_P3_seed2.py | Smells: 2
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P1_seed1.py
+Processed: text-normalization-challenge-english-language_P1_seed0.py | Smells: 3
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P3_seed0.py | Smells: 1
+FAILED parsing: icecube-neutrinos-in-deep-ice_P4_seed3.py
+FAILED parsing: chaii-hindi-and-tamil-question-answering_P1_seed0.py
+Processed: aerial-cactus-identification_P4_seed4.py | Smells: 6
+FAILED parsing: rsna-breast-cancer-detection_P4_seed3.py
+Processed: icecube-neutrinos-in-deep-ice_P3_seed3.py | Smells: 10
+FAILED parsing: tensorflow-speech-recognition-challenge_P4_seed2.py
+FAILED parsing: invasive-species-monitoring_P4_seed1.py
+FAILED parsing: herbarium-2021-fgvc8_P3_seed4.py
+FAILED parsing: text-normalization-challenge-russian-language_P4_seed3.py
+Processed: vesuvius-challenge-ink-detection_P4_seed4.py | Smells: 6
+Processed: ml2021spring-hw2_P3_seed2.py | Smells: 7
+Processed: plant-pathology-2021-fgvc8_P3_seed0.py | Smells: 6
+FAILED parsing: 3d-object-detection-for-autonomous-vehicles_P1_seed1.py
+FAILED parsing: herbarium-2020-fgvc7_P4_seed2.py
+FAILED parsing: playground-series-s3e18_P4_seed3.py
+Processed: billion-word-imputation_P3_seed1.py | Smells: 6
+FAILED parsing: movie-review-sentiment-analysis-kernels-only_P4_seed1.py
+FAILED parsing: iwildcam-2019-fgvc6_P1_seed1.py
+FAILED parsing: jigsaw-toxic-comment-classification-challenge_P1_seed0.py
+FAILED parsing: nfl-player-contact-detection_P1_seed4.py
+Processed: us-patent-phrase-to-phrase-matching_P3_seed2.py | Smells: 8
+FAILED parsing: chaii-hindi-and-tamil-question-answering_P4_seed0.py
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P2_seed1.py | Smells: 3
+Processed: osic-pulmonary-fibrosis-progression_P1_seed3.py | Smells: 9
+FAILED parsing: osic-pulmonary-fibrosis-progression_P1_seed4.py
+Processed: spooky-author-identification_P1_seed0.py | Smells: 4
+FAILED parsing: tensorflow-speech-recognition-challenge_P4_seed0.py
+FAILED parsing: random-acts-of-pizza_P1_seed4.py
+FAILED parsing: multi-modal-gesture-recognition_P2_seed1.py
+Processed: petfinder-pawpularity-score_P3_seed2.py | Smells: 8
+Processed: facebook-recruiting-iii-keyword-extraction_P2_seed2.py | Smells: 5
+FAILED parsing: tabular-playground-series-may-2022_P4_seed2.py
+Processed: hubmap-kidney-segmentation_P3_seed3.py | Smells: 2
+Processed: tabular-playground-series-dec-2021_P2_seed4.py | Smells: 3
+Processed: tabular-playground-series-dec-2021_P3_seed1.py | Smells: 6
+Processed: 3d-object-detection-for-autonomous-vehicles_P3_seed3.py | Smells: 8
+Processed: iwildcam-2019-fgvc6_P2_seed4.py | Smells: 10
+Processed: random-acts-of-pizza_P1_seed0.py | Smells: 2
+Processed: tabular-playground-series-may-2022_P3_seed2.py | Smells: 4
+Processed: ventilator-pressure-prediction_P3_seed2.py | Smells: 3
+Processed: freesound-audio-tagging-2019_P4_seed4.py | Smells: 6
+Processed: siim-covid19-detection_P2_seed0.py | Smells: 4
+FAILED parsing: multi-modal-gesture-recognition_P1_seed0.py
+Processed: smartphone-decimeter-2022_P3_seed3.py | Smells: 7
+FAILED parsing: dogs-vs-cats-redux-kernels-edition_P4_seed0.py
+Processed: multi-modal-gesture-recognition_P2_seed2.py | Smells: 7
+FAILED parsing: jigsaw-unintended-bias-in-toxicity-classification_P4_seed2.py
+Processed: spaceship-titanic_P3_seed3.py | Smells: 6
+Processed: ventilator-pressure-prediction_P1_seed3.py | Smells: 10
+FAILED parsing: statoil-iceberg-classifier-challenge_P2_seed1.py
+Processed: ventilator-pressure-prediction_P4_seed4.py | Smells: 6
+Processed: herbarium-2022-fgvc9_P2_seed3.py | Smells: 4
+FAILED parsing: vesuvius-challenge-ink-detection_P4_seed2.py
+FAILED parsing: new-york-city-taxi-fare-prediction_P2_seed0.py
+Processed: learning-agency-lab-automated-essay-scoring-2_P1_seed3.py | Smells: 32
+FAILED parsing: osic-pulmonary-fibrosis-progression_P4_seed0.py
+FAILED parsing: seti-breakthrough-listen_P2_seed4.py
+FAILED parsing: jigsaw-toxic-comment-classification-challenge_P4_seed3.py
+Processed: predict-volcanic-eruptions-ingv-oe_P3_seed1.py | Smells: 5
+FAILED parsing: multi-modal-gesture-recognition_P1_seed3.py
+FAILED parsing: champs-scalar-coupling_P1_seed0.py
+Processed: vinbigdata-chest-xray-abnormalities-detection_P4_seed4.py | Smells: 6
+FAILED parsing: tgs-salt-identification-challenge_P4_seed0.py
+FAILED parsing: petfinder-pawpularity-score_P3_seed4.py
+Processed: hotel-id-2021-fgvc8_P4_seed4.py | Smells: 6
+FAILED parsing: whale-categorization-playground_P4_seed1.py
+Processed: ml2021spring-hw2_P2_seed0.py | Smells: 8
+FAILED parsing: vinbigdata-chest-xray-abnormalities-detection_P2_seed2.py
+Processed: tgs-salt-identification-challenge_P3_seed1.py | Smells: 5
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P3_seed1.py | Smells: 2
+FAILED parsing: herbarium-2020-fgvc7_P1_seed1.py
+FAILED parsing: tabular-playground-series-dec-2021_P2_seed1.py
+FAILED parsing: tgs-salt-identification-challenge_P4_seed3.py
+FAILED parsing: 3d-object-detection-for-autonomous-vehicles_P3_seed4.py
+FAILED parsing: lmsys-chatbot-arena_P4_seed2.py
+FAILED parsing: rsna-breast-cancer-detection_P1_seed4.py
+FAILED parsing: inaturalist-2019-fgvc6_P4_seed0.py
+Processed: denoising-dirty-documents_P4_seed4.py | Smells: 6
+Processed: tensorflow2-question-answering_P1_seed3.py | Smells: 10
+FAILED parsing: ventilator-pressure-prediction_P4_seed2.py
+Processed: cassava-leaf-disease-classification_P3_seed1.py | Smells: 0
+FAILED parsing: detecting-insults-in-social-commentary_P4_seed0.py
+Processed: detecting-insults-in-social-commentary_P2_seed0.py | Smells: 6
+FAILED parsing: tensorflow-speech-recognition-challenge_P1_seed4.py
+Processed: plant-seedlings-classification_P4_seed4.py | Smells: 6
+FAILED parsing: chaii-hindi-and-tamil-question-answering_P1_seed1.py
+Processed: plant-pathology-2020-fgvc7_P4_seed4.py | Smells: 6
+Processed: denoising-dirty-documents_P2_seed3.py | Smells: 2
+Processed: dog-breed-identification_P2_seed3.py | Smells: 7
+Processed: billion-word-imputation_P2_seed1.py | Smells: 6
+Processed: detecting-insults-in-social-commentary_P2_seed3.py | Smells: 3
+Processed: plant-pathology-2020-fgvc7_P3_seed2.py | Smells: 7
+FAILED parsing: hms-harmful-brain-activity-classification_P4_seed1.py
+FAILED parsing: rsna-2022-cervical-spine-fracture-detection_P4_seed0.py
+Processed: tabular-playground-series-dec-2021_P3_seed0.py | Smells: 7
+FAILED parsing: whale-categorization-playground_P4_seed2.py
+FAILED parsing: statoil-iceberg-classifier-challenge_P3_seed4.py
+Processed: text-normalization-challenge-russian-language_P3_seed2.py | Smells: 3
+Processed: nfl-player-contact-detection_P4_seed4.py | Smells: 6
+Processed: vinbigdata-chest-xray-abnormalities-detection_P3_seed1.py | Smells: 6
+Processed: siim-covid19-detection_P2_seed4.py | Smells: 3
+Processed: dogs-vs-cats-redux-kernels-edition_P1_seed4.py | Smells: 2
+Processed: paddy-disease-classification_P3_seed3.py | Smells: 8
+FAILED parsing: new-york-city-taxi-fare-prediction_P4_seed0.py
+Processed: paddy-disease-classification_P1_seed1.py | Smells: 3
+Processed: osic-pulmonary-fibrosis-progression_P2_seed1.py | Smells: 2
+FAILED parsing: cdiscount-image-classification-challenge_P4_seed0.py
+FAILED parsing: osic-pulmonary-fibrosis-progression_P4_seed2.py
+Processed: nfl-player-contact-detection_P2_seed2.py | Smells: 4
+Processed: AI4Code_P3_seed0.py | Smells: 0
+Processed: h-and-m-personalized-fashion-recommendations_P1_seed0.py | Smells: 9
+FAILED parsing: ranzcr-clip-catheter-line-classification_P3_seed4.py
+Processed: vinbigdata-chest-xray-abnormalities-detection_P3_seed3.py | Smells: 2
+Processed: rsna-2022-cervical-spine-fracture-detection_P3_seed2.py | Smells: 3
+FAILED parsing: dogs-vs-cats-redux-kernels-edition_P2_seed3.py
+Processed: multi-modal-gesture-recognition_P1_seed4.py | Smells: 8
+FAILED parsing: tweet-sentiment-extraction_P4_seed1.py
+Processed: icecube-neutrinos-in-deep-ice_P1_seed2.py | Smells: 14
+Processed: tweet-sentiment-extraction_P2_seed0.py | Smells: 2
+FAILED parsing: AI4Code_P4_seed2.py
+FAILED parsing: multi-modal-gesture-recognition_P3_seed1.py
+FAILED parsing: AI4Code_P3_seed4.py
+Processed: us-patent-phrase-to-phrase-matching_P2_seed1.py | Smells: 6
+FAILED parsing: plant-seedlings-classification_P4_seed2.py
+FAILED parsing: rsna-breast-cancer-detection_P4_seed0.py
+Processed: petfinder-pawpularity-score_P3_seed0.py | Smells: 12
+Processed: learning-agency-lab-automated-essay-scoring-2_P3_seed2.py | Smells: 0
+FAILED parsing: AI4Code_P4_seed0.py
+Processed: leaf-classification_P3_seed4.py | Smells: 3
+FAILED parsing: leaf-classification_P2_seed3.py
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P2_seed3.py
+FAILED parsing: text-normalization-challenge-russian-language_P4_seed1.py
+FAILED parsing: facebook-recruiting-iii-keyword-extraction_P2_seed3.py
+FAILED parsing: plant-pathology-2021-fgvc8_P4_seed2.py
+FAILED parsing: plant-pathology-2021-fgvc8_P3_seed4.py
+Processed: spaceship-titanic_P4_seed4.py | Smells: 6
+FAILED parsing: multi-modal-gesture-recognition_P3_seed3.py
+FAILED parsing: learning-agency-lab-automated-essay-scoring-2_P3_seed4.py
+Processed: random-acts-of-pizza_P1_seed1.py | Smells: 6
+FAILED parsing: seti-breakthrough-listen_P4_seed2.py
+FAILED parsing: tabular-playground-series-dec-2021_P1_seed0.py
+Processed: tweet-sentiment-extraction_P4_seed4.py | Smells: 6
+FAILED parsing: cassava-leaf-disease-classification_P2_seed3.py
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P1_seed2.py
+FAILED parsing: tweet-sentiment-extraction_P2_seed1.py
+Processed: AI4Code_P3_seed2.py | Smells: 7
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P4_seed0.py
+Processed: hubmap-kidney-segmentation_P1_seed1.py | Smells: 4
+Processed: stanford-covid-vaccine_P3_seed2.py | Smells: 5
+Processed: jigsaw-toxic-comment-classification-challenge_P1_seed2.py | Smells: 4
+Processed: mlsp-2013-birds_P1_seed3.py | Smells: 0
+FAILED parsing: plant-pathology-2020-fgvc7_P4_seed0.py
+Processed: kuzushiji-recognition_P1_seed1.py | Smells: 14
+FAILED parsing: us-patent-phrase-to-phrase-matching_P3_seed4.py
+Processed: ml2021spring-hw2_P3_seed3.py | Smells: 7
+Processed: cassava-leaf-disease-classification_P3_seed4.py | Smells: 2
+Processed: rsna-2022-cervical-spine-fracture-detection_P2_seed4.py | Smells: 0
+Processed: dogs-vs-cats-redux-kernels-edition_P1_seed3.py | Smells: 6
+FAILED parsing: cdiscount-image-classification-challenge_P4_seed1.py
+FAILED parsing: herbarium-2021-fgvc8_P4_seed1.py
+Processed: tensorflow-speech-recognition-challenge_P3_seed3.py | Smells: 4
+Processed: spooky-author-identification_P4_seed4.py | Smells: 6
+FAILED parsing: alaska2-image-steganalysis_P2_seed3.py
+FAILED parsing: dogs-vs-cats-redux-kernels-edition_P3_seed4.py
+Processed: aptos2019-blindness-detection_P1_seed0.py | Smells: 6
+FAILED parsing: bms-molecular-translation_P4_seed1.py
+FAILED parsing: bms-molecular-translation_P4_seed0.py
+Processed: vesuvius-challenge-ink-detection_P2_seed0.py | Smells: 5
+Processed: alaska2-image-steganalysis_P2_seed1.py | Smells: 4
+Processed: chaii-hindi-and-tamil-question-answering_P1_seed2.py | Smells: 3
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P4_seed0.py
+Processed: aerial-cactus-identification_P3_seed0.py | Smells: 2
+Processed: hubmap-kidney-segmentation_P2_seed3.py | Smells: 4
+Processed: iwildcam-2020-fgvc7_P3_seed3.py | Smells: 12
+FAILED parsing: inaturalist-2019-fgvc6_P4_seed1.py
+Processed: whale-categorization-playground_P2_seed0.py | Smells: 15
+FAILED parsing: leaf-classification_P4_seed2.py
+FAILED parsing: herbarium-2021-fgvc8_P4_seed3.py
+FAILED parsing: hubmap-kidney-segmentation_P1_seed4.py
+FAILED parsing: tensorflow2-question-answering_P4_seed3.py
+FAILED parsing: nfl-player-contact-detection_P4_seed3.py
+Processed: predict-volcanic-eruptions-ingv-oe_P3_seed0.py | Smells: 3
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P2_seed0.py
+FAILED parsing: text-normalization-challenge-english-language_P2_seed1.py
+Processed: siim-isic-melanoma-classification_P2_seed4.py | Smells: 3
+FAILED parsing: all_generations.json
+Processed: herbarium-2022-fgvc9_P3_seed3.py | Smells: 12
+FAILED parsing: inaturalist-2019-fgvc6_P3_seed4.py
+Processed: imet-2020-fgvc7_P2_seed3.py | Smells: 3
+Processed: billion-word-imputation_P1_seed4.py | Smells: 8
+Processed: dogs-vs-cats-redux-kernels-edition_P3_seed2.py | Smells: 5
+Processed: iwildcam-2020-fgvc7_P2_seed4.py | Smells: 6
+Processed: cdiscount-image-classification-challenge_P3_seed3.py | Smells: 5
+Processed: whale-categorization-playground_P2_seed1.py | Smells: 4
+FAILED parsing: text-normalization-challenge-russian-language_P4_seed2.py
+Processed: aerial-cactus-identification_P2_seed3.py | Smells: 3
+Processed: predict-volcanic-eruptions-ingv-oe_P1_seed3.py | Smells: 3
+FAILED parsing: alaska2-image-steganalysis_P2_seed0.py
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P2_seed4.py
+FAILED parsing: dogs-vs-cats-redux-kernels-edition_P4_seed3.py
+FAILED parsing: siim-isic-melanoma-classification_P4_seed3.py
+FAILED parsing: paddy-disease-classification_P4_seed1.py
+FAILED parsing: alaska2-image-steganalysis_P1_seed3.py
+FAILED parsing: bms-molecular-translation_P4_seed2.py
+Processed: stanford-covid-vaccine_P2_seed4.py | Smells: 6
+Processed: hotel-id-2021-fgvc8_P1_seed3.py | Smells: 6
+FAILED parsing: 3d-object-detection-for-autonomous-vehicles_P2_seed3.py
+Processed: hms-harmful-brain-activity-classification_P2_seed3.py | Smells: 7
+Processed: iwildcam-2019-fgvc6_P3_seed3.py | Smells: 0
+FAILED parsing: tabular-playground-series-dec-2021_P4_seed1.py
+Processed: jigsaw-toxic-comment-classification-challenge_P2_seed2.py | Smells: 0
+FAILED parsing: movie-review-sentiment-analysis-kernels-only_P1_seed4.py
+Processed: champs-scalar-coupling_P3_seed2.py | Smells: 7
+Processed: aerial-cactus-identification_P3_seed4.py | Smells: 17
+FAILED parsing: icecube-neutrinos-in-deep-ice_P2_seed1.py
+FAILED parsing: inaturalist-2019-fgvc6_P2_seed4.py
+Processed: stanford-covid-vaccine_P3_seed1.py | Smells: 15
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P1_seed0.py
+FAILED parsing: multi-modal-gesture-recognition_P4_seed1.py
+FAILED parsing: nomad2018-predict-transparent-conductors_P2_seed0.py
+FAILED parsing: alaska2-image-steganalysis_P4_seed2.py
+FAILED parsing: movie-review-sentiment-analysis-kernels-only_P4_seed0.py
+Processed: dog-breed-identification_P1_seed2.py | Smells: 2
+Processed: histopathologic-cancer-detection_P1_seed1.py | Smells: 9
+Processed: multi-modal-gesture-recognition_P2_seed0.py | Smells: 1
+FAILED parsing: hotel-id-2021-fgvc8_P2_seed2.py
+FAILED parsing: alaska2-image-steganalysis_P4_seed1.py
+Processed: plant-pathology-2020-fgvc7_P2_seed2.py | Smells: 10
+Processed: detecting-insults-in-social-commentary_P4_seed4.py | Smells: 6
+Processed: the-icml-2013-whale-challenge-right-whale-redux_P1_seed0.py | Smells: 17
+FAILED parsing: histopathologic-cancer-detection_P4_seed3.py
+Processed: plant-pathology-2021-fgvc8_P1_seed3.py | Smells: 3
+Processed: movie-review-sentiment-analysis-kernels-only_P4_seed4.py | Smells: 6
+FAILED parsing: plant-pathology-2020-fgvc7_P4_seed2.py
+FAILED parsing: spaceship-titanic_P3_seed0.py
+FAILED parsing: petfinder-pawpularity-score_P1_seed1.py
+Processed: cassava-leaf-disease-classification_P1_seed3.py | Smells: 15
+Processed: ranzcr-clip-catheter-line-classification_P2_seed4.py | Smells: 0
+Processed: alaska2-image-steganalysis_P4_seed4.py | Smells: 6
+Processed: cassava-leaf-disease-classification_P4_seed4.py | Smells: 6
+Processed: new-york-city-taxi-fare-prediction_P1_seed0.py | Smells: 5
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P1_seed4.py
+FAILED parsing: tensorflow-speech-recognition-challenge_P2_seed4.py
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P3_seed4.py
+FAILED parsing: bms-molecular-translation_P2_seed3.py
+FAILED parsing: tabular-playground-series-dec-2021_P4_seed2.py
+Processed: spooky-author-identification_P3_seed3.py | Smells: 6
+FAILED parsing: iwildcam-2020-fgvc7_P2_seed3.py
+Processed: invasive-species-monitoring_P3_seed3.py | Smells: 0
+Processed: bms-molecular-translation_P4_seed4.py | Smells: 6
+FAILED parsing: text-normalization-challenge-russian-language_P2_seed3.py
+FAILED parsing: text-normalization-challenge-russian-language_P2_seed0.py
+FAILED parsing: histopathologic-cancer-detection_P3_seed4.py
+FAILED parsing: iwildcam-2020-fgvc7_P4_seed1.py
+Processed: chaii-hindi-and-tamil-question-answering_P2_seed0.py | Smells: 0
+Processed: spooky-author-identification_P1_seed3.py | Smells: 10
+FAILED parsing: ml2021spring-hw2_P4_seed1.py
+Processed: learning-agency-lab-automated-essay-scoring-2_P2_seed0.py | Smells: 116
+Processed: plant-pathology-2021-fgvc8_P1_seed2.py | Smells: 2
+Processed: denoising-dirty-documents_P2_seed2.py | Smells: 5
+Processed: 3d-object-detection-for-autonomous-vehicles_P3_seed1.py | Smells: 8
+FAILED parsing: alaska2-image-steganalysis_P1_seed1.py
+Processed: seti-breakthrough-listen_P4_seed4.py | Smells: 6
+Processed: 3d-object-detection-for-autonomous-vehicles_P1_seed2.py | Smells: 6
+Processed: rsna-breast-cancer-detection_P1_seed2.py | Smells: 0
+Processed: denoising-dirty-documents_P1_seed3.py | Smells: 5
+Processed: AI4Code_P1_seed4.py | Smells: 0
+Processed: dogs-vs-cats-redux-kernels-edition_P2_seed0.py | Smells: 3
+FAILED parsing: dog-breed-identification_P1_seed4.py
+FAILED parsing: herbarium-2022-fgvc9_P3_seed4.py
+Processed: detecting-insults-in-social-commentary_P1_seed3.py | Smells: 3
+Processed: rsna-2022-cervical-spine-fracture-detection_P2_seed0.py | Smells: 4
+Processed: us-patent-phrase-to-phrase-matching_P1_seed0.py | Smells: 6
+FAILED parsing: playground-series-s3e18_P2_seed4.py
+FAILED parsing: cassava-leaf-disease-classification_P4_seed0.py
+FAILED parsing: movie-review-sentiment-analysis-kernels-only_P2_seed4.py
+Processed: tensorflow2-question-answering_P2_seed0.py | Smells: 0
+FAILED parsing: AI4Code_P4_seed3.py
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P4_seed0.py
+Processed: osic-pulmonary-fibrosis-progression_P3_seed4.py | Smells: 5
+FAILED parsing: herbarium-2022-fgvc9_P2_seed4.py
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P3_seed4.py
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P3_seed3.py | Smells: 6
+Processed: the-icml-2013-whale-challenge-right-whale-redux_P2_seed2.py | Smells: 6
+Processed: jigsaw-toxic-comment-classification-challenge_P1_seed4.py | Smells: 5
+Processed: cassava-leaf-disease-classification_P3_seed0.py | Smells: 7
+FAILED parsing: petfinder-pawpularity-score_P4_seed0.py
+Processed: ranzcr-clip-catheter-line-classification_P2_seed1.py | Smells: 10
+Processed: vinbigdata-chest-xray-abnormalities-detection_P3_seed0.py | Smells: 6
+FAILED parsing: imet-2020-fgvc7_P4_seed2.py
+FAILED parsing: cdiscount-image-classification-challenge_P4_seed3.py
+Processed: aptos2019-blindness-detection_P3_seed0.py | Smells: 7
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P4_seed0.py
+FAILED parsing: nomad2018-predict-transparent-conductors_P2_seed1.py
+Processed: hubmap-kidney-segmentation_P1_seed2.py | Smells: 5
+Processed: icecube-neutrinos-in-deep-ice_P1_seed0.py | Smells: 17
+Processed: rsna-2022-cervical-spine-fracture-detection_P1_seed4.py | Smells: 14
+Processed: paddy-disease-classification_P2_seed1.py | Smells: 3
+Processed: alaska2-image-steganalysis_P3_seed3.py | Smells: 9
+Processed: h-and-m-personalized-fashion-recommendations_P4_seed4.py | Smells: 6
+FAILED parsing: icecube-neutrinos-in-deep-ice_P4_seed2.py
+FAILED parsing: us-patent-phrase-to-phrase-matching_P4_seed0.py
+FAILED parsing: plant-pathology-2021-fgvc8_P4_seed0.py
+Processed: random-acts-of-pizza_P1_seed3.py | Smells: 3
+FAILED parsing: seti-breakthrough-listen_P1_seed0.py
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P4_seed2.py
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P2_seed4.py
+Processed: bms-molecular-translation_P1_seed3.py | Smells: 7
+FAILED parsing: stanford-covid-vaccine_P4_seed1.py
+Processed: seti-breakthrough-listen_P3_seed2.py | Smells: 8
+Processed: tensorflow2-question-answering_P3_seed0.py | Smells: 3
+FAILED parsing: tensorflow2-question-answering_P3_seed1.py
+Processed: google-research-identify-contrails-reduce-global-warming_P4_seed4.py | Smells: 6
+FAILED parsing: dog-breed-identification_P4_seed1.py
+FAILED parsing: whale-categorization-playground_P1_seed1.py
+FAILED parsing: spooky-author-identification_P4_seed1.py
+Processed: bms-molecular-translation_P1_seed0.py | Smells: 15
+Processed: us-patent-phrase-to-phrase-matching_P3_seed3.py | Smells: 1
+Processed: tabular-playground-series-dec-2021_P1_seed1.py | Smells: 1
+Processed: dog-breed-identification_P3_seed4.py | Smells: 3
+Processed: smartphone-decimeter-2022_P3_seed1.py | Smells: 2
+FAILED parsing: invasive-species-monitoring_P4_seed0.py
+Processed: hotel-id-2021-fgvc8_P3_seed2.py | Smells: 5
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P1_seed4.py
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P2_seed2.py | Smells: 4
+Processed: icecube-neutrinos-in-deep-ice_P4_seed4.py | Smells: 6
+Processed: ventilator-pressure-prediction_P2_seed0.py | Smells: 4
+Processed: learning-agency-lab-automated-essay-scoring-2_P2_seed3.py | Smells: 4
+Processed: invasive-species-monitoring_P4_seed4.py | Smells: 6
+Processed: siim-covid19-detection_P1_seed3.py | Smells: 0
+FAILED parsing: smartphone-decimeter-2022_P1_seed4.py
+Processed: chaii-hindi-and-tamil-question-answering_P3_seed1.py | Smells: 7
+Processed: learning-agency-lab-automated-essay-scoring-2_P1_seed0.py | Smells: 8
+Processed: siim-covid19-detection_P3_seed0.py | Smells: 4
+FAILED parsing: seti-breakthrough-listen_P4_seed0.py
+Processed: hms-harmful-brain-activity-classification_P1_seed1.py | Smells: 8
+FAILED parsing: icecube-neutrinos-in-deep-ice_P2_seed4.py
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P4_seed1.py
+Processed: vinbigdata-chest-xray-abnormalities-detection_P2_seed0.py | Smells: 12
+Processed: siim-covid19-detection_P3_seed2.py | Smells: 4
+Processed: mlsp-2013-birds_P2_seed3.py | Smells: 8
+Processed: tweet-sentiment-extraction_P1_seed3.py | Smells: 3
+FAILED parsing: rsna-breast-cancer-detection_P4_seed2.py
+Processed: rsna-2022-cervical-spine-fracture-detection_P3_seed1.py | Smells: 19
+FAILED parsing: hms-harmful-brain-activity-classification_P2_seed4.py
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P1_seed3.py
+FAILED parsing: google-quest-challenge_P1_seed4.py
+FAILED parsing: iwildcam-2020-fgvc7_P1_seed3.py
+Processed: chaii-hindi-and-tamil-question-answering_P4_seed4.py | Smells: 6
+Processed: aerial-cactus-identification_P1_seed0.py | Smells: 5
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P4_seed3.py
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P1_seed4.py
+Processed: lmsys-chatbot-arena_P1_seed3.py | Smells: 5
+FAILED parsing: cassava-leaf-disease-classification_P1_seed4.py
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P2_seed1.py
+FAILED parsing: champs-scalar-coupling_P2_seed3.py
+Processed: cassava-leaf-disease-classification_P2_seed0.py | Smells: 12
+Processed: paddy-disease-classification_P4_seed4.py | Smells: 6
+Processed: inaturalist-2019-fgvc6_P1_seed1.py | Smells: 1
+FAILED parsing: learning-agency-lab-automated-essay-scoring-2_P1_seed2.py
+Processed: siim-isic-melanoma-classification_P1_seed3.py | Smells: 10
+FAILED parsing: kuzushiji-recognition_P1_seed0.py
+Processed: paddy-disease-classification_P1_seed0.py | Smells: 4
+FAILED parsing: dog-breed-identification_P4_seed0.py
+FAILED parsing: ventilator-pressure-prediction_P2_seed2.py
+FAILED parsing: random-acts-of-pizza_P3_seed4.py
+FAILED parsing: petfinder-pawpularity-score_P1_seed4.py
+Processed: google-research-identify-contrails-reduce-global-warming_P3_seed2.py | Smells: 14
+Processed: tabular-playground-series-may-2022_P2_seed0.py | Smells: 3
+Processed: inaturalist-2019-fgvc6_P3_seed0.py | Smells: 8
+Processed: stanford-covid-vaccine_P4_seed4.py | Smells: 6
+Processed: mlsp-2013-birds_P4_seed4.py | Smells: 6
+FAILED parsing: nomad2018-predict-transparent-conductors_P1_seed1.py
+FAILED parsing: spaceship-titanic_P2_seed3.py
+FAILED parsing: mlsp-2013-birds_P2_seed0.py
+FAILED parsing: hotel-id-2021-fgvc8_P4_seed3.py
+Processed: plant-pathology-2020-fgvc7_P1_seed4.py | Smells: 3
+FAILED parsing: aerial-cactus-identification_P4_seed3.py
+Processed: denoising-dirty-documents_P2_seed0.py | Smells: 8
+FAILED parsing: aerial-cactus-identification_P4_seed1.py
+FAILED parsing: smartphone-decimeter-2022_P4_seed1.py
+FAILED parsing: invasive-species-monitoring_P4_seed2.py
+Processed: 3d-object-detection-for-autonomous-vehicles_P1_seed0.py | Smells: 6
+FAILED parsing: text-normalization-challenge-russian-language_P2_seed2.py
+Processed: nfl-player-contact-detection_P3_seed0.py | Smells: 8
+FAILED parsing: us-patent-phrase-to-phrase-matching_P3_seed1.py
+Processed: ml2021spring-hw2_P3_seed1.py | Smells: 5
+Processed: alaska2-image-steganalysis_P3_seed0.py | Smells: 0
+FAILED parsing: spaceship-titanic_P3_seed4.py
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P3_seed1.py
+FAILED parsing: siim-covid19-detection_P4_seed3.py
+FAILED parsing: herbarium-2020-fgvc7_P1_seed2.py
+Processed: imet-2020-fgvc7_P1_seed2.py | Smells: 14
+Processed: 3d-object-detection-for-autonomous-vehicles_P3_seed2.py | Smells: 5
+FAILED parsing: random-acts-of-pizza_P2_seed4.py
+FAILED parsing: rsna-breast-cancer-detection_P4_seed1.py
+Processed: statoil-iceberg-classifier-challenge_P1_seed2.py | Smells: 6
+FAILED parsing: aptos2019-blindness-detection_P3_seed1.py
+Processed: lmsys-chatbot-arena_P3_seed3.py | Smells: 7
+Processed: freesound-audio-tagging-2019_P3_seed0.py | Smells: 3
+Processed: tabular-playground-series-dec-2021_P3_seed2.py | Smells: 7
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P1_seed1.py
+Processed: tweet-sentiment-extraction_P2_seed4.py | Smells: 0
+Processed: tgs-salt-identification-challenge_P3_seed2.py | Smells: 10
+Processed: leaf-classification_P3_seed3.py | Smells: 7
+Processed: text-normalization-challenge-russian-language_P4_seed4.py | Smells: 6
+FAILED parsing: nfl-player-contact-detection_P4_seed0.py
+Processed: tensorflow-speech-recognition-challenge_P4_seed4.py | Smells: 6
+Processed: spaceship-titanic_P3_seed2.py | Smells: 4
+Processed: detecting-insults-in-social-commentary_P3_seed0.py | Smells: 5
+Processed: herbarium-2022-fgvc9_P3_seed0.py | Smells: 9
+FAILED parsing: hotel-id-2021-fgvc8_P4_seed2.py
+Processed: tweet-sentiment-extraction_P3_seed3.py | Smells: 6
+Processed: petfinder-pawpularity-score_P2_seed3.py | Smells: 3
+Processed: AI4Code_P1_seed0.py | Smells: 3
+FAILED parsing: tgs-salt-identification-challenge_P1_seed4.py
+FAILED parsing: ventilator-pressure-prediction_P4_seed0.py
+Processed: seti-breakthrough-listen_P3_seed3.py | Smells: 1
+Processed: invasive-species-monitoring_P3_seed1.py | Smells: 9
+Processed: movie-review-sentiment-analysis-kernels-only_P3_seed0.py | Smells: 8
+Processed: iwildcam-2019-fgvc6_P1_seed3.py | Smells: 6
+Processed: kuzushiji-recognition_P3_seed4.py | Smells: 8
+FAILED parsing: champs-scalar-coupling_P2_seed4.py
+Processed: 3d-object-detection-for-autonomous-vehicles_P2_seed2.py | Smells: 10
+FAILED parsing: hms-harmful-brain-activity-classification_P4_seed2.py
+Processed: siim-covid19-detection_P3_seed3.py | Smells: 5
+Processed: tgs-salt-identification-challenge_P3_seed3.py | Smells: 7
+Processed: ranzcr-clip-catheter-line-classification_P2_seed2.py | Smells: 6
+Processed: rsna-2022-cervical-spine-fracture-detection_P1_seed0.py | Smells: 6
+FAILED parsing: bms-molecular-translation_P4_seed3.py
+Processed: leaf-classification_P3_seed0.py | Smells: 10
+Processed: aerial-cactus-identification_P3_seed3.py | Smells: 4
+FAILED parsing: dog-breed-identification_P4_seed2.py
+FAILED parsing: text-normalization-challenge-russian-language_P1_seed4.py
+Processed: new-york-city-taxi-fare-prediction_P3_seed3.py | Smells: 5
+Processed: text-normalization-challenge-english-language_P2_seed2.py | Smells: 4
+Processed: tabular-playground-series-may-2022_P3_seed0.py | Smells: 5
+FAILED parsing: plant-seedlings-classification_P2_seed4.py
+Processed: statoil-iceberg-classifier-challenge_P2_seed0.py | Smells: 13
+Processed: imet-2020-fgvc7_P3_seed1.py | Smells: 6
+Processed: herbarium-2021-fgvc8_P3_seed0.py | Smells: 6
+FAILED parsing: dogs-vs-cats-redux-kernels-edition_P1_seed0.py
+Processed: siim-covid19-detection_P3_seed1.py | Smells: 3
+FAILED parsing: vesuvius-challenge-ink-detection_P2_seed1.py
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P4_seed1.py
+Processed: billion-word-imputation_P2_seed0.py | Smells: 16
+FAILED parsing: herbarium-2022-fgvc9_P4_seed3.py
+Processed: nomad2018-predict-transparent-conductors_P1_seed3.py | Smells: 1
+Processed: tensorflow2-question-answering_P2_seed2.py | Smells: 8
+Processed: text-normalization-challenge-english-language_P3_seed0.py | Smells: 4
+Processed: new-york-city-taxi-fare-prediction_P1_seed3.py | Smells: 4
+FAILED parsing: aptos2019-blindness-detection_P4_seed3.py
+Processed: movie-review-sentiment-analysis-kernels-only_P2_seed0.py | Smells: 3
+FAILED parsing: random-acts-of-pizza_P4_seed1.py
+FAILED parsing: nfl-player-contact-detection_P1_seed0.py
+Processed: h-and-m-personalized-fashion-recommendations_P3_seed4.py | Smells: 7
+FAILED parsing: herbarium-2020-fgvc7_P4_seed3.py
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P4_seed4.py | Smells: 6
+FAILED parsing: tensorflow-speech-recognition-challenge_P1_seed1.py
+Processed: spooky-author-identification_P2_seed0.py | Smells: 5
+Processed: smartphone-decimeter-2022_P2_seed0.py | Smells: 5
+FAILED parsing: alaska2-image-steganalysis_P4_seed0.py
+FAILED parsing: freesound-audio-tagging-2019_P4_seed0.py
+FAILED parsing: invasive-species-monitoring_P4_seed3.py
+Processed: leaf-classification_P2_seed4.py | Smells: 0
+FAILED parsing: hubmap-kidney-segmentation_P1_seed3.py
+Processed: facebook-recruiting-iii-keyword-extraction_P1_seed2.py | Smells: 11
+FAILED parsing: tweet-sentiment-extraction_P4_seed0.py
+Processed: denoising-dirty-documents_P3_seed0.py | Smells: 10
+FAILED parsing: nomad2018-predict-transparent-conductors_P2_seed3.py
+FAILED parsing: facebook-recruiting-iii-keyword-extraction_P4_seed0.py
+FAILED parsing: ml2021spring-hw2_P2_seed3.py
+FAILED parsing: dogs-vs-cats-redux-kernels-edition_P4_seed2.py
+FAILED parsing: ventilator-pressure-prediction_P4_seed1.py
+FAILED parsing: herbarium-2022-fgvc9_P4_seed0.py
+Processed: osic-pulmonary-fibrosis-progression_P3_seed3.py | Smells: 4
+Processed: hms-harmful-brain-activity-classification_P3_seed3.py | Smells: 5
+FAILED parsing: billion-word-imputation_P1_seed1.py
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P2_seed1.py
+Processed: inaturalist-2019-fgvc6_P1_seed2.py | Smells: 2
+Processed: freesound-audio-tagging-2019_P2_seed1.py | Smells: 4
+FAILED parsing: random-acts-of-pizza_P4_seed0.py
+FAILED parsing: herbarium-2021-fgvc8_P1_seed2.py
+FAILED parsing: denoising-dirty-documents_P1_seed4.py
+Processed: invasive-species-monitoring_P3_seed2.py | Smells: 7
+Processed: leaf-classification_P1_seed3.py | Smells: 8
+Processed: stanford-covid-vaccine_P3_seed4.py | Smells: 5
+FAILED parsing: h-and-m-personalized-fashion-recommendations_P4_seed2.py
+Processed: osic-pulmonary-fibrosis-progression_P3_seed0.py | Smells: 4
+Processed: hms-harmful-brain-activity-classification_P4_seed4.py | Smells: 6
+FAILED parsing: kuzushiji-recognition_P1_seed4.py
+FAILED parsing: seti-breakthrough-listen_P3_seed4.py
+FAILED parsing: tgs-salt-identification-challenge_P1_seed3.py
+FAILED parsing: lmsys-chatbot-arena_P4_seed3.py
+FAILED parsing: whale-categorization-playground_P3_seed4.py
+Processed: learning-agency-lab-automated-essay-scoring-2_P3_seed1.py | Smells: 14
+Processed: playground-series-s3e18_P2_seed0.py | Smells: 3
+FAILED parsing: jigsaw-unintended-bias-in-toxicity-classification_P2_seed0.py
+Processed: AI4Code_P1_seed2.py | Smells: 0
+Processed: playground-series-s3e18_P2_seed2.py | Smells: 5
+Processed: iwildcam-2020-fgvc7_P3_seed1.py | Smells: 14
+Processed: tweet-sentiment-extraction_P2_seed2.py | Smells: 4
+FAILED parsing: jigsaw-unintended-bias-in-toxicity-classification_P4_seed0.py
+FAILED parsing: hubmap-kidney-segmentation_P3_seed4.py
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P4_seed1.py
+Processed: kuzushiji-recognition_P1_seed3.py | Smells: 5
+FAILED parsing: jigsaw-toxic-comment-classification-challenge_P4_seed1.py
+FAILED parsing: text-normalization-challenge-russian-language_P4_seed0.py
+FAILED parsing: herbarium-2020-fgvc7_P4_seed0.py
+FAILED parsing: petfinder-pawpularity-score_P4_seed3.py
+Processed: smartphone-decimeter-2022_P3_seed0.py | Smells: 14
+Processed: hotel-id-2021-fgvc8_P3_seed0.py | Smells: 2
+Processed: spaceship-titanic_P1_seed4.py | Smells: 6
+Processed: text-normalization-challenge-russian-language_P3_seed1.py | Smells: 2
+FAILED parsing: vesuvius-challenge-ink-detection_P4_seed3.py
+FAILED parsing: plant-pathology-2020-fgvc7_P1_seed3.py
+FAILED parsing: hotel-id-2021-fgvc8_P4_seed0.py
+Processed: dogs-vs-cats-redux-kernels-edition_P3_seed0.py | Smells: 3
+Processed: dog-breed-identification_P1_seed3.py | Smells: 11
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P4_seed2.py
+Processed: detecting-insults-in-social-commentary_P3_seed2.py | Smells: 3
+FAILED parsing: random-acts-of-pizza_P2_seed0.py
+Processed: smartphone-decimeter-2022_P3_seed2.py | Smells: 5
+FAILED parsing: tweet-sentiment-extraction_P3_seed0.py
+Processed: plant-seedlings-classification_P2_seed1.py | Smells: 6
+FAILED parsing: nomad2018-predict-transparent-conductors_P4_seed0.py
+Processed: random-acts-of-pizza_P4_seed4.py | Smells: 6
+FAILED parsing: invasive-species-monitoring_P1_seed2.py
+Processed: google-research-identify-contrails-reduce-global-warming_P3_seed3.py | Smells: 0
+FAILED parsing: hubmap-kidney-segmentation_P3_seed1.py
+FAILED parsing: vesuvius-challenge-ink-detection_P1_seed1.py
+FAILED parsing: h-and-m-personalized-fashion-recommendations_P4_seed0.py
+FAILED parsing: petfinder-pawpularity-score_P4_seed1.py
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P1_seed2.py | Smells: 8
+FAILED parsing: osic-pulmonary-fibrosis-progression_P3_seed1.py
+FAILED parsing: hms-harmful-brain-activity-classification_P2_seed1.py
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P3_seed4.py
+Processed: petfinder-pawpularity-score_P3_seed3.py | Smells: 6
+Processed: spaceship-titanic_P1_seed3.py | Smells: 3
+FAILED parsing: facebook-recruiting-iii-keyword-extraction_P4_seed1.py
+Processed: billion-word-imputation_P1_seed3.py | Smells: 7
+FAILED parsing: plant-pathology-2020-fgvc7_P4_seed1.py
+Processed: cdiscount-image-classification-challenge_P3_seed0.py | Smells: 8
+Processed: 3d-object-detection-for-autonomous-vehicles_P2_seed0.py | Smells: 4
+FAILED parsing: nfl-player-contact-detection_P3_seed1.py
+FAILED parsing: mlsp-2013-birds_P4_seed2.py
+Processed: ranzcr-clip-catheter-line-classification_P2_seed3.py | Smells: 0
+Processed: text-normalization-challenge-russian-language_P2_seed1.py | Smells: 2
+FAILED parsing: smartphone-decimeter-2022_P4_seed0.py
+Processed: champs-scalar-coupling_P4_seed4.py | Smells: 6
+Processed: lmsys-chatbot-arena_P4_seed4.py | Smells: 6
+FAILED parsing: statoil-iceberg-classifier-challenge_P1_seed1.py
+Processed: herbarium-2020-fgvc7_P3_seed1.py | Smells: 9
+Processed: inaturalist-2019-fgvc6_P3_seed1.py | Smells: 8
+FAILED parsing: siim-isic-melanoma-classification_P4_seed0.py
+FAILED parsing: iwildcam-2019-fgvc6_P1_seed0.py
+FAILED parsing: nomad2018-predict-transparent-conductors_P4_seed1.py
+FAILED parsing: learning-agency-lab-automated-essay-scoring-2_P2_seed1.py
+Processed: us-patent-phrase-to-phrase-matching_P2_seed3.py | Smells: 11
+FAILED parsing: tgs-salt-identification-challenge_P2_seed2.py
+Processed: hms-harmful-brain-activity-classification_P3_seed0.py | Smells: 1
+Processed: detecting-insults-in-social-commentary_P3_seed3.py | Smells: 8
+Processed: tensorflow-speech-recognition-challenge_P3_seed2.py | Smells: 0
+Processed: histopathologic-cancer-detection_P2_seed2.py | Smells: 4
+Processed: hubmap-kidney-segmentation_P2_seed4.py | Smells: 7
+Processed: ventilator-pressure-prediction_P3_seed4.py | Smells: 5
+Processed: rsna-breast-cancer-detection_P2_seed1.py | Smells: 2
+FAILED parsing: us-patent-phrase-to-phrase-matching_P4_seed3.py
+FAILED parsing: champs-scalar-coupling_P3_seed1.py
+Processed: whale-categorization-playground_P2_seed4.py | Smells: 0
+FAILED parsing: hubmap-kidney-segmentation_P4_seed1.py
+FAILED parsing: nfl-player-contact-detection_P2_seed1.py
+Processed: dog-breed-identification_P3_seed2.py | Smells: 0
+FAILED parsing: hubmap-kidney-segmentation_P4_seed2.py
+Processed: iwildcam-2019-fgvc6_P3_seed2.py | Smells: 7
+Processed: dog-breed-identification_P3_seed3.py | Smells: 9
+Processed: stanford-covid-vaccine_P1_seed2.py | Smells: 2
+FAILED parsing: herbarium-2021-fgvc8_P4_seed0.py
+Processed: stanford-covid-vaccine_P3_seed3.py | Smells: 0
+FAILED parsing: petfinder-pawpularity-score_P3_seed1.py
+Processed: invasive-species-monitoring_P1_seed0.py | Smells: 6
+Processed: ranzcr-clip-catheter-line-classification_P4_seed4.py | Smells: 6
+FAILED parsing: nfl-player-contact-detection_P4_seed2.py
+FAILED parsing: AI4Code_P2_seed4.py
+Processed: nomad2018-predict-transparent-conductors_P3_seed3.py | Smells: 0
+Processed: tensorflow2-question-answering_P4_seed4.py | Smells: 6
+FAILED parsing: cassava-leaf-disease-classification_P4_seed2.py
+FAILED parsing: ranzcr-clip-catheter-line-classification_P4_seed0.py
+FAILED parsing: vinbigdata-chest-xray-abnormalities-detection_P1_seed1.py
+Processed: learning-agency-lab-automated-essay-scoring-2_P2_seed2.py | Smells: 5
+Processed: 3d-object-detection-for-autonomous-vehicles_P1_seed4.py | Smells: 0
+FAILED parsing: text-normalization-challenge-russian-language_P3_seed4.py
+Processed: seti-breakthrough-listen_P1_seed3.py | Smells: 28
+Processed: invasive-species-monitoring_P1_seed4.py | Smells: 8
+FAILED parsing: new-york-city-taxi-fare-prediction_P4_seed2.py
+FAILED parsing: siim-covid19-detection_P1_seed4.py
+Processed: siim-isic-melanoma-classification_P2_seed2.py | Smells: 10
+FAILED parsing: osic-pulmonary-fibrosis-progression_P2_seed3.py
+FAILED parsing: facebook-recruiting-iii-keyword-extraction_P4_seed2.py
+Processed: paddy-disease-classification_P2_seed4.py | Smells: 6
+Processed: dog-breed-identification_P2_seed2.py | Smells: 12
+Processed: playground-series-s3e18_P1_seed4.py | Smells: 2
+FAILED parsing: tabular-playground-series-dec-2021_P2_seed3.py
+Processed: lmsys-chatbot-arena_P1_seed4.py | Smells: 4
+Processed: multi-modal-gesture-recognition_P1_seed2.py | Smells: 3
+FAILED parsing: hms-harmful-brain-activity-classification_P4_seed0.py
+FAILED parsing: inaturalist-2019-fgvc6_P2_seed2.py
+Processed: ranzcr-clip-catheter-line-classification_P3_seed2.py | Smells: 7
+FAILED parsing: movie-review-sentiment-analysis-kernels-only_P1_seed1.py
+FAILED parsing: rsna-2022-cervical-spine-fracture-detection_P4_seed2.py
+FAILED parsing: icecube-neutrinos-in-deep-ice_P3_seed4.py
+Processed: champs-scalar-coupling_P2_seed0.py | Smells: 5
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P1_seed0.py
+Processed: siim-isic-melanoma-classification_P2_seed0.py | Smells: 8
+FAILED parsing: herbarium-2021-fgvc8_P2_seed1.py
+FAILED parsing: 3d-object-detection-for-autonomous-vehicles_P4_seed1.py
+Processed: uw-madison-gi-tract-image-segmentation_P3_seed0.py | Smells: 5
+FAILED parsing: ml2021spring-hw2_P3_seed4.py
+Processed: mlsp-2013-birds_P1_seed1.py | Smells: 13
+Processed: whale-categorization-playground_P1_seed4.py | Smells: 2
+Processed: petfinder-pawpularity-score_P4_seed4.py | Smells: 6
+FAILED parsing: paddy-disease-classification_P1_seed4.py
+Processed: herbarium-2021-fgvc8_P2_seed2.py | Smells: 4
+Processed: hubmap-kidney-segmentation_P2_seed0.py | Smells: 0
+Processed: text-normalization-challenge-english-language_P3_seed3.py | Smells: 0
+FAILED parsing: alaska2-image-steganalysis_P1_seed0.py
+FAILED parsing: icecube-neutrinos-in-deep-ice_P2_seed2.py
+Processed: spaceship-titanic_P1_seed1.py | Smells: 6
+FAILED parsing: iwildcam-2019-fgvc6_P4_seed3.py
+Processed: plant-seedlings-classification_P1_seed2.py | Smells: 5
+Processed: petfinder-pawpularity-score_P2_seed0.py | Smells: 8
+FAILED parsing: aerial-cactus-identification_P4_seed0.py
+Processed: tabular-playground-series-may-2022_P1_seed2.py | Smells: 6
+FAILED parsing: herbarium-2020-fgvc7_P1_seed4.py
+Processed: 3d-object-detection-for-autonomous-vehicles_P3_seed0.py | Smells: 6
+Processed: bms-molecular-translation_P3_seed0.py | Smells: 6
+FAILED parsing: statoil-iceberg-classifier-challenge_P4_seed3.py
+FAILED parsing: text-normalization-challenge-english-language_P1_seed3.py
+FAILED parsing: alaska2-image-steganalysis_P2_seed2.py
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P3_seed1.py
+Processed: ranzcr-clip-catheter-line-classification_P2_seed0.py | Smells: 7
+Processed: chaii-hindi-and-tamil-question-answering_P3_seed4.py | Smells: 9
+Processed: seti-breakthrough-listen_P2_seed2.py | Smells: 2
+Processed: movie-review-sentiment-analysis-kernels-only_P2_seed2.py | Smells: 5
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P4_seed3.py
+FAILED parsing: imet-2020-fgvc7_P3_seed4.py
+FAILED parsing: random-acts-of-pizza_P4_seed2.py
+FAILED parsing: denoising-dirty-documents_P4_seed1.py
+Processed: nfl-player-contact-detection_P3_seed4.py | Smells: 7
+FAILED parsing: bms-molecular-translation_P1_seed4.py
+Processed: siim-isic-melanoma-classification_P3_seed3.py | Smells: 3
+Processed: stanford-covid-vaccine_P1_seed3.py | Smells: 4
+Processed: jigsaw-toxic-comment-classification-challenge_P1_seed3.py | Smells: 0
+Processed: hubmap-kidney-segmentation_P4_seed4.py | Smells: 6
+FAILED parsing: denoising-dirty-documents_P4_seed0.py
+Processed: whale-categorization-playground_P3_seed1.py | Smells: 8
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P2_seed2.py
+Processed: freesound-audio-tagging-2019_P3_seed2.py | Smells: 2
+Processed: ml2021spring-hw2_P4_seed4.py | Smells: 6
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P1_seed3.py | Smells: 3
+Processed: detecting-insults-in-social-commentary_P1_seed2.py | Smells: 4
+Processed: whale-categorization-playground_P3_seed3.py | Smells: 1
+FAILED parsing: alaska2-image-steganalysis_P1_seed4.py
+Processed: aptos2019-blindness-detection_P2_seed0.py | Smells: 2
+FAILED parsing: dog-breed-identification_P2_seed4.py
+FAILED parsing: vinbigdata-chest-xray-abnormalities-detection_P4_seed3.py
+Processed: statoil-iceberg-classifier-challenge_P1_seed3.py | Smells: 4
+Processed: leaf-classification_P1_seed4.py | Smells: 2
+FAILED parsing: stanford-covid-vaccine_P2_seed3.py
+FAILED parsing: imet-2020-fgvc7_P1_seed1.py
+FAILED parsing: leaf-classification_P4_seed3.py
+FAILED parsing: champs-scalar-coupling_P1_seed4.py
+Processed: mlsp-2013-birds_P3_seed1.py | Smells: 12
+Processed: 3d-object-detection-for-autonomous-vehicles_P4_seed4.py | Smells: 6
+Processed: plant-pathology-2021-fgvc8_P4_seed4.py | Smells: 6
+FAILED parsing: facebook-recruiting-iii-keyword-extraction_P2_seed1.py
+FAILED parsing: histopathologic-cancer-detection_P1_seed4.py
+Processed: jigsaw-toxic-comment-classification-challenge_P3_seed2.py | Smells: 3
+FAILED parsing: detecting-insults-in-social-commentary_P4_seed2.py
+Processed: facebook-recruiting-iii-keyword-extraction_P1_seed3.py | Smells: 5
+Processed: plant-pathology-2020-fgvc7_P3_seed3.py | Smells: 8
+Processed: h-and-m-personalized-fashion-recommendations_P1_seed1.py | Smells: 3
+FAILED parsing: hotel-id-2021-fgvc8_P2_seed4.py
+FAILED parsing: hotel-id-2021-fgvc8_P1_seed0.py
+FAILED parsing: tabular-playground-series-dec-2021_P4_seed0.py
+Processed: new-york-city-taxi-fare-prediction_P1_seed2.py | Smells: 5
+Processed: aptos2019-blindness-detection_P1_seed3.py | Smells: 12
+FAILED parsing: herbarium-2022-fgvc9_P4_seed1.py
+Processed: tabular-playground-series-may-2022_P2_seed4.py | Smells: 2
+Processed: new-york-city-taxi-fare-prediction_P2_seed3.py | Smells: 8
+Processed: herbarium-2020-fgvc7_P2_seed1.py | Smells: 3
+Processed: osic-pulmonary-fibrosis-progression_P4_seed4.py | Smells: 6
+FAILED parsing: iwildcam-2019-fgvc6_P4_seed2.py
+FAILED parsing: plant-pathology-2020-fgvc7_P3_seed4.py
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P2_seed0.py
+Processed: detecting-insults-in-social-commentary_P2_seed4.py | Smells: 3
+FAILED parsing: osic-pulmonary-fibrosis-progression_P2_seed0.py
+FAILED parsing: billion-word-imputation_P1_seed2.py
+FAILED parsing: lmsys-chatbot-arena_P2_seed4.py
+FAILED parsing: hubmap-kidney-segmentation_P1_seed0.py
+FAILED parsing: 3d-object-detection-for-autonomous-vehicles_P2_seed4.py
+Processed: paddy-disease-classification_P3_seed0.py | Smells: 8
+FAILED parsing: spaceship-titanic_P1_seed0.py
+FAILED parsing: icecube-neutrinos-in-deep-ice_P2_seed3.py
+Processed: invasive-species-monitoring_P3_seed0.py | Smells: 8
+FAILED parsing: tabular-playground-series-dec-2021_P1_seed2.py
+Processed: siim-isic-melanoma-classification_P2_seed3.py | Smells: 3
+Processed: rsna-2022-cervical-spine-fracture-detection_P3_seed0.py | Smells: 11
+FAILED parsing: histopathologic-cancer-detection_P4_seed1.py
+FAILED parsing: nomad2018-predict-transparent-conductors_P1_seed2.py
+FAILED parsing: kuzushiji-recognition_P4_seed2.py
+Processed: paddy-disease-classification_P3_seed1.py | Smells: 2
+FAILED parsing: tensorflow-speech-recognition-challenge_P1_seed3.py
+FAILED parsing: google-quest-challenge_P4_seed0.py
+Processed: tabular-playground-series-dec-2021_P3_seed3.py | Smells: 1
+FAILED parsing: chaii-hindi-and-tamil-question-answering_P2_seed1.py
+FAILED parsing: 3d-object-detection-for-autonomous-vehicles_P4_seed0.py
+Processed: rsna-miccai-brain-tumor-radiogenomic-classification_P1_seed4.py | Smells: 9
+FAILED parsing: plant-pathology-2020-fgvc7_P1_seed1.py
+Processed: icecube-neutrinos-in-deep-ice_P3_seed0.py | Smells: 5
+FAILED parsing: freesound-audio-tagging-2019_P4_seed2.py
+Processed: kuzushiji-recognition_P2_seed1.py | Smells: 19
+FAILED parsing: siim-isic-melanoma-classification_P1_seed4.py
+FAILED parsing: champs-scalar-coupling_P1_seed1.py
+FAILED parsing: stanford-covid-vaccine_P4_seed3.py
+FAILED parsing: jigsaw-toxic-comment-classification-challenge_P4_seed2.py
+FAILED parsing: playground-series-s3e18_P4_seed1.py
+Processed: bms-molecular-translation_P2_seed1.py | Smells: 12
+Processed: kuzushiji-recognition_P3_seed1.py | Smells: 6
+Processed: smartphone-decimeter-2022_P3_seed4.py | Smells: 4
+FAILED parsing: alaska2-image-steganalysis_P2_seed4.py
+Processed: aptos2019-blindness-detection_P3_seed3.py | Smells: 4
+FAILED parsing: multi-modal-gesture-recognition_P1_seed1.py
+Processed: tweet-sentiment-extraction_P3_seed2.py | Smells: 2
+Processed: herbarium-2021-fgvc8_P3_seed2.py | Smells: 5
+FAILED parsing: multi-modal-gesture-recognition_P4_seed2.py
+Processed: plant-pathology-2021-fgvc8_P3_seed3.py | Smells: 7
+Processed: new-york-city-taxi-fare-prediction_P3_seed0.py | Smells: 4
+FAILED parsing: ventilator-pressure-prediction_P1_seed0.py
+Processed: icecube-neutrinos-in-deep-ice_P1_seed3.py | Smells: 4
+FAILED parsing: stanford-covid-vaccine_P2_seed2.py
+FAILED parsing: multi-modal-gesture-recognition_P2_seed4.py
+Processed: billion-word-imputation_P4_seed4.py | Smells: 6
+Processed: siim-isic-melanoma-classification_P2_seed1.py | Smells: 16
+Processed: siim-covid19-detection_P4_seed4.py | Smells: 6
+Processed: imet-2020-fgvc7_P3_seed0.py | Smells: 8
+Processed: learning-agency-lab-automated-essay-scoring-2_P4_seed4.py | Smells: 6
+FAILED parsing: chaii-hindi-and-tamil-question-answering_P4_seed2.py
+Processed: ranzcr-clip-catheter-line-classification_P1_seed3.py | Smells: 22
+FAILED parsing: seti-breakthrough-listen_P2_seed1.py
+Processed: rsna-2022-cervical-spine-fracture-detection_P2_seed3.py | Smells: 20
+FAILED parsing: ml2021spring-hw2_P2_seed4.py
+FAILED parsing: rsna-2022-cervical-spine-fracture-detection_P1_seed2.py
+Processed: tabular-playground-series-may-2022_P1_seed4.py | Smells: 2
+Processed: h-and-m-personalized-fashion-recommendations_P3_seed2.py | Smells: 8
+Processed: AI4Code_P3_seed3.py | Smells: 2
+Processed: histopathologic-cancer-detection_P3_seed2.py | Smells: 2
+Processed: bms-molecular-translation_P2_seed0.py | Smells: 10
+FAILED parsing: spooky-author-identification_P4_seed3.py
+FAILED parsing: lmsys-chatbot-arena_P3_seed4.py
+FAILED parsing: stanford-covid-vaccine_P1_seed1.py
+Processed: herbarium-2022-fgvc9_P4_seed4.py | Smells: 6
+Processed: herbarium-2022-fgvc9_P1_seed1.py | Smells: 17
+Processed: learning-agency-lab-automated-essay-scoring-2_P3_seed3.py | Smells: 0
+Processed: vinbigdata-chest-xray-abnormalities-detection_P1_seed3.py | Smells: 12
+FAILED parsing: movie-review-sentiment-analysis-kernels-only_P4_seed3.py
+FAILED parsing: jigsaw-unintended-bias-in-toxicity-classification_P4_seed1.py
+Processed: petfinder-pawpularity-score_P2_seed1.py | Smells: 2
+FAILED parsing: plant-pathology-2021-fgvc8_P2_seed3.py
+FAILED parsing: iwildcam-2020-fgvc7_P1_seed1.py
+FAILED parsing: siim-isic-melanoma-classification_P4_seed1.py
+Processed: rsna-miccai-brain-tumor-radiogenomic-classification_P2_seed2.py | Smells: 5
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P4_seed2.py
+Processed: uw-madison-gi-tract-image-segmentation_P3_seed3.py | Smells: 9
+FAILED parsing: spooky-author-identification_P4_seed0.py
+FAILED parsing: bms-molecular-translation_P2_seed4.py
+Processed: facebook-recruiting-iii-keyword-extraction_P3_seed4.py | Smells: 13
+FAILED parsing: siim-covid19-detection_P1_seed2.py
+FAILED parsing: plant-seedlings-classification_P4_seed0.py
+FAILED parsing: tweet-sentiment-extraction_P1_seed4.py
+Processed: tabular-playground-series-dec-2021_P1_seed4.py | Smells: 3
+FAILED parsing: playground-series-s3e18_P3_seed4.py
+FAILED parsing: leaf-classification_P4_seed1.py
+Processed: nfl-player-contact-detection_P2_seed0.py | Smells: 104
+FAILED parsing: tweet-sentiment-extraction_P4_seed3.py
+FAILED parsing: ml2021spring-hw2_P4_seed3.py
+Processed: cassava-leaf-disease-classification_P1_seed0.py | Smells: 6
+Processed: dog-breed-identification_P1_seed1.py | Smells: 8
+FAILED parsing: tweet-sentiment-extraction_P4_seed2.py
+Processed: rsna-breast-cancer-detection_P2_seed0.py | Smells: 3
+FAILED parsing: detecting-insults-in-social-commentary_P3_seed4.py
+Processed: kuzushiji-recognition_P1_seed2.py | Smells: 7
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P4_seed1.py
+Processed: hotel-id-2021-fgvc8_P3_seed1.py | Smells: 2
+FAILED parsing: mlsp-2013-birds_P2_seed4.py
+FAILED parsing: vinbigdata-chest-xray-abnormalities-detection_P1_seed0.py
+Processed: movie-review-sentiment-analysis-kernels-only_P1_seed2.py | Smells: 6
+Processed: hms-harmful-brain-activity-classification_P2_seed0.py | Smells: 7
+FAILED parsing: statoil-iceberg-classifier-challenge_P3_seed1.py
+FAILED parsing: lmsys-chatbot-arena_P4_seed0.py
+Processed: hubmap-kidney-segmentation_P2_seed1.py | Smells: 6
+Processed: playground-series-s3e18_P2_seed3.py | Smells: 2
+Processed: mlsp-2013-birds_P3_seed4.py | Smells: 8
+Processed: vesuvius-challenge-ink-detection_P2_seed4.py | Smells: 1
+Processed: herbarium-2021-fgvc8_P1_seed1.py | Smells: 6
+FAILED parsing: nomad2018-predict-transparent-conductors_P4_seed2.py
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P3_seed4.py | Smells: 9
+Processed: text-normalization-challenge-russian-language_P1_seed0.py | Smells: 3
+Processed: iwildcam-2020-fgvc7_P3_seed0.py | Smells: 12
+FAILED parsing: jigsaw-toxic-comment-classification-challenge_P2_seed4.py
+Processed: hotel-id-2021-fgvc8_P3_seed4.py | Smells: 7
+Processed: freesound-audio-tagging-2019_P3_seed4.py | Smells: 5
+FAILED parsing: jigsaw-unintended-bias-in-toxicity-classification_P4_seed3.py
+Processed: movie-review-sentiment-analysis-kernels-only_P3_seed3.py | Smells: 8
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P2_seed1.py
+Processed: leaf-classification_P1_seed0.py | Smells: 6
+Processed: denoising-dirty-documents_P2_seed1.py | Smells: 6
+Processed: smartphone-decimeter-2022_P1_seed2.py | Smells: 3
+FAILED parsing: paddy-disease-classification_P4_seed2.py
+FAILED parsing: herbarium-2020-fgvc7_P2_seed2.py
+FAILED parsing: multi-modal-gesture-recognition_P4_seed0.py
+Processed: siim-isic-melanoma-classification_P3_seed0.py | Smells: 4
+Processed: tgs-salt-identification-challenge_P4_seed4.py | Smells: 6
+Processed: rsna-breast-cancer-detection_P1_seed0.py | Smells: 4
+Processed: tabular-playground-series-dec-2021_P3_seed4.py | Smells: 6
+FAILED parsing: text-normalization-challenge-russian-language_P1_seed3.py
+Processed: google-research-identify-contrails-reduce-global-warming_P1_seed3.py | Smells: 15
+FAILED parsing: plant-pathology-2020-fgvc7_P4_seed3.py
+FAILED parsing: tensorflow2-question-answering_P4_seed2.py
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P4_seed2.py
+FAILED parsing: multi-modal-gesture-recognition_P3_seed0.py
+Processed: histopathologic-cancer-detection_P1_seed3.py | Smells: 14
+Processed: inaturalist-2019-fgvc6_P1_seed3.py | Smells: 10
+Processed: statoil-iceberg-classifier-challenge_P4_seed4.py | Smells: 6
+Processed: facebook-recruiting-iii-keyword-extraction_P4_seed4.py | Smells: 6
+FAILED parsing: kuzushiji-recognition_P2_seed2.py
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P2_seed1.py
+Processed: us-patent-phrase-to-phrase-matching_P1_seed3.py | Smells: 7
+FAILED parsing: nfl-player-contact-detection_P1_seed3.py
+Processed: vesuvius-challenge-ink-detection_P3_seed2.py | Smells: 7
+FAILED parsing: statoil-iceberg-classifier-challenge_P4_seed2.py
+FAILED parsing: tgs-salt-identification-challenge_P4_seed1.py
+FAILED parsing: statoil-iceberg-classifier-challenge_P2_seed2.py
+FAILED parsing: chaii-hindi-and-tamil-question-answering_P2_seed4.py
+FAILED parsing: osic-pulmonary-fibrosis-progression_P4_seed1.py
+FAILED parsing: tgs-salt-identification-challenge_P4_seed2.py
+Processed: movie-review-sentiment-analysis-kernels-only_P1_seed3.py | Smells: 4
+FAILED parsing: plant-pathology-2021-fgvc8_P4_seed1.py
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P3_seed1.py
+Processed: smartphone-decimeter-2022_P4_seed4.py | Smells: 6
+FAILED parsing: spooky-author-identification_P2_seed4.py
+FAILED parsing: spooky-author-identification_P4_seed2.py
+Processed: statoil-iceberg-classifier-challenge_P3_seed0.py | Smells: 3
+Processed: denoising-dirty-documents_P3_seed2.py | Smells: 7
+Processed: aptos2019-blindness-detection_P3_seed2.py | Smells: 5
+FAILED parsing: mlsp-2013-birds_P4_seed0.py
+Processed: alaska2-image-steganalysis_P3_seed4.py | Smells: 8
+FAILED parsing: nfl-player-contact-detection_P4_seed1.py
+Processed: statoil-iceberg-classifier-challenge_P3_seed2.py | Smells: 1
+Processed: h-and-m-personalized-fashion-recommendations_P1_seed2.py | Smells: 4
+FAILED parsing: nfl-player-contact-detection_P2_seed4.py
+Processed: us-patent-phrase-to-phrase-matching_P1_seed2.py | Smells: 11
+FAILED parsing: tabular-playground-series-may-2022_P1_seed0.py
+FAILED parsing: AI4Code_P2_seed1.py
+Processed: smartphone-decimeter-2022_P2_seed2.py | Smells: 0
+Processed: lmsys-chatbot-arena_P2_seed1.py | Smells: 15
+Processed: jigsaw-unintended-bias-in-toxicity-classification_P3_seed2.py | Smells: 8
+Processed: rsna-2022-cervical-spine-fracture-detection_P3_seed4.py | Smells: 8
+FAILED parsing: aerial-cactus-identification_P2_seed1.py
+FAILED parsing: plant-pathology-2021-fgvc8_P3_seed1.py
+FAILED parsing: tabular-playground-series-may-2022_P4_seed3.py
+FAILED parsing: facebook-recruiting-iii-keyword-extraction_P4_seed3.py
+Processed: chaii-hindi-and-tamil-question-answering_P1_seed3.py | Smells: 4
+FAILED parsing: herbarium-2021-fgvc8_P1_seed3.py
+FAILED parsing: cdiscount-image-classification-challenge_P1_seed1.py
+Processed: ventilator-pressure-prediction_P3_seed1.py | Smells: 2
+FAILED parsing: mlsp-2013-birds_P2_seed1.py
+FAILED parsing: text-normalization-challenge-english-language_P3_seed4.py
+FAILED parsing: dog-breed-identification_P4_seed3.py
+FAILED parsing: freesound-audio-tagging-2019_P1_seed1.py
+Processed: siim-isic-melanoma-classification_P3_seed1.py | Smells: 3
+Processed: champs-scalar-coupling_P1_seed3.py | Smells: 2
+Processed: dog-breed-identification_P1_seed0.py | Smells: 2
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P4_seed3.py
+FAILED parsing: tgs-salt-identification-challenge_P1_seed2.py
+Processed: uw-madison-gi-tract-image-segmentation_P1_seed3.py | Smells: 3
+Processed: herbarium-2021-fgvc8_P3_seed3.py | Smells: 2
+FAILED parsing: spooky-author-identification_P3_seed4.py
+FAILED parsing: denoising-dirty-documents_P3_seed4.py
+Processed: herbarium-2020-fgvc7_P3_seed3.py | Smells: 6
+Processed: chaii-hindi-and-tamil-question-answering_P2_seed2.py | Smells: 4
+Processed: leaf-classification_P4_seed4.py | Smells: 6
+FAILED parsing: billion-word-imputation_P4_seed0.py
+Processed: rsna-miccai-brain-tumor-radiogenomic-classification_P3_seed0.py | Smells: 4
+Processed: kuzushiji-recognition_P3_seed3.py | Smells: 2
+Processed: spaceship-titanic_P2_seed0.py | Smells: 2
+Processed: billion-word-imputation_P1_seed0.py | Smells: 4
+FAILED parsing: jigsaw-unintended-bias-in-toxicity-classification_P1_seed4.py
+Processed: dog-breed-identification_P4_seed4.py | Smells: 6
+FAILED parsing: whale-categorization-playground_P4_seed0.py
+FAILED parsing: kuzushiji-recognition_P4_seed0.py
+FAILED parsing: kuzushiji-recognition_P4_seed1.py
+Processed: mlsp-2013-birds_P3_seed0.py | Smells: 12
+Processed: lmsys-chatbot-arena_P3_seed2.py | Smells: 4
+Processed: detecting-insults-in-social-commentary_P2_seed2.py | Smells: 4
+Processed: vinbigdata-chest-xray-abnormalities-detection_P2_seed3.py | Smells: 5
+Processed: detecting-insults-in-social-commentary_P3_seed1.py | Smells: 4
+Processed: predict-volcanic-eruptions-ingv-oe_P1_seed2.py | Smells: 0
+Processed: ml2021spring-hw2_P3_seed0.py | Smells: 5
+FAILED parsing: rsna-breast-cancer-detection_P1_seed3.py
+FAILED parsing: rsna-miccai-brain-tumor-radiogenomic-classification_P4_seed2.py
+Processed: iwildcam-2019-fgvc6_P3_seed0.py | Smells: 0
+Processed: 3d-object-detection-for-autonomous-vehicles_P1_seed3.py | Smells: 3
+FAILED parsing: whale-categorization-playground_P4_seed3.py
+Processed: seti-breakthrough-listen_P3_seed1.py | Smells: 7
+FAILED parsing: hms-harmful-brain-activity-classification_P1_seed2.py
+FAILED parsing: detecting-insults-in-social-commentary_P4_seed3.py
+Processed: billion-word-imputation_P2_seed3.py | Smells: 3
+FAILED parsing: detecting-insults-in-social-commentary_P2_seed1.py
+FAILED parsing: text-normalization-challenge-english-language_P4_seed1.py
+FAILED parsing: learning-agency-lab-automated-essay-scoring-2_P4_seed1.py
+FAILED parsing: lmsys-chatbot-arena_P3_seed1.py
+FAILED parsing: facebook-recruiting-iii-keyword-extraction_P2_seed4.py
+FAILED parsing: petfinder-pawpularity-score_P1_seed3.py
+FAILED parsing: bms-molecular-translation_P2_seed2.py
+Processed: dog-breed-identification_P2_seed0.py | Smells: 2
+Processed: tabular-playground-series-may-2022_P4_seed4.py | Smells: 6
+FAILED parsing: nomad2018-predict-transparent-conductors_P4_seed3.py
+Processed: new-york-city-taxi-fare-prediction_P2_seed1.py | Smells: 4
+Processed: tensorflow-speech-recognition-challenge_P2_seed2.py | Smells: 0
+FAILED parsing: dogs-vs-cats-redux-kernels-edition_P2_seed4.py
+Processed: google-quest-challenge_P1_seed2.py | Smells: 6
+Processed: iwildcam-2020-fgvc7_P2_seed2.py | Smells: 0
+FAILED parsing: histopathologic-cancer-detection_P4_seed0.py
+Processed: whale-categorization-playground_P3_seed2.py | Smells: 3
+Processed: plant-seedlings-classification_P3_seed2.py | Smells: 3
+FAILED parsing: plant-seedlings-classification_P4_seed1.py
+FAILED parsing: denoising-dirty-documents_P4_seed3.py
+FAILED parsing: tensorflow-speech-recognition-challenge_P4_seed3.py
+Processed: nfl-player-contact-detection_P3_seed3.py | Smells: 1
+FAILED parsing: tensorflow2-question-answering_P3_seed4.py
+Processed: siim-isic-melanoma-classification_P1_seed1.py | Smells: 4
+Processed: kuzushiji-recognition_P3_seed0.py | Smells: 4
+FAILED parsing: plant-pathology-2021-fgvc8_P2_seed0.py
+Processed: playground-series-s3e18_P1_seed3.py | Smells: 1
+Processed: hotel-id-2021-fgvc8_P1_seed1.py | Smells: 9
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P4_seed1.py
+FAILED parsing: nfl-player-contact-detection_P1_seed2.py
+FAILED parsing: histopathologic-cancer-detection_P4_seed2.py
+Processed: tgs-salt-identification-challenge_P2_seed3.py | Smells: 3
+FAILED parsing: aptos2019-blindness-detection_P3_seed4.py
+Processed: aptos2019-blindness-detection_P4_seed4.py | Smells: 6
+FAILED parsing: us-patent-phrase-to-phrase-matching_P4_seed1.py
+Processed: h-and-m-personalized-fashion-recommendations_P2_seed4.py | Smells: 7
+Processed: the-icml-2013-whale-challenge-right-whale-redux_P4_seed4.py | Smells: 6
+FAILED parsing: seti-breakthrough-listen_P2_seed3.py
+Processed: movie-review-sentiment-analysis-kernels-only_P3_seed2.py | Smells: 4
+Processed: bms-molecular-translation_P3_seed1.py | Smells: 0
+Processed: herbarium-2020-fgvc7_P1_seed0.py | Smells: 8
+Processed: hubmap-kidney-segmentation_P3_seed2.py | Smells: 5
+FAILED parsing: vinbigdata-chest-xray-abnormalities-detection_P3_seed4.py
+FAILED parsing: paddy-disease-classification_P3_seed4.py
+Processed: the-icml-2013-whale-challenge-right-whale-redux_P3_seed2.py | Smells: 4
+Processed: statoil-iceberg-classifier-challenge_P2_seed3.py | Smells: 2
+Processed: aerial-cactus-identification_P1_seed3.py | Smells: 12
+Processed: movie-review-sentiment-analysis-kernels-only_P3_seed4.py | Smells: 5
+FAILED parsing: osic-pulmonary-fibrosis-progression_P2_seed4.py
+FAILED parsing: cassava-leaf-disease-classification_P1_seed2.py
+Processed: icecube-neutrinos-in-deep-ice_P3_seed1.py | Smells: 12
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P3_seed1.py
+Processed: random-acts-of-pizza_P2_seed3.py | Smells: 4
+Processed: vesuvius-challenge-ink-detection_P1_seed2.py | Smells: 5
+Processed: tabular-playground-series-dec-2021_P4_seed4.py | Smells: 6
+Processed: iwildcam-2019-fgvc6_P3_seed1.py | Smells: 7
+Processed: freesound-audio-tagging-2019_P1_seed3.py | Smells: 8
+Processed: nfl-player-contact-detection_P3_seed2.py | Smells: 4
+Processed: aptos2019-blindness-detection_P1_seed2.py | Smells: 5
+Processed: cdiscount-image-classification-challenge_P3_seed2.py | Smells: 4
+FAILED parsing: imet-2020-fgvc7_P4_seed3.py
+FAILED parsing: tweet-sentiment-extraction_P3_seed1.py
+FAILED parsing: google-research-identify-contrails-reduce-global-warming_P2_seed4.py
+FAILED parsing: billion-word-imputation_P4_seed2.py
+FAILED parsing: us-patent-phrase-to-phrase-matching_P4_seed2.py
+Processed: bms-molecular-translation_P3_seed3.py | Smells: 4
+Processed: stanford-covid-vaccine_P2_seed1.py | Smells: 5
+Processed: ml2021spring-hw2_P2_seed2.py | Smells: 3
+Processed: playground-series-s3e18_P3_seed2.py | Smells: 6
+FAILED parsing: us-patent-phrase-to-phrase-matching_P2_seed0.py
+FAILED parsing: plant-seedlings-classification_P2_seed0.py
+FAILED parsing: detecting-insults-in-social-commentary_P4_seed1.py
+FAILED parsing: osic-pulmonary-fibrosis-progression_P1_seed0.py
+FAILED parsing: lmsys-chatbot-arena_P1_seed0.py
+FAILED parsing: 3d-object-detection-for-autonomous-vehicles_P4_seed3.py
+FAILED parsing: petfinder-pawpularity-score_P1_seed0.py
+Processed: tgs-salt-identification-challenge_P3_seed4.py | Smells: 0
+Processed: google-research-identify-contrails-reduce-global-warming_P1_seed1.py | Smells: 0
+Processed: dogs-vs-cats-redux-kernels-edition_P3_seed1.py | Smells: 11
+FAILED parsing: invasive-species-monitoring_P2_seed3.py
+Processed: hotel-id-2021-fgvc8_P2_seed0.py | Smells: 12
+FAILED parsing: iwildcam-2019-fgvc6_P4_seed1.py
+FAILED parsing: tensorflow2-question-answering_P4_seed0.py
+Processed: paddy-disease-classification_P2_seed3.py | Smells: 5
+FAILED parsing: detecting-insults-in-social-commentary_P1_seed1.py
+Processed: chaii-hindi-and-tamil-question-answering_P3_seed0.py | Smells: 0
+Processed: nomad2018-predict-transparent-conductors_P3_seed2.py | Smells: 6
+FAILED parsing: statoil-iceberg-classifier-challenge_P4_seed0.py
+FAILED parsing: siim-isic-melanoma-classification_P1_seed0.py
+Processed: herbarium-2022-fgvc9_P3_seed1.py | Smells: 1
+FAILED parsing: AI4Code_P2_seed2.py
+Processed: herbarium-2020-fgvc7_P4_seed4.py | Smells: 6
+Processed: random-acts-of-pizza_P1_seed2.py | Smells: 4
+Processed: iwildcam-2019-fgvc6_P2_seed1.py | Smells: 3
+Processed: plant-seedlings-classification_P1_seed3.py | Smells: 0
+FAILED parsing: jigsaw-toxic-comment-classification-challenge_P4_seed0.py
+Processed: aerial-cactus-identification_P2_seed2.py | Smells: 4
+Processed: ranzcr-clip-catheter-line-classification_P3_seed0.py | Smells: 0
+Processed: cdiscount-image-classification-challenge_P1_seed3.py | Smells: 4
+FAILED parsing: iwildcam-2019-fgvc6_P2_seed2.py
+Processed: tabular-playground-series-dec-2021_P1_seed3.py | Smells: 13
+Processed: the-icml-2013-whale-challenge-right-whale-redux_P3_seed0.py | Smells: 6
+Processed: rsna-breast-cancer-detection_P3_seed3.py | Smells: 11
+FAILED parsing: tensorflow-speech-recognition-challenge_P1_seed2.py
+FAILED parsing: siim-isic-melanoma-classification_P4_seed2.py
+Processed: statoil-iceberg-classifier-challenge_P3_seed3.py | Smells: 7
+FAILED parsing: vinbigdata-chest-xray-abnormalities-detection_P4_seed0.py
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P2_seed4.py
+FAILED parsing: iwildcam-2020-fgvc7_P1_seed0.py
+Processed: champs-scalar-coupling_P2_seed2.py | Smells: 5
+FAILED parsing: tabular-playground-series-may-2022_P2_seed2.py
+Processed: imet-2020-fgvc7_P3_seed3.py | Smells: 5
+FAILED parsing: aptos2019-blindness-detection_P4_seed2.py
+FAILED parsing: random-acts-of-pizza_P3_seed1.py
+Processed: tensorflow2-question-answering_P1_seed2.py | Smells: 10
+FAILED parsing: facebook-recruiting-iii-keyword-extraction_P1_seed0.py
+FAILED parsing: smartphone-decimeter-2022_P4_seed3.py
+FAILED parsing: herbarium-2020-fgvc7_P2_seed0.py
+FAILED parsing: kuzushiji-recognition_P2_seed3.py
+Processed: google-research-identify-contrails-reduce-global-warming_P1_seed2.py | Smells: 6
+Processed: facebook-recruiting-iii-keyword-extraction_P3_seed2.py | Smells: 8
+Processed: rsna-miccai-brain-tumor-radiogenomic-classification_P4_seed4.py | Smells: 6
+Processed: chaii-hindi-and-tamil-question-answering_P3_seed3.py | Smells: 0
+Processed: smartphone-decimeter-2022_P2_seed3.py | Smells: 2
+FAILED parsing: aerial-cactus-identification_P1_seed4.py
+Processed: invasive-species-monitoring_P2_seed2.py | Smells: 0
+Processed: text-normalization-challenge-russian-language_P1_seed2.py | Smells: 8
+FAILED parsing: text-normalization-challenge-english-language_P1_seed2.py
+Processed: text-normalization-challenge-russian-language_P1_seed1.py | Smells: 19
+FAILED parsing: imet-2020-fgvc7_P4_seed1.py
+Processed: lmsys-chatbot-arena_P3_seed0.py | Smells: 12
+Processed: h-and-m-personalized-fashion-recommendations_P2_seed3.py | Smells: 5
+FAILED parsing: herbarium-2021-fgvc8_P4_seed2.py
+FAILED parsing: vesuvius-challenge-ink-detection_P2_seed3.py
+Processed: new-york-city-taxi-fare-prediction_P3_seed2.py | Smells: 3
+Processed: rsna-miccai-brain-tumor-radiogenomic-classification_P2_seed3.py | Smells: 0
+Processed: paddy-disease-classification_P3_seed2.py | Smells: 5
+Processed: billion-word-imputation_P3_seed0.py | Smells: 3
+FAILED parsing: iwildcam-2020-fgvc7_P4_seed2.py
+Processed: h-and-m-personalized-fashion-recommendations_P3_seed0.py | Smells: 8
+Processed: leaf-classification_P2_seed0.py | Smells: 16
+Processed: tensorflow2-question-answering_P3_seed3.py | Smells: 7
+FAILED parsing: text-normalization-challenge-english-language_P3_seed1.py
+Processed: chaii-hindi-and-tamil-question-answering_P1_seed4.py | Smells: 13
+Processed: text-normalization-challenge-russian-language_P3_seed0.py | Smells: 0
+Processed: hms-harmful-brain-activity-classification_P1_seed0.py | Smells: 6
+Processed: paddy-disease-classification_P2_seed2.py | Smells: 2
+FAILED parsing: paddy-disease-classification_P4_seed3.py
+Processed: tensorflow-speech-recognition-challenge_P3_seed4.py | Smells: 14
+Processed: freesound-audio-tagging-2019_P1_seed2.py | Smells: 16
+FAILED parsing: kuzushiji-recognition_P4_seed3.py
+FAILED parsing: plant-seedlings-classification_P4_seed3.py
+Processed: freesound-audio-tagging-2019_P2_seed0.py | Smells: 18
+FAILED parsing: learning-agency-lab-automated-essay-scoring-2_P4_seed2.py
+FAILED parsing: aerial-cactus-identification_P2_seed4.py
+Processed: plant-seedlings-classification_P2_seed3.py | Smells: 4
+Processed: spaceship-titanic_P2_seed1.py | Smells: 4
+Processed: siim-isic-melanoma-classification_P4_seed4.py | Smells: 6
+Processed: lmsys-chatbot-arena_P2_seed2.py | Smells: 3
+Processed: spaceship-titanic_P2_seed4.py | Smells: 4
+Processed: google-quest-challenge_P3_seed1.py | Smells: 6
+Processed: smartphone-decimeter-2022_P1_seed1.py | Smells: 20
+FAILED parsing: iwildcam-2019-fgvc6_P2_seed3.py
+FAILED parsing: jigsaw-toxic-comment-classification-challenge_P2_seed1.py
+Processed: tgs-salt-identification-challenge_P2_seed0.py | Smells: 4
+Processed: denoising-dirty-documents_P3_seed1.py | Smells: 6
+Processed: hms-harmful-brain-activity-classification_P3_seed4.py | Smells: 2
+Processed: plant-seedlings-classification_P3_seed3.py | Smells: 4
+Processed: mlsp-2013-birds_P3_seed2.py | Smells: 2
+FAILED parsing: text-normalization-challenge-english-language_P2_seed4.py
+Processed: tabular-playground-series-may-2022_P3_seed3.py | Smells: 5
+FAILED parsing: mlsp-2013-birds_P4_seed3.py
+Processed: rsna-2022-cervical-spine-fracture-detection_P1_seed3.py | Smells: 17
+Processed: nomad2018-predict-transparent-conductors_P4_seed4.py | Smells: 6
+FAILED parsing: icecube-neutrinos-in-deep-ice_P1_seed4.py
+Processed: playground-series-s3e18_P2_seed1.py | Smells: 0
+FAILED parsing: tgs-salt-identification-challenge_P2_seed1.py
+Processed: uw-madison-gi-tract-image-segmentation_P4_seed4.py | Smells: 6
+FAILED parsing: iwildcam-2020-fgvc7_P4_seed0.py
+Processed: petfinder-pawpularity-score_P2_seed2.py | Smells: 6
+Processed: leaf-classification_P2_seed1.py | Smells: 3
+FAILED parsing: denoising-dirty-documents_P4_seed2.py
+FAILED parsing: freesound-audio-tagging-2019_P4_seed1.py
+FAILED parsing: iwildcam-2020-fgvc7_P2_seed1.py
+Processed: bms-molecular-translation_P1_seed1.py | Smells: 2
+Processed: learning-agency-lab-automated-essay-scoring-2_P1_seed1.py | Smells: 4
+Processed: the-icml-2013-whale-challenge-right-whale-redux_P1_seed1.py | Smells: 2
+Processed: histopathologic-cancer-detection_P2_seed3.py | Smells: 3
+Processed: rsna-breast-cancer-detection_P4_seed4.py | Smells: 6
+FAILED parsing: plant-pathology-2021-fgvc8_P2_seed2.py
+FAILED parsing: inaturalist-2019-fgvc6_P2_seed0.py
+Processed: alaska2-image-steganalysis_P3_seed2.py | Smells: 3
+FAILED parsing: google-quest-challenge_P1_seed0.py
+Processed: lmsys-chatbot-arena_P2_seed3.py | Smells: 4
+Processed: new-york-city-taxi-fare-prediction_P1_seed4.py | Smells: 7
+Processed: google-quest-challenge_P3_seed3.py | Smells: 4
+FAILED parsing: chaii-hindi-and-tamil-question-answering_P4_seed1.py
+FAILED parsing: new-york-city-taxi-fare-prediction_P2_seed4.py
+Processed: dogs-vs-cats-redux-kernels-edition_P2_seed1.py | Smells: 12
+FAILED parsing: 3d-object-detection-for-autonomous-vehicles_P4_seed2.py
+Processed: leaf-classification_P1_seed1.py | Smells: 6
+FAILED parsing: jigsaw-unintended-bias-in-toxicity-classification_P1_seed0.py
+Processed: leaf-classification_P2_seed2.py | Smells: 0
+FAILED parsing: rsna-breast-cancer-detection_P3_seed4.py
+FAILED parsing: rsna-2022-cervical-spine-fracture-detection_P4_seed1.py
+FAILED parsing: aptos2019-blindness-detection_P4_seed0.py
+FAILED parsing: vinbigdata-chest-xray-abnormalities-detection_P1_seed4.py
+FAILED parsing: plant-pathology-2020-fgvc7_P2_seed3.py
+FAILED parsing: iwildcam-2019-fgvc6_P4_seed0.py
+FAILED parsing: text-normalization-challenge-russian-language_P2_seed4.py
+Processed: rsna-2022-cervical-spine-fracture-detection_P4_seed4.py | Smells: 6
+FAILED parsing: cassava-leaf-disease-classification_P4_seed3.py
+Processed: tensorflow2-question-answering_P3_seed2.py | Smells: 8
+Processed: ventilator-pressure-prediction_P3_seed3.py | Smells: 7
+FAILED parsing: champs-scalar-coupling_P4_seed0.py
+FAILED parsing: siim-covid19-detection_P4_seed2.py
+FAILED parsing: tensorflow-speech-recognition-challenge_P1_seed0.py
+FAILED parsing: inaturalist-2019-fgvc6_P4_seed3.py
+FAILED parsing: plant-pathology-2021-fgvc8_P4_seed3.py
+Processed: paddy-disease-classification_P1_seed2.py | Smells: 6
+Processed: hms-harmful-brain-activity-classification_P2_seed2.py | Smells: 0
+Processed: cassava-leaf-disease-classification_P3_seed3.py | Smells: 8
+Processed: vinbigdata-chest-xray-abnormalities-detection_P1_seed2.py | Smells: 4
+FAILED parsing: tabular-playground-series-may-2022_P4_seed1.py
+Processed: herbarium-2021-fgvc8_P2_seed3.py | Smells: 22
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P2_seed3.py
+FAILED parsing: h-and-m-personalized-fashion-recommendations_P4_seed1.py
+Processed: AI4Code_P1_seed3.py | Smells: 7
+FAILED parsing: learning-agency-lab-automated-essay-scoring-2_P1_seed4.py
+Processed: imet-2020-fgvc7_P3_seed2.py | Smells: 8
+FAILED parsing: hubmap-kidney-segmentation_P2_seed2.py
+Processed: AI4Code_P2_seed0.py | Smells: 3
+FAILED parsing: random-acts-of-pizza_P4_seed3.py
+Processed: multi-modal-gesture-recognition_P4_seed4.py | Smells: 6
+FAILED parsing: ranzcr-clip-catheter-line-classification_P4_seed1.py
+Processed: hms-harmful-brain-activity-classification_P3_seed2.py | Smells: 8
+Processed: tensorflow2-question-answering_P2_seed3.py | Smells: 12
+Processed: cdiscount-image-classification-challenge_P2_seed1.py | Smells: 10
+Processed: billion-word-imputation_P3_seed4.py | Smells: 10
+Processed: google-quest-challenge_P3_seed2.py | Smells: 0
+FAILED parsing: learning-agency-lab-automated-essay-scoring-2_P4_seed3.py
+FAILED parsing: h-and-m-personalized-fashion-recommendations_P2_seed1.py
+Processed: uw-madison-gi-tract-image-segmentation_P1_seed2.py | Smells: 2
+Processed: herbarium-2022-fgvc9_P2_seed0.py | Smells: 8
+Processed: tweet-sentiment-extraction_P2_seed3.py | Smells: 3
+FAILED parsing: iwildcam-2019-fgvc6_P2_seed0.py
+FAILED parsing: tensorflow2-question-answering_P1_seed4.py
+FAILED parsing: nomad2018-predict-transparent-conductors_P1_seed4.py
+FAILED parsing: jigsaw-toxic-comment-classification-challenge_P1_seed1.py
+FAILED parsing: herbarium-2020-fgvc7_P4_seed1.py
+Processed: plant-seedlings-classification_P2_seed2.py | Smells: 8
+Processed: google-research-identify-contrails-reduce-global-warming_P2_seed3.py | Smells: 11
+Processed: denoising-dirty-documents_P1_seed1.py | Smells: 1
+Processed: plant-seedlings-classification_P1_seed1.py | Smells: 4
+FAILED parsing: imet-2020-fgvc7_P2_seed4.py
+FAILED parsing: petfinder-pawpularity-score_P4_seed2.py
+Processed: inaturalist-2019-fgvc6_P1_seed4.py | Smells: 9
+Processed: vesuvius-challenge-ink-detection_P3_seed3.py | Smells: 4
+Processed: stanford-covid-vaccine_P3_seed0.py | Smells: 5
+Processed: new-york-city-taxi-fare-prediction_P3_seed4.py | Smells: 3
+Processed: plant-pathology-2020-fgvc7_P1_seed2.py | Smells: 2
+FAILED parsing: google-quest-challenge_P2_seed1.py
+FAILED parsing: cassava-leaf-disease-classification_P2_seed4.py
+FAILED parsing: smartphone-decimeter-2022_P1_seed3.py
+Processed: mlsp-2013-birds_P2_seed2.py | Smells: 29
+Processed: tensorflow-speech-recognition-challenge_P3_seed0.py | Smells: 0
+Processed: us-patent-phrase-to-phrase-matching_P2_seed2.py | Smells: 6
+FAILED parsing: siim-covid19-detection_P4_seed0.py
+Processed: spooky-author-identification_P1_seed2.py | Smells: 3
+Processed: inaturalist-2019-fgvc6_P1_seed0.py | Smells: 0
+Processed: spooky-author-identification_P3_seed2.py | Smells: 0
+FAILED parsing: us-patent-phrase-to-phrase-matching_P1_seed4.py
+FAILED parsing: plant-pathology-2021-fgvc8_P1_seed1.py
+Processed: hms-harmful-brain-activity-classification_P1_seed3.py | Smells: 2
+FAILED parsing: playground-series-s3e18_P4_seed2.py
+FAILED parsing: aptos2019-blindness-detection_P2_seed1.py
+Processed: us-patent-phrase-to-phrase-matching_P1_seed1.py | Smells: 5
+Processed: invasive-species-monitoring_P2_seed4.py | Smells: 3
+FAILED parsing: iwildcam-2019-fgvc6_P3_seed4.py
+Processed: cdiscount-image-classification-challenge_P4_seed4.py | Smells: 6
+Processed: learning-agency-lab-automated-essay-scoring-2_P3_seed0.py | Smells: 8
+FAILED parsing: tabular-playground-series-may-2022_P2_seed3.py
+Processed: spooky-author-identification_P2_seed2.py | Smells: 5
+FAILED parsing: ventilator-pressure-prediction_P1_seed1.py
+Processed: us-patent-phrase-to-phrase-matching_P4_seed4.py | Smells: 6
+Processed: hotel-id-2021-fgvc8_P1_seed2.py | Smells: 4
+FAILED parsing: hotel-id-2021-fgvc8_P2_seed1.py
+Processed: herbarium-2020-fgvc7_P1_seed3.py | Smells: 14
+Processed: text-normalization-challenge-english-language_P1_seed4.py | Smells: 5
+Processed: histopathologic-cancer-detection_P1_seed2.py | Smells: 3
+Processed: seti-breakthrough-listen_P1_seed1.py | Smells: 8
+Processed: whale-categorization-playground_P3_seed0.py | Smells: 0
+Processed: herbarium-2022-fgvc9_P1_seed0.py | Smells: 14
+FAILED parsing: mlsp-2013-birds_P4_seed1.py
+Processed: h-and-m-personalized-fashion-recommendations_P3_seed1.py | Smells: 7
+FAILED parsing: new-york-city-taxi-fare-prediction_P4_seed1.py
+FAILED parsing: iwildcam-2020-fgvc7_P4_seed3.py
+Processed: text-normalization-challenge-russian-language_P3_seed3.py | Smells: 0
+Processed: hms-harmful-brain-activity-classification_P1_seed4.py | Smells: 5
+FAILED parsing: iwildcam-2020-fgvc7_P3_seed4.py
+Processed: dog-breed-identification_P3_seed0.py | Smells: 0
+FAILED parsing: vinbigdata-chest-xray-abnormalities-detection_P2_seed4.py
+Processed: billion-word-imputation_P3_seed2.py | Smells: 4
+FAILED parsing: alaska2-image-steganalysis_P4_seed3.py
+FAILED parsing: hotel-id-2021-fgvc8_P1_seed4.py
+Processed: random-acts-of-pizza_P3_seed0.py | Smells: 4
+Processed: playground-series-s3e18_P3_seed0.py | Smells: 0
+Processed: movie-review-sentiment-analysis-kernels-only_P1_seed0.py | Smells: 3
+FAILED parsing: multi-modal-gesture-recognition_P4_seed3.py
+FAILED parsing: paddy-disease-classification_P4_seed0.py
+Processed: ranzcr-clip-catheter-line-classification_P1_seed2.py | Smells: 3
+Processed: plant-pathology-2021-fgvc8_P1_seed0.py | Smells: 2
+Processed: denoising-dirty-documents_P3_seed3.py | Smells: 11
+FAILED parsing: ventilator-pressure-prediction_P2_seed4.py
+Processed: kuzushiji-recognition_P2_seed4.py | Smells: 5
+FAILED parsing: ventilator-pressure-prediction_P1_seed4.py
+Processed: herbarium-2022-fgvc9_P2_seed2.py | Smells: 0
+FAILED parsing: lmsys-chatbot-arena_P4_seed1.py
+Processed: rsna-miccai-brain-tumor-radiogenomic-classification_P1_seed0.py | Smells: 4
+Processed: denoising-dirty-documents_P1_seed0.py | Smells: 7
+Processed: text-normalization-challenge-english-language_P2_seed3.py | Smells: 0
+Processed: tensorflow-speech-recognition-challenge_P2_seed1.py | Smells: 7
+Processed: facebook-recruiting-iii-keyword-extraction_P3_seed3.py | Smells: 4
+FAILED parsing: herbarium-2021-fgvc8_P1_seed0.py
+Processed: hubmap-kidney-segmentation_P3_seed0.py | Smells: 10
+FAILED parsing: facebook-recruiting-iii-keyword-extraction_P1_seed4.py
+FAILED parsing: plant-pathology-2020-fgvc7_P2_seed1.py
+Processed: smartphone-decimeter-2022_P2_seed1.py | Smells: 2
+FAILED parsing: lmsys-chatbot-arena_P2_seed0.py
+FAILED parsing: champs-scalar-coupling_P4_seed1.py
+FAILED parsing: cdiscount-image-classification-challenge_P4_seed2.py
+Processed: tensorflow-speech-recognition-challenge_P3_seed1.py | Smells: 18
+FAILED parsing: AI4Code_P3_seed1.py
+Processed: tweet-sentiment-extraction_P1_seed1.py | Smells: 5
+Processed: vinbigdata-chest-xray-abnormalities-detection_P2_seed1.py | Smells: 12
+Processed: chaii-hindi-and-tamil-question-answering_P2_seed3.py | Smells: 7
+Processed: imet-2020-fgvc7_P2_seed2.py | Smells: 4
+FAILED parsing: champs-scalar-coupling_P4_seed3.py
+FAILED parsing: alaska2-image-steganalysis_P1_seed2.py
+FAILED parsing: hms-harmful-brain-activity-classification_P4_seed3.py
+Processed: new-york-city-taxi-fare-prediction_P1_seed1.py | Smells: 4
+Processed: herbarium-2021-fgvc8_P4_seed4.py | Smells: 6
+FAILED parsing: google-quest-challenge_P3_seed4.py
+Processed: freesound-audio-tagging-2019_P2_seed4.py | Smells: 11
+FAILED parsing: plant-pathology-2020-fgvc7_P2_seed4.py
+Processed: rsna-miccai-brain-tumor-radiogenomic-classification_P2_seed0.py | Smells: 6
+FAILED parsing: hotel-id-2021-fgvc8_P4_seed1.py
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P1_seed4.py
+FAILED parsing: stanford-covid-vaccine_P1_seed4.py
+FAILED parsing: h-and-m-personalized-fashion-recommendations_P4_seed3.py
+FAILED parsing: tensorflow2-question-answering_P1_seed0.py
+Processed: ventilator-pressure-prediction_P1_seed2.py | Smells: 9
+FAILED parsing: siim-isic-melanoma-classification_P1_seed2.py
+Processed: inaturalist-2019-fgvc6_P3_seed2.py | Smells: 8
+Processed: histopathologic-cancer-detection_P3_seed0.py | Smells: 3
+Processed: iwildcam-2019-fgvc6_P4_seed4.py | Smells: 6
+FAILED parsing: tgs-salt-identification-challenge_P1_seed0.py
+Processed: the-icml-2013-whale-challenge-right-whale-redux_P3_seed3.py | Smells: 0
+FAILED parsing: spaceship-titanic_P4_seed3.py
+FAILED parsing: ventilator-pressure-prediction_P4_seed3.py
+FAILED parsing: spaceship-titanic_P3_seed1.py
+Processed: histopathologic-cancer-detection_P4_seed4.py | Smells: 6
+Processed: champs-scalar-coupling_P1_seed2.py | Smells: 0
+FAILED parsing: plant-pathology-2020-fgvc7_P1_seed0.py
+Processed: ventilator-pressure-prediction_P3_seed0.py | Smells: 8
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P1_seed1.py
+FAILED parsing: icecube-neutrinos-in-deep-ice_P4_seed1.py
+Processed: alaska2-image-steganalysis_P3_seed1.py | Smells: 9
+FAILED parsing: vesuvius-challenge-ink-detection_P4_seed1.py
+Processed: histopathologic-cancer-detection_P2_seed0.py | Smells: 5
+Processed: h-and-m-personalized-fashion-recommendations_P3_seed3.py | Smells: 2
+Processed: rsna-breast-cancer-detection_P3_seed1.py | Smells: 5
+FAILED parsing: freesound-audio-tagging-2019_P1_seed4.py
+FAILED parsing: billion-word-imputation_P4_seed1.py
+FAILED parsing: rsna-breast-cancer-detection_P2_seed4.py
+FAILED parsing: histopathologic-cancer-detection_P2_seed1.py
+Processed: new-york-city-taxi-fare-prediction_P2_seed2.py | Smells: 3
+FAILED parsing: tabular-playground-series-may-2022_P3_seed4.py
+Processed: herbarium-2020-fgvc7_P3_seed2.py | Smells: 6
+Processed: rsna-2022-cervical-spine-fracture-detection_P3_seed3.py | Smells: 4
+FAILED parsing: tgs-salt-identification-challenge_P1_seed1.py
+FAILED parsing: plant-pathology-2021-fgvc8_P2_seed4.py
+Processed: plant-pathology-2020-fgvc7_P2_seed0.py | Smells: 2
+FAILED parsing: multi-modal-gesture-recognition_P2_seed3.py
+Processed: rsna-2022-cervical-spine-fracture-detection_P1_seed1.py | Smells: 11
+Processed: rsna-2022-cervical-spine-fracture-detection_P2_seed2.py | Smells: 0
+FAILED parsing: billion-word-imputation_P2_seed4.py
+Processed: whale-categorization-playground_P2_seed2.py | Smells: 13
+Processed: herbarium-2021-fgvc8_P1_seed4.py | Smells: 9
+FAILED parsing: mlsp-2013-birds_P1_seed2.py
+Processed: tabular-playground-series-dec-2021_P2_seed2.py | Smells: 8
+Processed: vinbigdata-chest-xray-abnormalities-detection_P3_seed2.py | Smells: 8
+Processed: inaturalist-2019-fgvc6_P3_seed3.py | Smells: 6
+FAILED parsing: hubmap-kidney-segmentation_P4_seed3.py
+Processed: mlsp-2013-birds_P1_seed0.py | Smells: 3
+FAILED parsing: multi-modal-gesture-recognition_P3_seed2.py
+FAILED parsing: vesuvius-challenge-ink-detection_P3_seed1.py
+Processed: aerial-cactus-identification_P3_seed2.py | Smells: 4
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P2_seed3.py
+Processed: freesound-audio-tagging-2019_P3_seed3.py | Smells: 4
+FAILED parsing: jigsaw-unintended-bias-in-toxicity-classification_P1_seed1.py
+Processed: denoising-dirty-documents_P1_seed2.py | Smells: 17
+Processed: plant-pathology-2021-fgvc8_P2_seed1.py | Smells: 2
+FAILED parsing: iwildcam-2020-fgvc7_P2_seed0.py
+FAILED parsing: herbarium-2021-fgvc8_P2_seed0.py
+FAILED parsing: smartphone-decimeter-2022_P4_seed2.py
+FAILED parsing: vesuvius-challenge-ink-detection_P1_seed3.py
+FAILED parsing: vesuvius-challenge-ink-detection_P4_seed0.py
+Processed: spaceship-titanic_P1_seed2.py | Smells: 3
+Processed: text-normalization-challenge-english-language_P2_seed0.py | Smells: 2
+Processed: siim-covid19-detection_P1_seed0.py | Smells: 4
+Processed: dog-breed-identification_P2_seed1.py | Smells: 8
+FAILED parsing: jigsaw-toxic-comment-classification-challenge_P2_seed0.py
+FAILED parsing: inaturalist-2019-fgvc6_P4_seed2.py
+Processed: nomad2018-predict-transparent-conductors_P2_seed4.py | Smells: 3
+Processed: text-normalization-challenge-english-language_P3_seed2.py | Smells: 6
+Processed: leaf-classification_P3_seed1.py | Smells: 8
+Processed: freesound-audio-tagging-2019_P2_seed3.py | Smells: 9
+Processed: histopathologic-cancer-detection_P3_seed1.py | Smells: 12
+Processed: nomad2018-predict-transparent-conductors_P3_seed4.py | Smells: 17
+FAILED parsing: h-and-m-personalized-fashion-recommendations_P1_seed4.py
+Processed: tensorflow-speech-recognition-challenge_P2_seed3.py | Smells: 8
+FAILED parsing: ventilator-pressure-prediction_P2_seed3.py
+Processed: rsna-breast-cancer-detection_P1_seed1.py | Smells: 5
+FAILED parsing: hotel-id-2021-fgvc8_P2_seed3.py
+Processed: stanford-covid-vaccine_P2_seed0.py | Smells: 6
+Processed: spooky-author-identification_P3_seed0.py | Smells: 6
+Processed: movie-review-sentiment-analysis-kernels-only_P3_seed1.py | Smells: 3
+Processed: histopathologic-cancer-detection_P1_seed0.py | Smells: 5
+Processed: inaturalist-2019-fgvc6_P4_seed4.py | Smells: 6
+FAILED parsing: stanford-covid-vaccine_P4_seed2.py
+Processed: jigsaw-toxic-comment-classification-challenge_P3_seed1.py | Smells: 7
+FAILED parsing: imet-2020-fgvc7_P4_seed0.py
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P2_seed2.py
+Processed: plant-pathology-2021-fgvc8_P1_seed4.py | Smells: 8
+FAILED parsing: text-normalization-challenge-english-language_P4_seed3.py
+FAILED parsing: hubmap-kidney-segmentation_P4_seed0.py
+FAILED parsing: bms-molecular-translation_P3_seed2.py
+Processed: jigsaw-toxic-comment-classification-challenge_P3_seed0.py | Smells: 3
+Processed: ml2021spring-hw2_P2_seed1.py | Smells: 7
+FAILED parsing: whale-categorization-playground_P1_seed0.py
+Processed: mlsp-2013-birds_P1_seed4.py | Smells: 0
+FAILED parsing: aptos2019-blindness-detection_P2_seed4.py
+Processed: cdiscount-image-classification-challenge_P2_seed3.py | Smells: 10
+Processed: us-patent-phrase-to-phrase-matching_P3_seed0.py | Smells: 5
+FAILED parsing: statoil-iceberg-classifier-challenge_P2_seed4.py
+Processed: kuzushiji-recognition_P4_seed4.py | Smells: 6
+Processed: vesuvius-challenge-ink-detection_P1_seed4.py | Smells: 0
+Processed: ranzcr-clip-catheter-line-classification_P3_seed1.py | Smells: 5
+FAILED parsing: google-quest-challenge_P4_seed1.py
+FAILED parsing: stanford-covid-vaccine_P4_seed0.py
+FAILED parsing: aptos2019-blindness-detection_P1_seed4.py
+FAILED parsing: seti-breakthrough-listen_P4_seed3.py
+Processed: tweet-sentiment-extraction_P3_seed4.py | Smells: 0
+Processed: invasive-species-monitoring_P3_seed4.py | Smells: 0
+Processed: whale-categorization-playground_P1_seed2.py | Smells: 2
+Processed: google-quest-challenge_P2_seed3.py | Smells: 3
+FAILED parsing: AI4Code_P4_seed1.py
+Processed: histopathologic-cancer-detection_P3_seed3.py | Smells: 2
+FAILED parsing: cassava-leaf-disease-classification_P2_seed1.py
+Processed: nomad2018-predict-transparent-conductors_P3_seed0.py | Smells: 5
+Processed: dogs-vs-cats-redux-kernels-edition_P2_seed2.py | Smells: 5
+Processed: denoising-dirty-documents_P2_seed4.py | Smells: 8
+FAILED parsing: facebook-recruiting-iii-keyword-extraction_P1_seed1.py
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P2_seed4.py
+Processed: champs-scalar-coupling_P2_seed1.py | Smells: 2
+Processed: nfl-player-contact-detection_P1_seed1.py | Smells: 8
+Processed: rsna-breast-cancer-detection_P2_seed2.py | Smells: 3
+FAILED parsing: cdiscount-image-classification-challenge_P1_seed4.py
+Processed: random-acts-of-pizza_P2_seed2.py | Smells: 5
+FAILED parsing: herbarium-2020-fgvc7_P2_seed3.py
+Processed: ranzcr-clip-catheter-line-classification_P1_seed1.py | Smells: 0
+Processed: kuzushiji-recognition_P3_seed2.py | Smells: 10
+FAILED parsing: dogs-vs-cats-redux-kernels-edition_P4_seed1.py
+Processed: herbarium-2022-fgvc9_P3_seed2.py | Smells: 0
+Processed: whale-categorization-playground_P1_seed3.py | Smells: 8
+FAILED parsing: herbarium-2021-fgvc8_P2_seed4.py
+FAILED parsing: 3d-object-detection-for-autonomous-vehicles_P2_seed1.py
+Processed: rsna-2022-cervical-spine-fracture-detection_P2_seed1.py | Smells: 5
+Processed: seti-breakthrough-listen_P1_seed2.py | Smells: 9
+Processed: tweet-sentiment-extraction_P1_seed2.py | Smells: 8
+FAILED parsing: random-acts-of-pizza_P2_seed1.py
+Processed: ml2021spring-hw2_P1_seed2.py | Smells: 3
+FAILED parsing: google-quest-challenge_P1_seed3.py
+Processed: h-and-m-personalized-fashion-recommendations_P1_seed3.py | Smells: 3
+Processed: ranzcr-clip-catheter-line-classification_P3_seed3.py | Smells: 4
+FAILED parsing: spooky-author-identification_P1_seed1.py
+Processed: paddy-disease-classification_P2_seed0.py | Smells: 3
+Processed: spooky-author-identification_P3_seed1.py | Smells: 5
+FAILED parsing: the-icml-2013-whale-challenge-right-whale-redux_P1_seed2.py
+Processed: facebook-recruiting-iii-keyword-extraction_P3_seed1.py | Smells: 7
+FAILED parsing: text-normalization-challenge-english-language_P4_seed0.py
+Processed: siim-covid19-detection_P2_seed2.py | Smells: 6
+FAILED parsing: herbarium-2022-fgvc9_P2_seed1.py
+FAILED parsing: spaceship-titanic_P4_seed2.py
+Processed: champs-scalar-coupling_P3_seed4.py | Smells: 6
+FAILED parsing: petfinder-pawpularity-score_P1_seed2.py
+FAILED parsing: cdiscount-image-classification-challenge_P1_seed0.py
+FAILED parsing: statoil-iceberg-classifier-challenge_P4_seed1.py
+Processed: inaturalist-2019-fgvc6_P2_seed1.py | Smells: 4
+FAILED parsing: playground-series-s3e18_P4_seed0.py
+Processed: h-and-m-personalized-fashion-recommendations_P2_seed2.py | Smells: 5
+Processed: ranzcr-clip-catheter-line-classification_P1_seed0.py | Smells: 8
+FAILED parsing: vesuvius-challenge-ink-detection_P3_seed4.py
+Processed: hotel-id-2021-fgvc8_P3_seed3.py | Smells: 8
+FAILED parsing: aptos2019-blindness-detection_P2_seed3.py
+Processed: hms-harmful-brain-activity-classification_P3_seed1.py | Smells: 5
+FAILED parsing: leaf-classification_P4_seed0.py
+FAILED parsing: herbarium-2022-fgvc9_P1_seed3.py
+FAILED parsing: tensorflow-speech-recognition-challenge_P4_seed1.py
+Processed: kuzushiji-recognition_P2_seed0.py | Smells: 2
+FAILED parsing: cdiscount-image-classification-challenge_P3_seed4.py
+FAILED parsing: tabular-playground-series-may-2022_P2_seed1.py
+Processed: herbarium-2022-fgvc9_P1_seed4.py | Smells: 0
+Processed: invasive-species-monitoring_P2_seed0.py | Smells: 4
+FAILED parsing: osic-pulmonary-fibrosis-progression_P4_seed3.py
+FAILED parsing: tgs-salt-identification-challenge_P2_seed4.py
+Processed: nomad2018-predict-transparent-conductors_P1_seed0.py | Smells: 13
+FAILED parsing: petfinder-pawpularity-score_P2_seed4.py
+Processed: jigsaw-toxic-comment-classification-challenge_P4_seed4.py | Smells: 6
+FAILED parsing: ranzcr-clip-catheter-line-classification_P4_seed3.py
+Processed: nomad2018-predict-transparent-conductors_P2_seed2.py | Smells: 12
+Processed: predict-volcanic-eruptions-ingv-oe_P3_seed2.py | Smells: 2
+Processed: invasive-species-monitoring_P1_seed3.py | Smells: 2
+Processed: iwildcam-2020-fgvc7_P4_seed4.py | Smells: 6
+Processed: osic-pulmonary-fibrosis-progression_P3_seed2.py | Smells: 5
+FAILED parsing: seti-breakthrough-listen_P4_seed1.py
+Processed: billion-word-imputation_P2_seed2.py | Smells: 0
+FAILED parsing: osic-pulmonary-fibrosis-progression_P1_seed1.py
+Processed: cassava-leaf-disease-classification_P3_seed2.py | Smells: 2
+Processed: google-research-identify-contrails-reduce-global-warming_P3_seed0.py | Smells: 11
+FAILED parsing: cdiscount-image-classification-challenge_P2_seed4.py
+FAILED parsing: chaii-hindi-and-tamil-question-answering_P4_seed3.py
+FAILED parsing: predict-volcanic-eruptions-ingv-oe_P4_seed3.py
+Processed: jigsaw-toxic-comment-classification-challenge_P3_seed3.py | Smells: 5
+Processed: google-quest-challenge_P3_seed0.py | Smells: 8
+Processed: AI4Code_P4_seed4.py | Smells: 6
+Processed: uw-madison-gi-tract-image-segmentation_P2_seed0.py | Smells: 11
+Processed: aerial-cactus-identification_P1_seed2.py | Smells: 18
+Processed: jigsaw-toxic-comment-classification-challenge_P3_seed4.py | Smells: 0
+Processed: plant-seedlings-classification_P3_seed1.py | Smells: 8
+Processed: playground-series-s3e18_P1_seed0.py | Smells: 5
+Processed: lmsys-chatbot-arena_P1_seed1.py | Smells: 2
+FAILED parsing: rsna-breast-cancer-detection_P3_seed0.py
+Processed: rsna-breast-cancer-detection_P2_seed3.py | Smells: 16
+FAILED parsing: herbarium-2022-fgvc9_P4_seed2.py
+FAILED parsing: imet-2020-fgvc7_P1_seed4.py
+Processed: bms-molecular-translation_P1_seed2.py | Smells: 7
+Processed: text-normalization-challenge-english-language_P1_seed1.py | Smells: 8
+FAILED parsing: cassava-leaf-disease-classification_P4_seed1.py
+FAILED parsing: cassava-leaf-disease-classification_P1_seed1.py
+Processed: aptos2019-blindness-detection_P2_seed2.py | Smells: 0
+Processed: iwildcam-2019-fgvc6_P1_seed2.py | Smells: 6
+FAILED parsing: google-quest-challenge_P2_seed4.py
+Processed: cdiscount-image-classification-challenge_P1_seed2.py | Smells: 6
+Processed: cdiscount-image-classification-challenge_P2_seed0.py | Smells: 6
+FAILED parsing: nfl-player-contact-detection_P2_seed3.py
+Processed: detecting-insults-in-social-commentary_P1_seed4.py | Smells: 5
+Processed: facebook-recruiting-iii-keyword-extraction_P2_seed0.py | Smells: 3
+FAILED parsing: histopathologic-cancer-detection_P2_seed4.py
+FAILED parsing: aerial-cactus-identification_P4_seed2.py
+FAILED parsing: google-quest-challenge_P4_seed2.py
+Processed: playground-series-s3e18_P3_seed3.py | Smells: 6
+Processed: ml2021spring-hw2_P1_seed3.py | Smells: 0
+Processed: google-research-identify-contrails-reduce-global-warming_P2_seed0.py | Smells: 10
+FAILED parsing: AI4Code_P1_seed1.py
+Processed: movie-review-sentiment-analysis-kernels-only_P2_seed3.py | Smells: 7
+FAILED parsing: stanford-covid-vaccine_P1_seed0.py
+FAILED parsing: smartphone-decimeter-2022_P1_seed0.py
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P3_seed4.py
+Processed: siim-covid19-detection_P2_seed1.py | Smells: 0
+Processed: icecube-neutrinos-in-deep-ice_P2_seed0.py | Smells: 0
+FAILED parsing: movie-review-sentiment-analysis-kernels-only_P4_seed2.py
+FAILED parsing: learning-agency-lab-automated-essay-scoring-2_P4_seed0.py
+FAILED parsing: iwildcam-2019-fgvc6_P1_seed4.py
+FAILED parsing: ranzcr-clip-catheter-line-classification_P1_seed4.py
+Processed: multi-modal-gesture-recognition_P3_seed4.py | Smells: 9
+FAILED parsing: lmsys-chatbot-arena_P1_seed2.py
+Processed: AI4Code_P2_seed3.py | Smells: 7
+Processed: siim-covid19-detection_P3_seed4.py | Smells: 0
+Processed: tensorflow2-question-answering_P1_seed1.py | Smells: 3
+Processed: statoil-iceberg-classifier-challenge_P1_seed0.py | Smells: 9
+Processed: champs-scalar-coupling_P3_seed3.py | Smells: 3
+Processed: freesound-audio-tagging-2019_P3_seed1.py | Smells: 10
+Processed: playground-series-s3e18_P4_seed4.py | Smells: 6
+Processed: icecube-neutrinos-in-deep-ice_P3_seed2.py | Smells: 5
+Processed: ml2021spring-hw2_P1_seed0.py | Smells: 7
+FAILED parsing: herbarium-2020-fgvc7_P2_seed4.py
+Processed: aptos2019-blindness-detection_P1_seed1.py | Smells: 4
+FAILED parsing: paddy-disease-classification_P1_seed3.py
+FAILED parsing: playground-series-s3e18_P1_seed1.py
+Processed: siim-isic-melanoma-classification_P3_seed2.py | Smells: 2
+Processed: predict-volcanic-eruptions-ingv-oe_P3_seed3.py | Smells: 2
+FAILED parsing: jigsaw-unintended-bias-in-toxicity-classification_P2_seed4.py
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P2_seed1.py
+Processed: playground-series-s3e18_P3_seed1.py | Smells: 8
+Processed: facebook-recruiting-iii-keyword-extraction_P3_seed0.py | Smells: 9
+Processed: herbarium-2021-fgvc8_P3_seed1.py | Smells: 7
+Processed: ml2021spring-hw2_P1_seed1.py | Smells: 10
+FAILED parsing: vesuvius-challenge-ink-detection_P1_seed0.py
+FAILED parsing: siim-covid19-detection_P2_seed3.py
+Processed: plant-seedlings-classification_P3_seed0.py | Smells: 2
+Processed: mlsp-2013-birds_P3_seed3.py | Smells: 5
+FAILED parsing: uw-madison-gi-tract-image-segmentation_P1_seed0.py
+FAILED parsing: spooky-author-identification_P2_seed1.py
+Processed: ventilator-pressure-prediction_P2_seed1.py | Smells: 5
+Processed: rsna-breast-cancer-detection_P3_seed2.py | Smells: 6
+FAILED parsing: iwildcam-2020-fgvc7_P1_seed4.py
+Processed: text-normalization-challenge-english-language_P4_seed4.py | Smells: 6
+Processed: imet-2020-fgvc7_P2_seed1.py | Smells: 2
+FAILED parsing: us-patent-phrase-to-phrase-matching_P2_seed4.py
+FAILED parsing: icecube-neutrinos-in-deep-ice_P4_seed0.py
+Processed: herbarium-2020-fgvc7_P3_seed0.py | Smells: 10

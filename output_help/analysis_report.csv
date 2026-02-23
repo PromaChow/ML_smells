@@ -1,0 +1,11 @@
+Framework,Smell/Checker Name,How to Fix,Benefits,File Path,Location,Count
+PyTorch,Deterministic Algorithm Usage Checker,Enable deterministic algorithms using torch.use_deterministic_algorithms(True).,Ensures consistent results across different hardware and runs.,/Users/promachowdhury/ml_smells/final_fixed.py,,1
+Hugging Face,Model versioning not specified,Specify model version when loading pre-trained models,Ensures consistency and reproducibility of results,/Users/promachowdhury/ml_smells/final_fixed.py,Line 31,1
+Hugging Face,Tokenizer caching not used,Cache tokenizers to avoid re-downloading,Reduces loading time and network dependency,/Users/promachowdhury/ml_smells/final_fixed.py,Line 10,1
+Hugging Face,Model caching not used,Cache models to avoid re-downloading,Improves loading efficiency and reduces network dependency,/Users/promachowdhury/ml_smells/final_fixed.py,Line 31,1
+Hugging Face,Deterministic tokenization settings not specified,Use consistent tokenization settings,Ensures reproducible pre-processing and consistent model inputs,/Users/promachowdhury/ml_smells/final_fixed.py,Line 10,1
+Hugging Face,Early stopping not implemented,Implement early stopping to avoid overfitting,Prevents overfitting and reduces unnecessary training time,/Users/promachowdhury/ml_smells/final_fixed.py,,1
+General ML,Hardcoded file path detected: ./results. Consider using configuration files or environment variables.,Not specified,Not specified,/Users/promachowdhury/ml_smells/final_fixed.py,Line 7,1
+General ML,Hardcoded file path detected: ./data/train.csv. Consider using configuration files or environment variables.,Not specified,Not specified,/Users/promachowdhury/ml_smells/final_fixed.py,Line 15,1
+General ML,Hardcoded file path detected: ./data/test.csv. Consider using configuration files or environment variables.,Not specified,Not specified,/Users/promachowdhury/ml_smells/final_fixed.py,Line 15,1
+General ML,Hardcoded file path detected: ./logs. Consider using configuration files or environment variables.,Not specified,Not specified,/Users/promachowdhury/ml_smells/final_fixed.py,Line 21,1

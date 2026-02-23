@@ -1,0 +1,11 @@
+Framework,Smell/Checker Name,How to Fix,Benefits,File Path,Location,Count
+Pandas,Column Selection Checker,Select necessary columns after importing DataFrame.,Clarifies data usage and improves performance.,/Users/promachowdhury/ml_smells/inital.py,,1
+PyTorch,Deterministic Algorithm Usage Checker,Enable deterministic algorithms using torch.use_deterministic_algorithms(True).,Ensures consistent results across different hardware and runs.,/Users/promachowdhury/ml_smells/inital.py,,1
+PyTorch,Model Evaluation Checker,Set model to evaluation mode using model.eval().,Ensures correct behavior of layers like BatchNorm and Dropout during inference.,/Users/promachowdhury/ml_smells/inital.py,,1
+Hugging Face,Early stopping not implemented,Implement early stopping to avoid overfitting,Prevents overfitting and reduces unnecessary training time,/Users/promachowdhury/ml_smells/inital.py,,1
+General ML,Magic number detected: 512,Not specified,Not specified,/Users/promachowdhury/ml_smells/inital.py,Line 31,1
+General ML,Cross-validation not detected in model training code. Consider using cross-validation for more robust evaluation.,Not specified,Not specified,/Users/promachowdhury/ml_smells/inital.py,,1
+General ML,No random seed setting detected in ML operations. Consider setting seeds for reproducibility.,Not specified,Not specified,/Users/promachowdhury/ml_smells/inital.py,,1
+General ML,Data loading detected without size checks or batch processing. Consider using generators or batch processing for large datasets.,Not specified,Not specified,/Users/promachowdhury/ml_smells/inital.py,,1
+General ML,No error handling detected in data processing. Consider adding try-except blocks or validation checks for robustness.,Not specified,Not specified,/Users/promachowdhury/ml_smells/inital.py,,1
+General ML,Missing docstring for function: __getitem__. Consider adding documentation for parameters and return values.,Not specified,Not specified,/Users/promachowdhury/ml_smells/inital.py,Line 16,1

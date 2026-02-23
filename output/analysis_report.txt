@@ -1,0 +1,22 @@
+Analysis results for /Users/promachowdhury/files/without.py:
+
+Framework-Specific Smells:
+- Column Selection Checker
+  Framework: Pandas
+  How to fix: Select necessary columns after importing DataFrame.
+  Benefits: Clarifies data usage and improves performance.
+
+Smell Counts:
+  Column Selection Checker: 1
+Total smells detected: 1
+
+
+Hugging Face Smells:
+Smell Counts:
+Total smells detected: 0
+
+
+General ML Smells:
+Smell Counts:
+Total smells detected: 0
+

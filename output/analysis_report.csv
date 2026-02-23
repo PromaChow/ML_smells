@@ -1,0 +1,2 @@
+Framework,Smell/Checker Name,How to Fix,Benefits,File Path,Location,Count
+Pandas,Column Selection Checker,Select necessary columns after importing DataFrame.,Clarifies data usage and improves performance.,/Users/promachowdhury/files/without.py,,1

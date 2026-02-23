@@ -1,0 +1,84 @@
+Analysis results for /Users/promachowdhury/ml_smells/final_fixed.py:
+
+Framework-Specific Smells:
+- Deterministic Algorithm Usage Checker
+  Framework: PyTorch
+  How to fix: Enable deterministic algorithms using torch.use_deterministic_algorithms(True).
+  Benefits: Ensures consistent results across different hardware and runs.
+
+Smell Counts:
+  Deterministic Algorithm Usage Checker: 1
+Total smells detected: 1
+
+
+Hugging Face Smells:
+- Model versioning not specified
+  Framework: Hugging Face
+  How to fix: Specify model version when loading pre-trained models
+  Benefits: Ensures consistency and reproducibility of results
+  Location: Line 31
+
+- Tokenizer caching not used
+  Framework: Hugging Face
+  How to fix: Cache tokenizers to avoid re-downloading
+  Benefits: Reduces loading time and network dependency
+  Location: Line 10
+
+- Model caching not used
+  Framework: Hugging Face
+  How to fix: Cache models to avoid re-downloading
+  Benefits: Improves loading efficiency and reduces network dependency
+  Location: Line 31
+
+- Deterministic tokenization settings not specified
+  Framework: Hugging Face
+  How to fix: Use consistent tokenization settings
+  Benefits: Ensures reproducible pre-processing and consistent model inputs
+  Location: Line 10
+
+- Early stopping not implemented
+  Framework: Hugging Face
+  How to fix: Implement early stopping to avoid overfitting
+  Benefits: Prevents overfitting and reduces unnecessary training time
+
+Smell Counts:
+  Model versioning not specified: 1
+  Tokenizer caching not used: 1
+  Model caching not used: 1
+  Deterministic tokenization settings not specified: 1
+  Early stopping not implemented: 1
+Total smells detected: 5
+
+
+General ML Smells:
+- Hardcoded file path detected: ./results. Consider using configuration files or environment variables.
+  Framework: General ML
+  How to fix: Not specified
+  Benefits: Not specified
+  Location: Line 7
+
+- Hardcoded file path detected: ./data/train.csv. Consider using configuration files or environment variables.
+  Framework: General ML
+  How to fix: Not specified
+  Benefits: Not specified
+  Location: Line 15
+
+- Hardcoded file path detected: ./data/test.csv. Consider using configuration files or environment variables.
+  Framework: General ML
+  How to fix: Not specified
+  Benefits: Not specified
+  Location: Line 15
+
+- Hardcoded file path detected: ./logs. Consider using configuration files or environment variables.
+  Framework: General ML
+  How to fix: Not specified
+  Benefits: Not specified
+  Location: Line 21
+
+Smell Counts:
+  Hardcoded file path detected: ./results. Consider using configuration files or environment variables.: 1
+  Hardcoded file path detected: ./data/train.csv. Consider using configuration files or environment variables.: 1
+  Hardcoded file path detected: ./data/test.csv. Consider using configuration files or environment variables.: 1
+  Hardcoded file path detected: ./logs. Consider using configuration files or environment variables.: 1
+Total smells detected: 4
+
