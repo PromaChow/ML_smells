@@ -23,6 +23,25 @@
               "benefits": "Eliminates NameError and AttributeError crashes at runtime, makes dependencies explicit, and ensures the script runs correctly in any environment."
             }
           },
+
+           {
+  "name": "Hardcoded File Paths",
+  "definition": "Any file or directory path is written as a hardcoded string literal (e.g., '/home/user/data.csv' or 'C:\\Users\\...') instead of being loaded from environment variables (os.environ) or a config file. The fix is to replace every hardcoded path with os.environ.get('VAR_NAME', 'default') or a config loader.",
+  "example": {
+    "bad_code": "import pandas as pd\nimport joblib\n\ndf = pd.read_csv('/home/user/projects/ml/data/train.csv')\nmodel = joblib.load('C:\\\\Users\\\\user\\\\models\\\\classifier.pkl')\n\ndf.to_csv('/home/user/projects/ml/data/processed.csv', index=False)\njoblib.dump(model, 'C:\\\\Users\\\\user\\\\models\\\\classifier_v2.pkl')",
+    "good_code": "import os\nimport pandas as pd\nimport joblib\n\nTRAIN_PATH = os.environ.get('TRAIN_PATH', 'data/train.csv')\nPROCESSED_PATH = os.environ.get('PROCESSED_PATH', 'data/processed.csv')\nMODEL_PATH = os.environ.get('MODEL_PATH', 'models/classifier.pkl')\nMODEL_OUT_PATH = os.environ.get('MODEL_OUT_PATH', 'models/classifier_v2.pkl')\n\ndf = pd.read_csv(TRAIN_PATH)\nmodel = joblib.load(MODEL_PATH)\n\ndf.to_csv(PROCESSED_PATH, index=False)\njoblib.dump(model, MODEL_OUT_PATH)"
+  },
+  "fix_guide": {
+    "summary": "Source all file paths from environment variables or a configuration file.",
+    "steps": [
+      "Replace string literals with os.environ.get() calls with sensible defaults.",
+      "Alternatively, load paths from a config.yaml or .env file.",
+      "Use pathlib.Path for cross-platform path handling.",
+      "Never commit absolute machine-specific paths to version control."
+    ],
+    "benefits": "Makes code portable across machines, environments, and CI/CD pipelines."
+  }
+},
           {
             "name": "Data Leakage Detection",
             "definition": "Preprocessing is applied to the full dataset before performing a train-test split, causing information from the test set to influence model training.",
