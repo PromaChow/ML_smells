@@ -2,30 +2,29 @@
   "ml_code_smells": {
     "description": "A full catalog of ML-specific code smells and anti-patterns with definitions, bad code examples, and actionable fix guidance.",
     "frameworks": {
-
       "General ML": {
         "smells": [
-            {
-    "name": "Missing Imports",
-    "definition": "A module or function does not import necessary libraries or modules, leading to undefined behavior or runtime errors.",
-    "example": {
-      "bad_code": "import numpy as np\nimport pandas as pd\n# Missing import: sklearn.preprocessing",
-      "good_code": "import numpy as np\nimport pandas as pd\nfrom sklearn.preprocessing import StandardScaler, LabelEncoder\n\nscaler = StandardScaler()\nX_scaled = scaler.fit_transform(X_train)"
-    },
-    "fix_guide": {
-      "summary": "Ensure all required modules are explicitly imported at the top of the file before they are used.",
-      "steps": [
-        "Run the script end-to-end in a clean environment (e.g., a fresh virtual env) to surface all NameError or ImportError exceptions.",
-        "Add the missing import at the top of the file grouped with related imports (standard library → third-party → local).",
-        "Use a linter such as flake8 with the flake8-unused-import and pyflakes plugins to catch both missing and unused imports automatically.",
-        "If the import is optional (e.g., a heavy dependency), wrap it in a try-except ImportError block and raise a clear error message if it is missing.",
-        "Pin the required package and version in requirements.txt or pyproject.toml so the dependency is explicit for all environments."
-      ],
-      "benefits": "Eliminates NameError and AttributeError crashes at runtime, makes dependencies explicit, and ensures the script runs correctly in any environment."
-    }
-  },
           {
-            "name": "Potential Data Leakage",
+            "name": "Missing Imports",
+            "definition": "A module or function does not import necessary libraries or modules, leading to undefined behavior or runtime errors.",
+            "example": {
+              "bad_code": "import numpy as np\nimport pandas as pd\n# Missing import: sklearn.preprocessing",
+              "good_code": "import numpy as np\nimport pandas as pd\nfrom sklearn.preprocessing import StandardScaler, LabelEncoder\n\nscaler = StandardScaler()\nX_scaled = scaler.fit_transform(X_train)"
+            },
+            "fix_guide": {
+              "summary": "Ensure all required modules are explicitly imported at the top of the file before they are used.",
+              "steps": [
+                "Run the script end-to-end in a clean environment (e.g., a fresh virtual env) to surface all NameError or ImportError exceptions.",
+                "Add the missing import at the top of the file grouped with related imports (standard library \u2192 third-party \u2192 local).",
+                "Use a linter such as flake8 with the flake8-unused-import and pyflakes plugins to catch both missing and unused imports automatically.",
+                "If the import is optional (e.g., a heavy dependency), wrap it in a try-except ImportError block and raise a clear error message if it is missing.",
+                "Pin the required package and version in requirements.txt or pyproject.toml so the dependency is explicit for all environments."
+              ],
+              "benefits": "Eliminates NameError and AttributeError crashes at runtime, makes dependencies explicit, and ensures the script runs correctly in any environment."
+            }
+          },
+          {
+            "name": "Data Leakage Detection",
             "definition": "Preprocessing is applied to the full dataset before performing a train-test split, causing information from the test set to influence model training.",
             "example": {
               "bad_code": "scaler = StandardScaler()\nX_scaled = scaler.fit_transform(X)  # fit on full dataset\nX_train, X_test, y_train, y_test = train_test_split(X_scaled, y)",
@@ -43,7 +42,7 @@
             }
           },
           {
-            "name": "Magic Numbers",
+            "name": "Magic Number Usage",
             "definition": "Numeric literals are used directly in code without named constants or explanation.",
             "example": {
               "bad_code": "model = RandomForestClassifier(n_estimators=137, max_depth=7)\nX_train, X_test = train_test_split(X, test_size=0.23)",
@@ -77,26 +76,26 @@
               "benefits": "Guarantees uniform feature distributions across all splits and prevents subtle performance regressions."
             }
           },
-{
-  "name": "Missing Cross-Validation",
-  "definition": "Model training code lacks any cross-validation strategy, resulting in potentially unreliable performance estimates.",
-  "example": {
-    "bad_code": "from sklearn.linear_model import LogisticRegression\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.datasets import load_breast_cancer\n\nX, y = load_breast_cancer(return_X_y=True)\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42\n)\n\nmodel = LogisticRegression(max_iter=1000)\nmodel.fit(X_train, y_train)\naccuracy = model.score(X_test, y_test)\nprint(f\"Test Accuracy: {accuracy:.3f}\")",
-    "good_code": "from sklearn.linear_model import LogisticRegression\nfrom sklearn.model_selection import cross_val_score, StratifiedKFold\nfrom sklearn.datasets import load_breast_cancer\nimport numpy as np\n\nX, y = load_breast_cancer(return_X_y=True)\n\nmodel = LogisticRegression(max_iter=1000)\n\ncv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\n\nscores = cross_val_score(model, X, y, cv=cv, scoring=\"accuracy\")\nprint(f\"CV Accuracy: {np.mean(scores):.3f} \u00b1 {np.std(scores):.3f}\")"
-  },
-  "fix_guide": {
-    "summary": "Replace or supplement single-split evaluation with k-fold cross-validation.",
-    "steps": [
-      "Use cross_val_score or cross_validate with cv=5 or cv=10.",
-      "Use StratifiedKFold for classification to preserve class ratios.",
-      "Use TimeSeriesSplit if data has temporal ordering.",
-      "Report mean and standard deviation of scores across folds."
-    ],
-    "benefits": "Produces more reliable performance estimates and reveals variance due to data split choice."
-  }
-},
           {
-            "name": "No Imbalanced Dataset Handling",
+            "name": "Missing Cross-Validation",
+            "definition": "Model training code lacks any cross-validation strategy, resulting in potentially unreliable performance estimates.",
+            "example": {
+              "bad_code": "from sklearn.linear_model import LogisticRegression\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.datasets import load_breast_cancer\n\nX, y = load_breast_cancer(return_X_y=True)\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42\n)\n\nmodel = LogisticRegression(max_iter=1000)\nmodel.fit(X_train, y_train)\naccuracy = model.score(X_test, y_test)\nprint(f\"Test Accuracy: {accuracy:.3f}\")",
+              "good_code": "from sklearn.linear_model import LogisticRegression\nfrom sklearn.model_selection import cross_val_score, StratifiedKFold\nfrom sklearn.datasets import load_breast_cancer\nimport numpy as np\n\nX, y = load_breast_cancer(return_X_y=True)\n\nmodel = LogisticRegression(max_iter=1000)\n\ncv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\n\nscores = cross_val_score(model, X, y, cv=cv, scoring=\"accuracy\")\nprint(f\"CV Accuracy: {np.mean(scores):.3f} \u00b1 {np.std(scores):.3f}\")"
+            },
+            "fix_guide": {
+              "summary": "Replace or supplement single-split evaluation with k-fold cross-validation.",
+              "steps": [
+                "Use cross_val_score or cross_validate with cv=5 or cv=10.",
+                "Use StratifiedKFold for classification to preserve class ratios.",
+                "Use TimeSeriesSplit if data has temporal ordering.",
+                "Report mean and standard deviation of scores across folds."
+              ],
+              "benefits": "Produces more reliable performance estimates and reveals variance due to data split choice."
+            }
+          },
+          {
+            "name": "Imbalanced Dataset Handling",
             "definition": "A classification task is performed without any technique to address class imbalance.",
             "example": {
               "bad_code": "clf = RandomForestClassifier()\nclf.fit(X_train, y_train)\n# class distribution: {0: 9800, 1: 200}",
@@ -115,7 +114,7 @@
             }
           },
           {
-            "name": "Feature Selection Without Validation",
+            "name": "Feature Selection Issues",
             "definition": "Feature selection is performed without a proper validation strategy, risking selection bias.",
             "example": {
               "bad_code": "selector = SelectKBest(k=10)\nX_new = selector.fit_transform(X, y)\nmodel.fit(X_new, y)",
@@ -133,7 +132,7 @@
             }
           },
           {
-            "name": "Inappropriate Metric Selection",
+            "name": "Overreliance on Single Metrics",
             "definition": "Only a single or overly simplistic evaluation metric is used, failing to capture important aspects of model performance.",
             "example": {
               "bad_code": "from sklearn.metrics import accuracy_score\nscore = accuracy_score(y_test, y_pred)",
@@ -144,28 +143,28 @@
               "steps": [
                 "For classification: add precision, recall, F1, and ROC AUC alongside accuracy.",
                 "For imbalanced data: prefer macro-averaged F1 or balanced accuracy over raw accuracy.",
-                "For regression: report R², MAE, and RMSE together.",
+                "For regression: report R\u00b2, MAE, and RMSE together.",
                 "Use classification_report for a concise multi-metric summary."
               ],
               "benefits": "Provides a complete picture of model behavior, especially when classes are imbalanced."
             }
           },
- {
-  "name": "Model Saved Without Preprocessing",
-  "definition": "Detects when a trained model is persisted to disk without saving the associated preprocessing steps, which can lead to inconsistencies during inference.",
-  "example": {
-    "bad_code": "from sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nimport joblib\n\nscaler = StandardScaler().fit(X_train)\nX_train_scaled = scaler.transform(X_train)\nmodel = LogisticRegression().fit(X_train_scaled, y_train)\njoblib.dump(model, 'model.pkl')  # scaler not saved!",
-    "good_code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nimport joblib\n\npipe = Pipeline([('scaler', StandardScaler()), ('model', LogisticRegression())])\npipe.fit(X_train, y_train)\njoblib.dump(pipe, 'pipeline.pkl')  # scaler included in pipeline artifact"
-  },
-  "fix_guide": {
-    "summary": "Always save the preprocessing pipeline together with the trained model to ensure consistent inference.",
-    "steps": [
-      "Combine preprocessing steps and the model into a single sklearn Pipeline.",
-      "Serialize the Pipeline using joblib.dump or pickle, instead of saving the model alone.",
-      "During inference, load the Pipeline and call pipeline.predict(raw_X) to automatically apply preprocessing."
-    ],
-    "benefits": "Ensures preprocessing at inference matches training, prevents training-serving skew, and improves model reproducibility."
-  }
+          {
+            "name": "Lack of Model Persistence",
+            "definition": "Detects when a trained model is persisted to disk without saving the associated preprocessing steps, which can lead to inconsistencies during inference.",
+            "example": {
+              "bad_code": "from sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nimport joblib\n\nscaler = StandardScaler().fit(X_train)\nX_train_scaled = scaler.transform(X_train)\nmodel = LogisticRegression().fit(X_train_scaled, y_train)\njoblib.dump(model, 'model.pkl')  # scaler not saved!",
+              "good_code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nimport joblib\n\npipe = Pipeline([('scaler', StandardScaler()), ('model', LogisticRegression())])\npipe.fit(X_train, y_train)\njoblib.dump(pipe, 'pipeline.pkl')  # scaler included in pipeline artifact"
+            },
+            "fix_guide": {
+              "summary": "Always save the preprocessing pipeline together with the trained model to ensure consistent inference.",
+              "steps": [
+                "Combine preprocessing steps and the model into a single sklearn Pipeline.",
+                "Serialize the Pipeline using joblib.dump or pickle, instead of saving the model alone.",
+                "During inference, load the Pipeline and call pipeline.predict(raw_X) to automatically apply preprocessing."
+              ],
+              "benefits": "Ensures preprocessing at inference matches training, prevents training-serving skew, and improves model reproducibility."
+            }
           },
           {
             "name": "Model Saved Without Versioning",
@@ -185,7 +184,7 @@
             }
           },
           {
-            "name": "Missing Random Seed",
+            "name": "Missing Reproducibility Measures",
             "definition": "No random seed is set before ML operations, making results non-reproducible across runs.",
             "example": {
               "bad_code": "model = RandomForestClassifier()\nX_train, X_test, y_train, y_test = train_test_split(X, y)\nmodel.fit(X_train, y_train)",
@@ -221,7 +220,7 @@
             }
           },
           {
-            "name": "Data Loading Without Size Checks",
+            "name": "Inefficient Data Loading for Large Datasets",
             "definition": "Data is loaded from disk without any mechanism to handle large files.",
             "example": {
               "bad_code": "df1 = pd.read_csv('dataset_part1.csv')\ndf2 = pd.read_csv('dataset_part2.csv')",
@@ -239,7 +238,7 @@
             }
           },
           {
-            "name": "Potentially Unused Features",
+            "name": "Unused Feature Detection",
             "definition": "Variables are assigned values but never used in any subsequent ML operation.",
             "example": {
               "bad_code": "feature_importances = model.feature_importances_\nconfusion = confusion_matrix(y_test, y_pred)\n# Neither variable is printed, logged, or used further",
@@ -257,7 +256,7 @@
             }
           },
           {
-            "name": "Feature Engineering Without Train/Test Separation",
+            "name": "Overfitting-Prone Practices",
             "definition": "A feature engineering function operates on the entire dataset without distinguishing between training and test data.",
             "example": {
               "bad_code": "def process_features(df):\n    df['mean_encoded'] = df.groupby('category')['target'].transform('mean')\n    return df\n\ndf_processed = process_features(full_df)  # applied before split",
@@ -275,7 +274,7 @@
             }
           },
           {
-            "name": "Missing Error Handling",
+            "name": "Lack of Error Handling",
             "definition": "Critical ML operations are performed without try-except blocks or input validation.",
             "example": {
               "bad_code": "df = pd.read_csv('data.csv')\nmodel = joblib.load('model.pkl')\npredictions = model.predict(df)",
@@ -292,43 +291,43 @@
               "benefits": "Produces clear error messages and prevents silent failures in production."
             }
           },
- {
-  "name": "Hardcoded File Paths",
-  "definition": "Any file or directory path is written as a hardcoded string literal (e.g., '/home/user/data.csv' or 'C:\\Users\\...') instead of being loaded from environment variables (os.environ) or a config file. The fix is to replace every hardcoded path with os.environ.get('VAR_NAME', 'default') or a config loader.",
-  "example": {
-    "bad_code": "import pandas as pd\nimport joblib\n\ndf = pd.read_csv('/home/user/projects/ml/data/train.csv')\nmodel = joblib.load('C:\\\\Users\\\\user\\\\models\\\\classifier.pkl')\n\ndf.to_csv('/home/user/projects/ml/data/processed.csv', index=False)\njoblib.dump(model, 'C:\\\\Users\\\\user\\\\models\\\\classifier_v2.pkl')",
-    "good_code": "import os\nimport pandas as pd\nimport joblib\n\nTRAIN_PATH = os.environ.get('TRAIN_PATH', 'data/train.csv')\nPROCESSED_PATH = os.environ.get('PROCESSED_PATH', 'data/processed.csv')\nMODEL_PATH = os.environ.get('MODEL_PATH', 'models/classifier.pkl')\nMODEL_OUT_PATH = os.environ.get('MODEL_OUT_PATH', 'models/classifier_v2.pkl')\n\ndf = pd.read_csv(TRAIN_PATH)\nmodel = joblib.load(MODEL_PATH)\n\ndf.to_csv(PROCESSED_PATH, index=False)\njoblib.dump(model, MODEL_OUT_PATH)"
-  },
-  "fix_guide": {
-    "summary": "Source all file paths from environment variables or a configuration file.",
-    "steps": [
-      "Replace string literals with os.environ.get() calls with sensible defaults.",
-      "Alternatively, load paths from a config.yaml or .env file.",
-      "Use pathlib.Path for cross-platform path handling.",
-      "Never commit absolute machine-specific paths to version control."
-    ],
-    "benefits": "Makes code portable across machines, environments, and CI/CD pipelines."
-  }
-},
-{
-  "name": "Missing Documentation",
-  "definition": "Functions or classes that contain parameters or return values lack docstrings, making it harder to understand their purpose and usage.",
-  "example": {
-    "bad_code": "def train_model(X, y, n_estimators, learning_rate):\n    model = GradientBoostingClassifier(n_estimators=n_estimators, learning_rate=learning_rate)\n    model.fit(X, y)\n    return model\n\nclass ModelTrainer:\n    def fit(self, X, y):\n        self.model = GradientBoostingClassifier().fit(X, y)",
-    "good_code": "def train_model(X, y, n_estimators: int = 100, learning_rate: float = 0.1):\n    \"\"\"Train a GradientBoosting classifier.\n\n    Args:\n        X: Feature matrix of shape (n_samples, n_features).\n        y: Target labels of shape (n_samples,).\n        n_estimators: Number of boosting stages.\n        learning_rate: Learning rate shrinks contribution of each tree.\n\n    Returns:\n        Fitted GradientBoostingClassifier instance.\n    \"\"\"\n    model = GradientBoostingClassifier(n_estimators=n_estimators, learning_rate=learning_rate)\n    model.fit(X, y)\n    return model\n\nclass ModelTrainer:\n    \"\"\"Class responsible for training ML models.\"\"\"\n    def fit(self, X, y):\n        \"\"\"Fit the model on the training data.\"\"\"\n        self.model = GradientBoostingClassifier().fit(X, y)"
-  },
-  "fix_guide": {
-    "summary": "Add docstrings to all non-trivial functions and classes, especially those with parameters or return values.",
-    "steps": [
-      "Use Google-style or NumPy-style docstrings for functions and classes.",
-      "Document Args, Returns, and Raises sections for every public function.",
-      "Add a class-level docstring describing responsibilities and key attributes.",
-      "Include type hints in function signatures for machine-readable documentation.",
-      "Enable pydocstyle or pylint docstring checks in CI to enforce standards."
-    ],
-    "benefits": "Improves readability, reduces onboarding time for new contributors, and makes the API self-explanatory."
-  }
-}
+          {
+            "name": "Hardcoded File Paths",
+            "definition": "Any file or directory path is written as a hardcoded string literal (e.g., '/home/user/data.csv' or 'C:\\Users\\...') instead of being loaded from environment variables (os.environ) or a config file. The fix is to replace every hardcoded path with os.environ.get('VAR_NAME', 'default') or a config loader.",
+            "example": {
+              "bad_code": "import pandas as pd\nimport joblib\n\ndf = pd.read_csv('/home/user/projects/ml/data/train.csv')\nmodel = joblib.load('C:\\\\Users\\\\user\\\\models\\\\classifier.pkl')\n\ndf.to_csv('/home/user/projects/ml/data/processed.csv', index=False)\njoblib.dump(model, 'C:\\\\Users\\\\user\\\\models\\\\classifier_v2.pkl')",
+              "good_code": "import os\nimport pandas as pd\nimport joblib\n\nTRAIN_PATH = os.environ.get('TRAIN_PATH', 'data/train.csv')\nPROCESSED_PATH = os.environ.get('PROCESSED_PATH', 'data/processed.csv')\nMODEL_PATH = os.environ.get('MODEL_PATH', 'models/classifier.pkl')\nMODEL_OUT_PATH = os.environ.get('MODEL_OUT_PATH', 'models/classifier_v2.pkl')\n\ndf = pd.read_csv(TRAIN_PATH)\nmodel = joblib.load(MODEL_PATH)\n\ndf.to_csv(PROCESSED_PATH, index=False)\njoblib.dump(model, MODEL_OUT_PATH)"
+            },
+            "fix_guide": {
+              "summary": "Source all file paths from environment variables or a configuration file.",
+              "steps": [
+                "Replace string literals with os.environ.get() calls with sensible defaults.",
+                "Alternatively, load paths from a config.yaml or .env file.",
+                "Use pathlib.Path for cross-platform path handling.",
+                "Never commit absolute machine-specific paths to version control."
+              ],
+              "benefits": "Makes code portable across machines, environments, and CI/CD pipelines."
+            }
+          },
+          {
+            "name": "Missing Docstrings",
+            "definition": "Functions or classes that contain parameters or return values lack docstrings, making it harder to understand their purpose and usage.",
+            "example": {
+              "bad_code": "def train_model(X, y, n_estimators, learning_rate):\n    model = GradientBoostingClassifier(n_estimators=n_estimators, learning_rate=learning_rate)\n    model.fit(X, y)\n    return model\n\nclass ModelTrainer:\n    def fit(self, X, y):\n        self.model = GradientBoostingClassifier().fit(X, y)",
+              "good_code": "def train_model(X, y, n_estimators: int = 100, learning_rate: float = 0.1):\n    \"\"\"Train a GradientBoosting classifier.\n\n    Args:\n        X: Feature matrix of shape (n_samples, n_features).\n        y: Target labels of shape (n_samples,).\n        n_estimators: Number of boosting stages.\n        learning_rate: Learning rate shrinks contribution of each tree.\n\n    Returns:\n        Fitted GradientBoostingClassifier instance.\n    \"\"\"\n    model = GradientBoostingClassifier(n_estimators=n_estimators, learning_rate=learning_rate)\n    model.fit(X, y)\n    return model\n\nclass ModelTrainer:\n    \"\"\"Class responsible for training ML models.\"\"\"\n    def fit(self, X, y):\n        \"\"\"Fit the model on the training data.\"\"\"\n        self.model = GradientBoostingClassifier().fit(X, y)"
+            },
+            "fix_guide": {
+              "summary": "Add docstrings to all non-trivial functions and classes, especially those with parameters or return values.",
+              "steps": [
+                "Use Google-style or NumPy-style docstrings for functions and classes.",
+                "Document Args, Returns, and Raises sections for every public function.",
+                "Add a class-level docstring describing responsibilities and key attributes.",
+                "Include type hints in function signatures for machine-readable documentation.",
+                "Enable pydocstyle or pylint docstring checks in CI to enforce standards."
+              ],
+              "benefits": "Improves readability, reduces onboarding time for new contributors, and makes the API self-explanatory."
+            }
+          }
         ]
       },
       "Pandas": {
@@ -348,28 +347,28 @@
                 "For complex row logic, use df.apply(func, axis=1) as a last resort.",
                 "Profile with %timeit to confirm the speedup."
               ],
-              "benefits": "Vectorized operations are typically 100–1000x faster than iterrows()."
+              "benefits": "Vectorized operations are typically 100\u20131000x faster than iterrows()."
             }
           },
-  {
-  "name": "Chain Indexing",
-  "definition": "Detects when DataFrame elements are accessed via chained subscripts (e.g., df['col']['row']), which can trigger SettingWithCopyWarning and lead to unintended behavior.",
-  "example": {
-    "bad_code": "df['col_a']['row_1'] = 99\n# or\nsubset = df[df['x'] > 0]['y']\nsubset = 1",
-    "good_code": "df.loc['row_1', 'col_a'] = 99\n# or\ndf.loc[df['x'] > 0, 'y'] = 1"
-  },
-  "fix_guide": {
-    "summary": "Use .loc[] or .iloc[] for all label-based or positional indexing instead of chaining subscripts.",
-    "steps": [
-      "Replace df['col']['row'] with df.loc['row', 'col'].",
-      "Replace df[df['x'] > 0]['y'] = 1 with df.loc[df['x'] > 0, 'y'] = 1.",
-      "Consider enabling pd.set_option('mode.chained_assignment', 'raise') during development to catch accidental chain indexing."
-    ],
-    "benefits": "Ensures you operate on the original DataFrame, preventing silent data loss and avoiding SettingWithCopyWarning."
-  }
-},
           {
-            "name": "Missing Merge Parameters",
+            "name": "Chain Indexing",
+            "definition": "Detects when DataFrame elements are accessed via chained subscripts (e.g., df['col']['row']), which can trigger SettingWithCopyWarning and lead to unintended behavior.",
+            "example": {
+              "bad_code": "df['col_a']['row_1'] = 99\n# or\nsubset = df[df['x'] > 0]['y']\nsubset = 1",
+              "good_code": "df.loc['row_1', 'col_a'] = 99\n# or\ndf.loc[df['x'] > 0, 'y'] = 1"
+            },
+            "fix_guide": {
+              "summary": "Use .loc[] or .iloc[] for all label-based or positional indexing instead of chaining subscripts.",
+              "steps": [
+                "Replace df['col']['row'] with df.loc['row', 'col'].",
+                "Replace df[df['x'] > 0]['y'] = 1 with df.loc[df['x'] > 0, 'y'] = 1.",
+                "Consider enabling pd.set_option('mode.chained_assignment', 'raise') during development to catch accidental chain indexing."
+              ],
+              "benefits": "Ensures you operate on the original DataFrame, preventing silent data loss and avoiding SettingWithCopyWarning."
+            }
+          },
+          {
+            "name": "Inefficient Merge Operations",
             "definition": "pd.merge() is called without specifying how, on, or validate, risking incorrect joins.",
             "example": {
               "bad_code": "result = pd.merge(df_left, df_right)",
@@ -404,7 +403,7 @@
             }
           },
           {
-            "name": "Using .values Instead of .to_numpy()",
+            "name": "Inefficient DataFrame Conversion",
             "definition": "The .values attribute is used instead of the preferred .to_numpy() method.",
             "example": {
               "bad_code": "arr = df['feature'].values",
@@ -421,7 +420,7 @@
             }
           },
           {
-            "name": "Missing dtype Specification on Read",
+            "name": "Missing Data Type Specifications",
             "definition": "pd.read_csv() is called without specifying dtypes, risking incorrect type inference.",
             "example": {
               "bad_code": "df = pd.read_csv('data.csv')",
@@ -438,25 +437,25 @@
               "benefits": "Reduces memory usage, prevents silent type errors, and speeds up reads."
             }
           },
-{
-  "name": "Column Selection Checker",
-  "definition": "Detects when DataFrame columns are selected one at a time instead of using literal double-bracket indexing (e.g., df[['col1', 'col2']]).",
-  "example": {
-    "bad_code": "col_a = df['feature_a']\ncol_b = df['feature_b']\nX = pd.concat([col_a, col_b], axis=1)",
-    "good_code": "X = df[['feature_a', 'feature_b']]"
-  },
-  "fix_guide": {
-    "summary": "Use literal double-bracket indexing to select multiple columns at once.",
-    "steps": [
-      "Ensure the object is a DataFrame (e.g., df).",
-      "Select multiple columns in a single operation using df[['col1', 'col2', ...]].",
-      "Avoid selecting columns individually and combining them manually (e.g., with pd.concat)."
-    ],
-    "benefits": "Improves readability, reduces errors, and aligns with the detection logic."
-  },
-  "detection_logic": "Flag code if a DataFrame operation exists but no literal double-bracket column selection (df[[...]]) is found."
-},
-      {
+          {
+            "name": "Column Selection Checker",
+            "definition": "Detects when DataFrame columns are selected one at a time instead of using literal double-bracket indexing (e.g., df[['col1', 'col2']]).",
+            "example": {
+              "bad_code": "col_a = df['feature_a']\ncol_b = df['feature_b']\nX = pd.concat([col_a, col_b], axis=1)",
+              "good_code": "X = df[['feature_a', 'feature_b']]"
+            },
+            "fix_guide": {
+              "summary": "Use literal double-bracket indexing to select multiple columns at once.",
+              "steps": [
+                "Ensure the object is a DataFrame (e.g., df).",
+                "Select multiple columns in a single operation using df[['col1', 'col2', ...]].",
+                "Avoid selecting columns individually and combining them manually (e.g., with pd.concat)."
+              ],
+              "benefits": "Improves readability, reduces errors, and aligns with the detection logic."
+            },
+            "detection_logic": "Flag code if a DataFrame operation exists but no literal double-bracket column selection (df[[...]]) is found."
+          },
+          {
             "name": "DataFrame Modification in Loop",
             "definition": "A DataFrame is modified inside a for-loop without safe indexing methods.",
             "example": {
@@ -479,7 +478,7 @@
       "NumPy": {
         "smells": [
           {
-            "name": "NaN Equality Comparison",
+            "name": "NaN Equality Checks",
             "definition": "NaN values are compared using == which always returns False.",
             "example": {
               "bad_code": "if value == np.nan:  # always False\n    handle_nan()",
@@ -497,7 +496,7 @@
             }
           },
           {
-            "name": "Missing Random Seed (NumPy)",
+            "name": "Missing Random Seed Setting",
             "definition": "NumPy random operations are used without setting np.random.seed().",
             "example": {
               "bad_code": "samples = np.random.randn(1000, 10)",
@@ -513,25 +512,23 @@
               "benefits": "Guarantees identical random draws across runs for debugging and reproducibility."
             }
           },
-          
-{
-  "name": "Inefficient Array Creation",
-  "definition": "Detects NumPy arrays created without specifying a dtype, which can lead to unnecessary memory usage or slower computations.",
-  "example": {
-    "bad_code": "arr = np.array([1, 2, 3, 4])\nzeros = np.zeros((100, 100))\nones = np.ones((50, 50))\nempty = np.empty((10, 10))",
-    "good_code": "arr = np.array([1, 2, 3, 4], dtype=np.int32)\nzeros = np.zeros((100, 100), dtype=np.float32)\nones = np.ones((50, 50), dtype=np.float32)\nempty = np.empty((10, 10), dtype=np.float32)"
-  },
-  "fix_guide": {
-    "summary": "Always specify a dtype when creating NumPy arrays to optimize memory and performance.",
-    "steps": [
-      "Add dtype=np.float32 or dtype=np.int32 to all np.array, np.zeros, np.ones, and np.empty calls.",
-      "Use float32 instead of float64 when high precision is not required to reduce memory usage.",
-      "Use np.asarray(x, dtype=...) when converting existing data to arrays defensively."
-    ],
-    "benefits": "Reduces memory footprint, prevents unintended 64-bit defaults, and improves computation efficiency on large arrays."
-  }
- 
-},
+          {
+            "name": "Inefficient Array Creation",
+            "definition": "Detects NumPy arrays created without specifying a dtype, which can lead to unnecessary memory usage or slower computations.",
+            "example": {
+              "bad_code": "arr = np.array([1, 2, 3, 4])\nzeros = np.zeros((100, 100))\nones = np.ones((50, 50))\nempty = np.empty((10, 10))",
+              "good_code": "arr = np.array([1, 2, 3, 4], dtype=np.int32)\nzeros = np.zeros((100, 100), dtype=np.float32)\nones = np.ones((50, 50), dtype=np.float32)\nempty = np.empty((10, 10), dtype=np.float32)"
+            },
+            "fix_guide": {
+              "summary": "Always specify a dtype when creating NumPy arrays to optimize memory and performance.",
+              "steps": [
+                "Add dtype=np.float32 or dtype=np.int32 to all np.array, np.zeros, np.ones, and np.empty calls.",
+                "Use float32 instead of float64 when high precision is not required to reduce memory usage.",
+                "Use np.asarray(x, dtype=...) when converting existing data to arrays defensively."
+              ],
+              "benefits": "Reduces memory footprint, prevents unintended 64-bit defaults, and improves computation efficiency on large arrays."
+            }
+          },
           {
             "name": "Non-Vectorized Operations",
             "definition": "Aggregate functions are called inside for-loops instead of being applied to the array.",
@@ -640,7 +637,7 @@
             }
           },
           {
-            "name": "Missing Pipeline",
+            "name": "Absence of Pipelines",
             "definition": "Multiple preprocessing and model-fitting steps are written sequentially without a Pipeline.",
             "example": {
               "bad_code": "scaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\nmodel = LogisticRegression()\nmodel.fit(X_train_scaled, y_train)",
@@ -658,25 +655,25 @@
             }
           },
           {
-            "name": "Missing Cross-Validation (Sklearn)",
+            "name": "Lack of Cross-Validation",
             "definition": "Model training is performed without any cross-validation.",
             "example": {
               "bad_code": "model.fit(X_train, y_train)\nprint(model.score(X_test, y_test))",
-              "good_code": "scores = cross_val_score(model, X, y, cv=StratifiedKFold(5), scoring='roc_auc')\nprint(f'{scores.mean():.3f} ± {scores.std():.3f}')"
+              "good_code": "scores = cross_val_score(model, X, y, cv=StratifiedKFold(5), scoring='roc_auc')\nprint(f'{scores.mean():.3f} \u00b1 {scores.std():.3f}')"
             },
             "fix_guide": {
               "summary": "Use k-fold cross-validation to obtain stable, unbiased performance estimates.",
               "steps": [
                 "Use cross_val_score with cv=5 or cv=10 as a minimum.",
                 "Use StratifiedKFold for classification, TimeSeriesSplit for time-ordered data.",
-                "Report mean ± std of scores to capture variance.",
+                "Report mean \u00b1 std of scores to capture variance.",
                 "Use cross_validate to retrieve multiple metrics in one call."
               ],
               "benefits": "Reduces sensitivity to a single lucky or unlucky data split."
             }
           },
           {
-            "name": "Missing Random State",
+            "name": "Inconsistent Random State Usage",
             "definition": "Estimators or splitting functions are called without setting random_state.",
             "example": {
               "bad_code": "X_train, X_test = train_test_split(X, y)\nmodel = RandomForestClassifier()",
@@ -693,7 +690,7 @@
             }
           },
           {
-            "name": "Missing Verbose Mode",
+            "name": "Missing Verbose Mode in Long-Running Operations",
             "definition": "Long-running operations are called without verbose=True.",
             "example": {
               "bad_code": "gs = GridSearchCV(estimator, param_grid, cv=5)\ngs.fit(X_train, y_train)",
@@ -710,7 +707,7 @@
             }
           },
           {
-            "name": "Threshold-Dependent Metrics Only",
+            "name": "Overreliance on Accuracy Metric",
             "definition": "Only accuracy is used for classification without threshold-independent metrics like ROC AUC.",
             "example": {
               "bad_code": "print(accuracy_score(y_test, y_pred))",
@@ -762,703 +759,704 @@
               "benefits": "Produces honest evaluation metrics that reflect real-world performance."
             }
           },
-{
-  "name": "Missing Exception Handling (Sklearn)",
-  "definition": "Detects critical Scikit-learn operations (like fit, predict, transform, load, dump) that are not wrapped in try-except blocks, which can lead to uncaught exceptions in production.",
-  "example": {
-    "bad_code": "model = joblib.load('model.pkl')\npredictions = model.predict(X_new)\nscore = model.score(X_test, y_test)",
-    "good_code": "try:\n    model = joblib.load('model.pkl')\nexcept FileNotFoundError:\n    raise RuntimeError('Model file not found.')\n\ntry:\n    predictions = model.predict(X_new)\nexcept ValueError as e:\n    raise ValueError(f'Prediction failed — check input shape: {e}')\n\ntry:\n    score = model.score(X_test, y_test)\nexcept ValueError as e:\n    raise ValueError(f'Score calculation failed: {e}')"
-  },
-  "fix_guide": {
-    "summary": "Wrap all critical sklearn operations in try-except blocks with informative messages and optional input validation.",
-    "steps": [
-      "Catch FileNotFoundError or IOError for model loading and saving operations.",
-      "Catch ValueError for shape or type mismatches during predict, transform, or score operations.",
-      "Log exceptions with context (file path, input shape) before re-raising.",
-      "Optionally validate inputs before calling risky operations (e.g., assert X.shape[1] == expected_features)."
-    ],
-    "benefits": "Provides actionable error messages, prevents silent failures, and makes debugging production issues easier."
-  }
-}],
-      "PyTorch": {
-        "smells": [
           {
-            "name": "Missing Random Seed (PyTorch)",
-            "definition": "PyTorch random operations are used without calling torch.manual_seed().",
+            "name": "Missing Exception Handling (Sklearn)",
+            "definition": "Detects critical Scikit-learn operations (like fit, predict, transform, load, dump) that are not wrapped in try-except blocks, which can lead to uncaught exceptions in production.",
             "example": {
-              "bad_code": "x = torch.randn(100, 10)",
-              "good_code": "torch.manual_seed(42)\ntorch.cuda.manual_seed_all(42)\nx = torch.randn(100, 10)"
+              "bad_code": "model = joblib.load('model.pkl')\npredictions = model.predict(X_new)\nscore = model.score(X_test, y_test)",
+              "good_code": "try:\n    model = joblib.load('model.pkl')\nexcept FileNotFoundError:\n    raise RuntimeError('Model file not found.')\n\ntry:\n    predictions = model.predict(X_new)\nexcept ValueError as e:\n    raise ValueError(f'Prediction failed \u2014 check input shape: {e}')\n\ntry:\n    score = model.score(X_test, y_test)\nexcept ValueError as e:\n    raise ValueError(f'Score calculation failed: {e}')"
             },
             "fix_guide": {
-              "summary": "Set all PyTorch seeds at the top of the script and in worker initialization.",
+              "summary": "Wrap all critical sklearn operations in try-except blocks with informative messages and optional input validation.",
               "steps": [
-                "Call torch.manual_seed(SEED) and torch.cuda.manual_seed_all(SEED).",
-                "Also set numpy and python random seeds for full reproducibility.",
-                "Pass a generator=torch.Generator().manual_seed(SEED) to DataLoader."
+                "Catch FileNotFoundError or IOError for model loading and saving operations.",
+                "Catch ValueError for shape or type mismatches during predict, transform, or score operations.",
+                "Log exceptions with context (file path, input shape) before re-raising.",
+                "Optionally validate inputs before calling risky operations (e.g., assert X.shape[1] == expected_features)."
               ],
-              "benefits": "Ensures identical weight initializations and data sampling across runs."
-            }
-          },
-          {
-            "name": "Non-Deterministic Algorithm Usage",
-            "definition": "Deterministic algorithm mode is not enabled, meaning results may vary across hardware.",
-            "example": {
-              "bad_code": "model = nn.Sequential(nn.Conv2d(3, 64, 3), nn.Linear(64, 10))",
-              "good_code": "torch.use_deterministic_algorithms(True)\ntorch.backends.cudnn.deterministic = True\ntorch.backends.cudnn.benchmark = False\nmodel = nn.Sequential(nn.Conv2d(3, 64, 3), nn.Linear(64, 10))"
-            },
-            "fix_guide": {
-              "summary": "Enable deterministic mode to guarantee identical results across hardware and runs.",
-              "steps": [
-                "Set torch.use_deterministic_algorithms(True) at the start of training.",
-                "Set torch.backends.cudnn.deterministic = True and benchmark = False.",
-                "Note: deterministic mode may reduce GPU performance slightly.",
-                "Handle NotImplementedError from algorithms without deterministic implementations."
-              ],
-              "benefits": "Makes training outcomes fully reproducible regardless of GPU model."
-            }
-          },
-          {
-            "name": "DataLoader Without Random Control",
-            "definition": "A shuffled DataLoader is created without worker_init_fn or generator.",
-            "example": {
-              "bad_code": "loader = DataLoader(dataset, batch_size=32, shuffle=True)",
-              "good_code": "def seed_worker(worker_id):\n    worker_seed = torch.initial_seed() % 2**32\n    np.random.seed(worker_seed)\n    random.seed(worker_seed)\n\ng = torch.Generator()\ng.manual_seed(42)\nloader = DataLoader(dataset, batch_size=32, shuffle=True,\n                   worker_init_fn=seed_worker, generator=g)"
-            },
-            "fix_guide": {
-              "summary": "Pass a seeded generator and worker_init_fn to ensure reproducible DataLoader shuffling.",
-              "steps": [
-                "Create a torch.Generator and call .manual_seed(SEED) on it.",
-                "Define a worker_init_fn that seeds Python random and NumPy in each worker.",
-                "Pass both to DataLoader via generator= and worker_init_fn= parameters."
-              ],
-              "benefits": "Ensures data order is identical across runs when shuffling is enabled."
-            }
-          },
-          {
-            "name": "Missing Numerical Mask",
-            "definition": "torch.log() is applied to inputs that may contain zeros or negative values.",
-            "example": {
-              "bad_code": "probs = model(x)\nloss = -torch.log(probs)",
-              "good_code": "probs = model(x)\nprobs = torch.clamp(probs, min=1e-8)  # prevent log(0)\nloss = -torch.log(probs)"
-            },
-            "fix_guide": {
-              "summary": "Clamp inputs to a small positive value before applying log.",
-              "steps": [
-                "Use torch.clamp(x, min=1e-8) before any torch.log() call.",
-                "Alternatively, use torch.log(x + 1e-8) as a simple additive guard.",
-                "Use torch.nn.functional.log_softmax() which is numerically stable.",
-                "Use torch.nn.BCEWithLogitsLoss instead of BCE + log for binary tasks."
-              ],
-              "benefits": "Eliminates -inf and NaN values that can corrupt the entire training run."
-            }
-          },
-          {
-            "name": "Direct forward() Call",
-            "definition": "model.forward() is called directly instead of model(input), bypassing hooks.",
-            "example": {
-              "bad_code": "output = model.forward(input_tensor)",
-              "good_code": "output = model(input_tensor)"
-            },
-            "fix_guide": {
-              "summary": "Always call model(input) which internally calls __call__ and triggers all hooks.",
-              "steps": [
-                "Replace all model.forward(x) with model(x).",
-                "Understand that __call__ invokes forward plus registered hooks.",
-                "Only call forward() directly when extending nn.Module internals."
-              ],
-              "benefits": "Ensures hook-based features (e.g., gradient monitoring, feature extraction) work correctly."
-            }
-          },
-          {
-            "name": "Missing Gradient Zeroing",
-            "definition": "Gradients are not cleared before each backward pass, causing unintended accumulation.",
-            "example": {
-              "bad_code": "for batch in dataloader:\n    output = model(batch)\n    loss = criterion(output, labels)\n    loss.backward()\n    optimizer.step()",
-              "good_code": "for batch in dataloader:\n    optimizer.zero_grad()\n    output = model(batch)\n    loss = criterion(output, labels)\n    loss.backward()\n    optimizer.step()"
-            },
-            "fix_guide": {
-              "summary": "Call optimizer.zero_grad() at the start of every training iteration.",
-              "steps": [
-                "Place optimizer.zero_grad() as the first line inside the training loop.",
-                "Alternatively, use optimizer.zero_grad(set_to_none=True) for a slight memory saving.",
-                "Exception: intentional gradient accumulation — only call zero_grad() every N steps."
-              ],
-              "benefits": "Prevents gradient values from previous batches corrupting the current update."
-            }
-          },
-          {
-            "name": "Missing Batch Normalization",
-            "definition": "A deep or convolutional network is defined without BatchNorm layers.",
-            "example": {
-              "bad_code": "model = nn.Sequential(\n    nn.Conv2d(3, 64, 3), nn.ReLU(),\n    nn.Conv2d(64, 128, 3), nn.ReLU()\n)",
-              "good_code": "model = nn.Sequential(\n    nn.Conv2d(3, 64, 3), nn.BatchNorm2d(64), nn.ReLU(),\n    nn.Conv2d(64, 128, 3), nn.BatchNorm2d(128), nn.ReLU()\n)"
-            },
-            "fix_guide": {
-              "summary": "Add BatchNorm layers after convolution or linear layers in deep architectures.",
-              "steps": [
-                "Insert nn.BatchNorm2d(C) after each Conv2d with C output channels.",
-                "Insert nn.BatchNorm1d(F) after each Linear with F output features.",
-                "Place BatchNorm before or after the activation function (before is conventional).",
-                "Ensure model.train() is called during training so BatchNorm updates its statistics."
-              ],
-              "benefits": "Stabilizes training dynamics, allows higher learning rates, and reduces sensitivity to initialization."
-            }
-          },
-          {
-            "name": "Missing Dropout",
-            "definition": "A complex model with multiple layers is trained without Dropout layers.",
-            "example": {
-              "bad_code": "model = nn.Sequential(\n    nn.Linear(512, 256), nn.ReLU(),\n    nn.Linear(256, 128), nn.ReLU(),\n    nn.Linear(128, 10)\n)",
-              "good_code": "model = nn.Sequential(\n    nn.Linear(512, 256), nn.ReLU(), nn.Dropout(p=0.5),\n    nn.Linear(256, 128), nn.ReLU(), nn.Dropout(p=0.3),\n    nn.Linear(128, 10)\n)"
-            },
-            "fix_guide": {
-              "summary": "Add Dropout layers after activation functions in fully connected layers.",
-              "steps": [
-                "Insert nn.Dropout(p=0.5) after hidden layer activations.",
-                "Use lower dropout rates (0.1–0.3) for convolutional layers.",
-                "Ensure model.eval() disables dropout during inference.",
-                "Tune dropout rate p as a hyperparameter."
-              ],
-              "benefits": "Reduces overfitting by randomly deactivating neurons during training."
-            }
-          },
-          {
-            "name": "Missing Data Augmentation (PyTorch)",
-            "definition": "A computer vision model is trained without torchvision.transforms augmentations.",
-            "example": {
-              "bad_code": "dataset = ImageFolder(root='data/train', transform=transforms.ToTensor())",
-              "good_code": "train_transform = transforms.Compose([\n    transforms.RandomHorizontalFlip(),\n    transforms.RandomCrop(32, padding=4),\n    transforms.ColorJitter(brightness=0.2, contrast=0.2),\n    transforms.ToTensor(),\n    transforms.Normalize(mean, std)\n])\ndataset = ImageFolder(root='data/train', transform=train_transform)"
-            },
-            "fix_guide": {
-              "summary": "Apply random augmentations in the training transform pipeline.",
-              "steps": [
-                "Use transforms.RandomHorizontalFlip(), RandomCrop(), and ColorJitter as a baseline.",
-                "Apply augmentations only to the training set, not validation/test.",
-                "Consider torchvision.transforms.v2 for more advanced augmentations (MixUp, CutMix).",
-                "Tune augmentation intensity to match the domain."
-              ],
-              "benefits": "Increases effective dataset size and improves generalization to unseen image variations."
-            }
-          },
-          {
-            "name": "Missing Learning Rate Scheduler (PyTorch)",
-            "definition": "A model is trained for many epochs with a fixed learning rate.",
-            "example": {
-              "bad_code": "optimizer = torch.optim.Adam(model.parameters(), lr=0.001)\nfor epoch in range(100):\n    train_one_epoch()",
-              "good_code": "optimizer = torch.optim.Adam(model.parameters(), lr=0.001)\nscheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=100)\nfor epoch in range(100):\n    train_one_epoch()\n    scheduler.step()"
-            },
-            "fix_guide": {
-              "summary": "Add a learning rate scheduler and call scheduler.step() each epoch.",
-              "steps": [
-                "Choose a scheduler: StepLR for simple decay, CosineAnnealingLR for smooth decay, ReduceLROnPlateau for validation-based decay.",
-                "Call scheduler.step() after each epoch (or after each step for OneCycleLR).",
-                "Log the current LR with optimizer.param_groups[0]['lr'] to monitor changes."
-              ],
-              "benefits": "Improves final model accuracy by allowing large initial exploration and fine-grained convergence."
-            }
-          },
-{
-  "name": "Missing Training Logging (PyTorch)",
-  "definition": "Training metrics (loss, accuracy, etc.) are tracked manually (e.g., printed) without using a proper logging tool like TensorBoard, Weights & Biases, or MLflow.",
-  "example": {
-    "bad_code": "for epoch in range(epochs):\n    loss = train(model, loader)\n    print(f'Loss: {loss}')",
-    "good_code": "from torch.utils.tensorboard import SummaryWriter\nwriter = SummaryWriter('runs/exp_1')\nfor epoch in range(epochs):\n    loss = train(model, loader)\n    writer.add_scalar('Loss/train', loss, epoch)\nwriter.close()"
-  },
-  "fix_guide": {
-    "summary": "Integrate a logging framework to automatically record all training metrics for reproducibility and experiment tracking.",
-    "steps": [
-      "Use TensorBoard (SummaryWriter), wandb.log(), or MLflow to log metrics in your training loop.",
-      "Log all relevant metrics: loss, accuracy, learning rate, gradient norms, etc., each epoch.",
-      "Optionally log the model graph with writer.add_graph() for architecture visualization.",
-      "Store logs in a versioned directory for reproducibility and comparison of experiments."
-    ],
-    "benefits": "Enables structured experiment tracking, early detection of divergence or overfitting, and reproducible reporting of results."
-  },
-  "detection_logic": "Flag PyTorch scripts where train() or backward() calls exist with metric calculations (loss, accuracy, score), but no logging tool (TensorBoard, wandb, MLflow, Neptune) is used."
-},
-          {
-            "name": "Missing Evaluation Mode",
-            "definition": "The model is not switched to eval() mode during validation or inference.",
-            "example": {
-              "bad_code": "for batch in val_loader:\n    output = model(batch)\n    val_loss += criterion(output, labels)",
-              "good_code": "model.eval()\nwith torch.no_grad():\n    for batch in val_loader:\n        output = model(batch)\n        val_loss += criterion(output, labels)\nmodel.train()"
-            },
-            "fix_guide": {
-              "summary": "Call model.eval() before validation/inference and model.train() before resuming training.",
-              "steps": [
-                "Wrap the entire validation loop with model.eval() and model.train() around it.",
-                "Always use torch.no_grad() during validation to save memory and speed.",
-                "Be aware: model.eval() disables Dropout and switches BatchNorm to use running stats."
-              ],
-              "benefits": "Ensures correct behavior of stochastic layers during validation and avoids artificially low val loss."
+              "benefits": "Provides actionable error messages, prevents silent failures, and makes debugging production issues easier."
             }
           }
-        ]
-      },
-      "TensorFlow": {
-        "smells": [
-          {
-            "name": "Missing Random Seed (TensorFlow)",
-            "definition": "Random operations are used without calling tf.random.set_seed().",
-            "example": {
-              "bad_code": "model = tf.keras.Sequential([tf.keras.layers.Dense(64)])",
-              "good_code": "tf.random.set_seed(42)\nmodel = tf.keras.Sequential([tf.keras.layers.Dense(64)])"
-            },
-            "fix_guide": {
-              "summary": "Call tf.random.set_seed() at the start of every script to fix the global random state.",
-              "steps": [
-                "Call tf.random.set_seed(SEED) before any model creation or data generation.",
-                "Also set Python and NumPy seeds for full reproducibility.",
-                "Combine with os.environ['TF_DETERMINISTIC_OPS'] = '1' for GPU determinism."
-              ],
-              "benefits": "Guarantees identical weight initializations and random operations across runs."
-            }
-          },
+        ],
+        "PyTorch": {
+          "smells": [
             {
-    "name": "Unit Testing Checker",
-    "definition": "Detects the absence of structured unit tests for machine learning components, which can lead to undetected bugs, unstable model behavior, and unreliable code evolution.",
-    "example": {
-      "bad_code": "import tensorflow as tf\n\nmodel = tf.keras.Sequential([\n    tf.keras.layers.Dense(10, activation='relu'),\n    tf.keras.layers.Dense(1)\n])\n\nmodel.compile(optimizer='adam', loss='mse')\nmodel.fit(x_train, y_train, epochs=5)",
-      "good_code": "import pytest\nimport numpy as np\nimport tensorflow as tf\n\ndef build_model():\n    model = tf.keras.Sequential([\n        tf.keras.layers.Dense(10, activation='relu'),\n        tf.keras.layers.Dense(1)\n    ])\n    model.compile(optimizer='adam', loss='mse')\n    return model\n\ndef test_model_output_shape():\n    model = build_model()\n    x = np.random.rand(8, 5)\n    preds = model.predict(x)\n    assert preds.shape == (8, 1), f'Unexpected output shape: {preds.shape}'\n\ndef test_model_trains_without_error():\n    model = build_model()\n    x = np.random.rand(16, 5)\n    y = np.random.rand(16, 1)\n    history = model.fit(x, y, epochs=2, verbose=0)\n    assert 'loss' in history.history\n    assert history.history['loss'][-1] < history.history['loss'][0]"
-    },
-    "fix_guide": {
-      "summary": "Extract model construction and training steps into testable functions and write pytest unit tests covering output shapes, training behavior, and edge cases.",
-      "steps": [
-        "Refactor model building into a standalone function (e.g., build_model()) so it can be instantiated independently in tests.",
-        "Write a shape test: create a small random input tensor and assert that model.predict(x).shape matches the expected output dimensions.",
-        "Write a training sanity test: fit the model on a tiny synthetic dataset for 2–3 epochs and assert that the loss decreases.",
-        "Write a preprocessing test for each data transformation function: assert output dtype, shape, value range, and correct handling of null or edge-case inputs.",
-        "Use tf.test.TestCase (TensorFlow) or plain pytest for test classes; use pytest fixtures to share model instances across tests.",
-        "Add the test suite to CI so tests run automatically on every commit.",
-        "Use pytest-cov to track test coverage and aim for at least 80% coverage of core ML logic."
-      ],
-      "benefits": "Catches regressions early when model architecture or preprocessing logic changes, documents expected behavior, and reduces debugging time in production."
-    }
-  },
-  {
-    "name": "Exception Handling Checker",
-    "definition": "Identifies missing or inadequate exception handling in machine learning code that may cause silent failures, crashes, or unclear error reporting during data processing and model execution.",
-    "example": {
-      "bad_code": "import tensorflow as tf\n\ndata = tf.io.read_file('missing_file.csv')\nparsed = tf.io.decode_csv(data)",
-      "good_code": "import tensorflow as tf\nimport logging\n\nlogger = logging.getLogger(__name__)\n\ndef load_and_parse(filepath: str):\n    try:\n        data = tf.io.read_file(filepath)\n    except tf.errors.NotFoundError as e:\n        logger.error(f'Data file not found: {filepath} — {e}')\n        raise FileNotFoundError(f'Required data file missing: {filepath}') from e\n    except tf.errors.PermissionDeniedError as e:\n        logger.error(f'Permission denied reading: {filepath}')\n        raise PermissionError(f'Cannot read file: {filepath}') from e\n\n    try:\n        parsed = tf.io.decode_csv(data, record_defaults=[[0.0]] * NUM_COLUMNS)\n    except tf.errors.InvalidArgumentError as e:\n        logger.error(f'CSV parsing failed — check schema: {e}')\n        raise ValueError(f'Malformed CSV at {filepath}') from e\n\n    return parsed"
-    },
-    "fix_guide": {
-      "summary": "Wrap all I/O, parsing, and model operations in try-except blocks that catch specific exceptions, log context, and re-raise with informative messages.",
-      "steps": [
-        "Identify all critical operations: file reads, CSV/JSON parsing, model loading, predict/evaluate calls, and any external API calls.",
-        "Wrap each critical operation in its own try-except block — do not catch everything in one broad except Exception block, as this hides the root cause.",
-        "Catch specific exception types: tf.errors.NotFoundError for missing files, tf.errors.InvalidArgumentError for schema mismatches, tf.errors.ResourceExhaustedError for OOM errors.",
-        "Log the exception with full context (file path, input shape, operation name) using Python's logging module before re-raising.",
-        "Re-raise as a descriptive, domain-level exception (e.g., FileNotFoundError, ValueError) so callers receive actionable error messages.",
-        "Add input validation before risky operations — check that files exist with tf.io.gfile.exists(), verify tensor shapes, and check for NaN values — to fail fast with a clear message.",
-        "In production inference pipelines, add a top-level exception handler that logs the full traceback and returns a graceful error response rather than crashing the service."
-      ],
-      "benefits": "Transforms cryptic low-level TensorFlow errors into actionable messages, prevents silent data corruption from partial reads, and makes production pipelines resilient to missing or malformed inputs."
-    }
-  },
-          {
-            "name": "Missing Early Stopping",
-            "definition": "A model is trained for multiple epochs without an EarlyStopping callback.",
-            "example": {
-              "bad_code": "model.fit(X_train, y_train, epochs=100, validation_data=(X_val, y_val))",
-              "good_code": "early_stop = tf.keras.callbacks.EarlyStopping(\n    monitor='val_loss', patience=5, restore_best_weights=True\n)\nmodel.fit(X_train, y_train, epochs=100,\n          validation_data=(X_val, y_val), callbacks=[early_stop])"
+              "name": "Missing Random Seed Setting",
+              "definition": "PyTorch random operations are used without calling torch.manual_seed().",
+              "example": {
+                "bad_code": "x = torch.randn(100, 10)",
+                "good_code": "torch.manual_seed(42)\ntorch.cuda.manual_seed_all(42)\nx = torch.randn(100, 10)"
+              },
+              "fix_guide": {
+                "summary": "Set all PyTorch seeds at the top of the script and in worker initialization.",
+                "steps": [
+                  "Call torch.manual_seed(SEED) and torch.cuda.manual_seed_all(SEED).",
+                  "Also set numpy and python random seeds for full reproducibility.",
+                  "Pass a generator=torch.Generator().manual_seed(SEED) to DataLoader."
+                ],
+                "benefits": "Ensures identical weight initializations and data sampling across runs."
+              }
             },
-            "fix_guide": {
-              "summary": "Add an EarlyStopping callback that monitors validation loss.",
-              "steps": [
-                "Create EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True).",
-                "Pass it in the callbacks list to model.fit().",
-                "Set restore_best_weights=True to revert to the epoch with best val_loss.",
-                "Combine with ModelCheckpoint for additional safety."
-              ],
-              "benefits": "Prevents overfitting, reduces unnecessary training time, and returns the best model automatically."
-            }
-          },
-          {
-            "name": "Missing Checkpointing",
-            "definition": "A model is trained without a ModelCheckpoint callback.",
-            "example": {
-              "bad_code": "model.fit(X_train, y_train, epochs=50)",
-              "good_code": "checkpoint = tf.keras.callbacks.ModelCheckpoint(\n    filepath='checkpoints/model_{epoch:02d}.h5',\n    save_best_only=True, monitor='val_loss'\n)\nmodel.fit(X_train, y_train, epochs=50, callbacks=[checkpoint])"
+            {
+              "name": "Non-Deterministic Algorithm Usage",
+              "definition": "Deterministic algorithm mode is not enabled, meaning results may vary across hardware.",
+              "example": {
+                "bad_code": "model = nn.Sequential(nn.Conv2d(3, 64, 3), nn.Linear(64, 10))",
+                "good_code": "torch.use_deterministic_algorithms(True)\ntorch.backends.cudnn.deterministic = True\ntorch.backends.cudnn.benchmark = False\nmodel = nn.Sequential(nn.Conv2d(3, 64, 3), nn.Linear(64, 10))"
+              },
+              "fix_guide": {
+                "summary": "Enable deterministic mode to guarantee identical results across hardware and runs.",
+                "steps": [
+                  "Set torch.use_deterministic_algorithms(True) at the start of training.",
+                  "Set torch.backends.cudnn.deterministic = True and benchmark = False.",
+                  "Note: deterministic mode may reduce GPU performance slightly.",
+                  "Handle NotImplementedError from algorithms without deterministic implementations."
+                ],
+                "benefits": "Makes training outcomes fully reproducible regardless of GPU model."
+              }
             },
-            "fix_guide": {
-              "summary": "Add a ModelCheckpoint callback to save model weights at regular intervals.",
-              "steps": [
-                "Create ModelCheckpoint with save_best_only=True and monitor='val_loss'.",
-                "Use a filepath with {epoch} in the template for per-epoch checkpoints.",
-                "Combine with EarlyStopping so the best checkpoint is the final model.",
-                "Load the best checkpoint after training with model.load_weights(best_path)."
-              ],
-              "benefits": "Protects against training crashes and enables recovery to the best observed model state."
-            }
-          },
-          {
-            "name": "Missing Memory Release",
-            "definition": "Memory-intensive operations are performed without calling clear_session().",
-            "example": {
-              "bad_code": "for trial in range(10):\n    model = build_model()\n    model.fit(X_train, y_train)",
-              "good_code": "import gc\nfor trial in range(10):\n    tf.keras.backend.clear_session()\n    model = build_model()\n    model.fit(X_train, y_train)\n    del model\n    gc.collect()"
+            {
+              "name": "Inefficient Data Loading",
+              "definition": "A shuffled DataLoader is created without worker_init_fn or generator.",
+              "example": {
+                "bad_code": "loader = DataLoader(dataset, batch_size=32, shuffle=True)",
+                "good_code": "def seed_worker(worker_id):\n    worker_seed = torch.initial_seed() % 2**32\n    np.random.seed(worker_seed)\n    random.seed(worker_seed)\n\ng = torch.Generator()\ng.manual_seed(42)\nloader = DataLoader(dataset, batch_size=32, shuffle=True,\n                   worker_init_fn=seed_worker, generator=g)"
+              },
+              "fix_guide": {
+                "summary": "Pass a seeded generator and worker_init_fn to ensure reproducible DataLoader shuffling.",
+                "steps": [
+                  "Create a torch.Generator and call .manual_seed(SEED) on it.",
+                  "Define a worker_init_fn that seeds Python random and NumPy in each worker.",
+                  "Pass both to DataLoader via generator= and worker_init_fn= parameters."
+                ],
+                "benefits": "Ensures data order is identical across runs when shuffling is enabled."
+              }
             },
-            "fix_guide": {
-              "summary": "Call clear_session() between model builds in loops to release memory.",
-              "steps": [
-                "Call tf.keras.backend.clear_session() at the start of each loop iteration.",
-                "Also call del model and gc.collect() for Python garbage collection.",
-                "Move training loops into a separate function to allow garbage collection on return.",
-                "Monitor GPU memory with tf.config.experimental.get_memory_info('GPU:0')."
-              ],
-              "benefits": "Prevents memory leaks in hyperparameter search and batch evaluation workflows."
-            }
-          },
-          {
-            "name": "Missing Numerical Mask (TensorFlow)",
-            "definition": "tf.math.log() is applied without masking inputs that may be zero or negative.",
-            "example": {
-              "bad_code": "probs = model(inputs)\nloss = -tf.math.log(probs)",
-              "good_code": "probs = model(inputs)\nprobs = tf.clip_by_value(probs, clip_value_min=1e-8, clip_value_max=1.0)\nloss = -tf.math.log(probs)"
+            {
+              "name": "Missing Numerical Mask",
+              "definition": "torch.log() is applied to inputs that may contain zeros or negative values.",
+              "example": {
+                "bad_code": "probs = model(x)\nloss = -torch.log(probs)",
+                "good_code": "probs = model(x)\nprobs = torch.clamp(probs, min=1e-8)  # prevent log(0)\nloss = -torch.log(probs)"
+              },
+              "fix_guide": {
+                "summary": "Clamp inputs to a small positive value before applying log.",
+                "steps": [
+                  "Use torch.clamp(x, min=1e-8) before any torch.log() call.",
+                  "Alternatively, use torch.log(x + 1e-8) as a simple additive guard.",
+                  "Use torch.nn.functional.log_softmax() which is numerically stable.",
+                  "Use torch.nn.BCEWithLogitsLoss instead of BCE + log for binary tasks."
+                ],
+                "benefits": "Eliminates -inf and NaN values that can corrupt the entire training run."
+              }
             },
-            "fix_guide": {
-              "summary": "Clip inputs to a positive range before applying tf.math.log.",
-              "steps": [
-                "Use tf.clip_by_value(probs, 1e-8, 1.0) before log.",
-                "Prefer tf.nn.softmax_cross_entropy_with_logits which is numerically stable.",
-                "Use tf.keras.losses.BinaryCrossentropy(from_logits=True) for binary tasks."
-              ],
-              "benefits": "Prevents -inf loss values that cause NaN gradients and training collapse."
-            }
-          },
-          {
-            "name": "Python List Instead of TensorArray",
-            "definition": "Python lists are used to accumulate tensors in dynamic loops instead of tf.TensorArray.",
-            "example": {
-              "bad_code": "outputs = []\nfor step in tf.range(seq_len):\n    out = cell(inputs[step])\n    outputs.append(out)",
-              "good_code": "outputs = tf.TensorArray(dtype=tf.float32, size=seq_len)\nfor step in tf.range(seq_len):\n    out = cell(inputs[step])\n    outputs = outputs.write(step, out)\nresult = outputs.stack()"
+            {
+              "name": "Direct forward() Call",
+              "definition": "model.forward() is called directly instead of model(input), bypassing hooks.",
+              "example": {
+                "bad_code": "output = model.forward(input_tensor)",
+                "good_code": "output = model(input_tensor)"
+              },
+              "fix_guide": {
+                "summary": "Always call model(input) which internally calls __call__ and triggers all hooks.",
+                "steps": [
+                  "Replace all model.forward(x) with model(x).",
+                  "Understand that __call__ invokes forward plus registered hooks.",
+                  "Only call forward() directly when extending nn.Module internals."
+                ],
+                "benefits": "Ensures hook-based features (e.g., gradient monitoring, feature extraction) work correctly."
+              }
             },
-            "fix_guide": {
-              "summary": "Use tf.TensorArray for dynamic tensor accumulation inside tf.function or tf.while_loop.",
-              "steps": [
-                "Create a TensorArray with the correct dtype and size before the loop.",
-                "Use .write(index, value) inside the loop.",
-                "Call .stack() after the loop to obtain a regular tensor.",
-                "This is especially important when using @tf.function for graph compilation."
-              ],
-              "benefits": "Enables proper graph tracing and avoids Python-level tensor accumulation in TF graphs."
-            }
-          },
-          {
-            "name": "Threshold-Dependent Metrics Only (TensorFlow)",
-            "definition": "A classification model is evaluated with only basic metrics without AUC.",
-            "example": {
-              "bad_code": "model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",
-              "good_code": "model.compile(\n    optimizer='adam',\n    loss='binary_crossentropy',\n    metrics=['accuracy', tf.keras.metrics.AUC(name='auc')]\n)"
+            {
+              "name": "Incorrect Gradient Clearing",
+              "definition": "Gradients are not cleared before each backward pass, causing unintended accumulation.",
+              "example": {
+                "bad_code": "for batch in dataloader:\n    output = model(batch)\n    loss = criterion(output, labels)\n    loss.backward()\n    optimizer.step()",
+                "good_code": "for batch in dataloader:\n    optimizer.zero_grad()\n    output = model(batch)\n    loss = criterion(output, labels)\n    loss.backward()\n    optimizer.step()"
+              },
+              "fix_guide": {
+                "summary": "Call optimizer.zero_grad() at the start of every training iteration.",
+                "steps": [
+                  "Place optimizer.zero_grad() as the first line inside the training loop.",
+                  "Alternatively, use optimizer.zero_grad(set_to_none=True) for a slight memory saving.",
+                  "Exception: intentional gradient accumulation \u2014 only call zero_grad() every N steps."
+                ],
+                "benefits": "Prevents gradient values from previous batches corrupting the current update."
+              }
             },
-            "fix_guide": {
-              "summary": "Add tf.keras.metrics.AUC() to model.compile() metrics.",
-              "steps": [
-                "Add tf.keras.metrics.AUC() to the metrics list in model.compile().",
-                "Use AUC(curve='PR') for Precision-Recall AUC on imbalanced datasets.",
-                "Add Precision and Recall metrics for class-specific evaluation.",
-                "Plot the ROC curve post-training using sklearn.metrics."
-              ],
-              "benefits": "Provides evaluation that is not misleadingly optimistic under class imbalance."
-            }
-          },
-  {
-  "name": "Missing Training Logging (TensorFlow)",
-  "definition": "Training metrics (loss, accuracy, etc.) are not logged to TensorBoard or other logging tools, which prevents tracking and analyzing experiments.",
-  "example": {
-    "bad_code": "model.fit(X_train, y_train, epochs=20)\n# No logging callback provided",
-    "good_code": "import tensorflow as tf\ntb_callback = tf.keras.callbacks.TensorBoard(log_dir='./logs/exp_1', histogram_freq=1)\nmodel.fit(X_train, y_train, epochs=20, callbacks=[tb_callback])"
-  },
-  "fix_guide": {
-    "summary": "Add TensorBoard, CSVLogger, or another callback to track metrics during training.",
-    "steps": [
-      "Create a TensorBoard callback with: TensorBoard(log_dir='./logs/exp_name', histogram_freq=1).",
-      "Pass the callback in the callbacks list of model.fit().",
-      "Optionally, use CSVLogger for lightweight logging to a CSV file.",
-      "Launch TensorBoard with: tensorboard --logdir logs to visualize metrics."
-    ],
-    "benefits": "Enables experiment tracking, visual comparison of runs, gradient monitoring, and early detection of training issues."
-  },
-  "detection_logic": "Flag TensorFlow training scripts that call model.fit or train without passing a logging callback (TensorBoard, CSVLogger, MLflow, WandbCallback) while metrics like loss or accuracy are present."
-},
-          {
-            "name": "Missing Batch Normalization (TensorFlow)",
-            "definition": "A deep network does not include BatchNormalization layers.",
-            "example": {
-              "bad_code": "model = tf.keras.Sequential([\n    tf.keras.layers.Dense(256, activation='relu'),\n    tf.keras.layers.Dense(128, activation='relu'),\n    tf.keras.layers.Dense(10, activation='softmax')\n])",
-              "good_code": "model = tf.keras.Sequential([\n    tf.keras.layers.Dense(256), tf.keras.layers.BatchNormalization(), tf.keras.layers.Activation('relu'),\n    tf.keras.layers.Dense(128), tf.keras.layers.BatchNormalization(), tf.keras.layers.Activation('relu'),\n    tf.keras.layers.Dense(10, activation='softmax')\n])"
+            {
+              "name": "Missing Batch Normalization",
+              "definition": "A deep or convolutional network is defined without BatchNorm layers.",
+              "example": {
+                "bad_code": "model = nn.Sequential(\n    nn.Conv2d(3, 64, 3), nn.ReLU(),\n    nn.Conv2d(64, 128, 3), nn.ReLU()\n)",
+                "good_code": "model = nn.Sequential(\n    nn.Conv2d(3, 64, 3), nn.BatchNorm2d(64), nn.ReLU(),\n    nn.Conv2d(64, 128, 3), nn.BatchNorm2d(128), nn.ReLU()\n)"
+              },
+              "fix_guide": {
+                "summary": "Add BatchNorm layers after convolution or linear layers in deep architectures.",
+                "steps": [
+                  "Insert nn.BatchNorm2d(C) after each Conv2d with C output channels.",
+                  "Insert nn.BatchNorm1d(F) after each Linear with F output features.",
+                  "Place BatchNorm before or after the activation function (before is conventional).",
+                  "Ensure model.train() is called during training so BatchNorm updates its statistics."
+                ],
+                "benefits": "Stabilizes training dynamics, allows higher learning rates, and reduces sensitivity to initialization."
+              }
             },
-            "fix_guide": {
-              "summary": "Insert BatchNormalization after Dense or Conv layers in deep architectures.",
-              "steps": [
-                "Add tf.keras.layers.BatchNormalization() after each Dense or Conv layer.",
-                "Place it between the linear transform and the activation function.",
-                "Ensure model.fit() is called in training mode so BN learns statistics.",
-                "Use model.predict() in inference mode so BN uses learned running statistics."
-              ],
-              "benefits": "Accelerates training, allows higher learning rates, and reduces internal covariate shift."
-            }
-          },
-          {
-            "name": "Missing Dropout (TensorFlow)",
-            "definition": "A model with multiple layers is trained without Dropout layers.",
-            "example": {
-              "bad_code": "model = tf.keras.Sequential([\n    tf.keras.layers.Dense(512, activation='relu'),\n    tf.keras.layers.Dense(1, activation='sigmoid')\n])",
-              "good_code": "model = tf.keras.Sequential([\n    tf.keras.layers.Dense(512, activation='relu'),\n    tf.keras.layers.Dropout(0.5),\n    tf.keras.layers.Dense(1, activation='sigmoid')\n])"
+            {
+              "name": "Missing Dropout",
+              "definition": "A complex model with multiple layers is trained without Dropout layers.",
+              "example": {
+                "bad_code": "model = nn.Sequential(\n    nn.Linear(512, 256), nn.ReLU(),\n    nn.Linear(256, 128), nn.ReLU(),\n    nn.Linear(128, 10)\n)",
+                "good_code": "model = nn.Sequential(\n    nn.Linear(512, 256), nn.ReLU(), nn.Dropout(p=0.5),\n    nn.Linear(256, 128), nn.ReLU(), nn.Dropout(p=0.3),\n    nn.Linear(128, 10)\n)"
+              },
+              "fix_guide": {
+                "summary": "Add Dropout layers after activation functions in fully connected layers.",
+                "steps": [
+                  "Insert nn.Dropout(p=0.5) after hidden layer activations.",
+                  "Use lower dropout rates (0.1\u20130.3) for convolutional layers.",
+                  "Ensure model.eval() disables dropout during inference.",
+                  "Tune dropout rate p as a hyperparameter."
+                ],
+                "benefits": "Reduces overfitting by randomly deactivating neurons during training."
+              }
             },
-            "fix_guide": {
-              "summary": "Add Dropout layers after hidden activations to regularize the model.",
-              "steps": [
-                "Insert tf.keras.layers.Dropout(rate) after hidden Dense layers.",
-                "Use rate=0.5 as a starting point; tune with validation performance.",
-                "Dropout is automatically disabled during model.predict() (inference mode).",
-                "Monitor train vs. val loss gap; a large gap suggests more dropout is needed."
-              ],
-              "benefits": "Reduces overfitting and often improves generalization without changing model capacity."
-            }
-          },
-          {
-            "name": "Missing Data Augmentation (TensorFlow)",
-            "definition": "A computer vision model is trained without image augmentation.",
-            "example": {
-              "bad_code": "model.fit(train_ds, epochs=30)",
-              "good_code": "augment = tf.keras.Sequential([\n    tf.keras.layers.RandomFlip('horizontal'),\n    tf.keras.layers.RandomRotation(0.1),\n    tf.keras.layers.RandomZoom(0.1)\n])\ntrain_ds = train_ds.map(lambda x, y: (augment(x, training=True), y))\nmodel.fit(train_ds, epochs=30)"
+            {
+              "name": "Missing Data Augmentation (PyTorch)",
+              "definition": "A computer vision model is trained without torchvision.transforms augmentations.",
+              "example": {
+                "bad_code": "dataset = ImageFolder(root='data/train', transform=transforms.ToTensor())",
+                "good_code": "train_transform = transforms.Compose([\n    transforms.RandomHorizontalFlip(),\n    transforms.RandomCrop(32, padding=4),\n    transforms.ColorJitter(brightness=0.2, contrast=0.2),\n    transforms.ToTensor(),\n    transforms.Normalize(mean, std)\n])\ndataset = ImageFolder(root='data/train', transform=train_transform)"
+              },
+              "fix_guide": {
+                "summary": "Apply random augmentations in the training transform pipeline.",
+                "steps": [
+                  "Use transforms.RandomHorizontalFlip(), RandomCrop(), and ColorJitter as a baseline.",
+                  "Apply augmentations only to the training set, not validation/test.",
+                  "Consider torchvision.transforms.v2 for more advanced augmentations (MixUp, CutMix).",
+                  "Tune augmentation intensity to match the domain."
+                ],
+                "benefits": "Increases effective dataset size and improves generalization to unseen image variations."
+              }
             },
-            "fix_guide": {
-              "summary": "Apply tf.keras augmentation layers to the training dataset only.",
-              "steps": [
-                "Create an augmentation pipeline using tf.keras.layers.RandomFlip, RandomRotation, etc.",
-                "Apply augmentation via dataset.map() with training=True to activate randomness.",
-                "Do not apply augmentation to the validation or test datasets.",
-                "Alternatively, use ImageDataGenerator for a simpler API."
-              ],
-              "benefits": "Increases effective training set size and improves robustness to image variation."
-            }
-          },
-          {
-            "name": "Missing Learning Rate Scheduler (TensorFlow)",
-            "definition": "Training uses a fixed learning rate without any scheduler.",
-            "example": {
-              "bad_code": "model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.001), loss='mse')\nmodel.fit(X_train, y_train, epochs=50)",
-              "good_code": "lr_schedule = tf.keras.callbacks.ReduceLROnPlateau(\n    monitor='val_loss', factor=0.5, patience=3, min_lr=1e-6\n)\nmodel.fit(X_train, y_train, epochs=50,\n          validation_data=(X_val, y_val), callbacks=[lr_schedule])"
+            {
+              "name": "Lack of Learning Rate Scheduling",
+              "definition": "A model is trained for many epochs with a fixed learning rate.",
+              "example": {
+                "bad_code": "optimizer = torch.optim.Adam(model.parameters(), lr=0.001)\nfor epoch in range(100):\n    train_one_epoch()",
+                "good_code": "optimizer = torch.optim.Adam(model.parameters(), lr=0.001)\nscheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=100)\nfor epoch in range(100):\n    train_one_epoch()\n    scheduler.step()"
+              },
+              "fix_guide": {
+                "summary": "Add a learning rate scheduler and call scheduler.step() each epoch.",
+                "steps": [
+                  "Choose a scheduler: StepLR for simple decay, CosineAnnealingLR for smooth decay, ReduceLROnPlateau for validation-based decay.",
+                  "Call scheduler.step() after each epoch (or after each step for OneCycleLR).",
+                  "Log the current LR with optimizer.param_groups[0]['lr'] to monitor changes."
+                ],
+                "benefits": "Improves final model accuracy by allowing large initial exploration and fine-grained convergence."
+              }
             },
-            "fix_guide": {
-              "summary": "Add a ReduceLROnPlateau or LearningRateScheduler callback to model.fit().",
-              "steps": [
-                "Use ReduceLROnPlateau for adaptive reduction on val_loss plateau.",
-                "Use LearningRateScheduler for a predefined decay schedule.",
-                "Use tf.keras.optimizers.schedules.CosineDecay for cosine annealing.",
-                "Log LR with TensorBoard to verify schedule is applied correctly."
-              ],
-              "benefits": "Improves final accuracy by dynamically reducing LR when training stalls."
-            }
-          },
-          {
-            "name": "Missing Model Evaluation",
-            "definition": "A trained model is not evaluated using model.evaluate() on validation or test data.",
-            "example": {
-              "bad_code": "model.fit(X_train, y_train, epochs=20)\n# No evaluation call",
-              "good_code": "model.fit(X_train, y_train, epochs=20)\ntest_loss, test_acc = model.evaluate(X_test, y_test)\nprint(f'Test Loss: {test_loss:.4f}, Test Accuracy: {test_acc:.4f}')"
+            {
+              "name": "Missing Logging and Visualization",
+              "definition": "Training metrics (loss, accuracy, etc.) are tracked manually (e.g., printed) without using a proper logging tool like TensorBoard, Weights & Biases, or MLflow.",
+              "example": {
+                "bad_code": "for epoch in range(epochs):\n    loss = train(model, loader)\n    print(f'Loss: {loss}')",
+                "good_code": "from torch.utils.tensorboard import SummaryWriter\nwriter = SummaryWriter('runs/exp_1')\nfor epoch in range(epochs):\n    loss = train(model, loader)\n    writer.add_scalar('Loss/train', loss, epoch)\nwriter.close()"
+              },
+              "fix_guide": {
+                "summary": "Integrate a logging framework to automatically record all training metrics for reproducibility and experiment tracking.",
+                "steps": [
+                  "Use TensorBoard (SummaryWriter), wandb.log(), or MLflow to log metrics in your training loop.",
+                  "Log all relevant metrics: loss, accuracy, learning rate, gradient norms, etc., each epoch.",
+                  "Optionally log the model graph with writer.add_graph() for architecture visualization.",
+                  "Store logs in a versioned directory for reproducibility and comparison of experiments."
+                ],
+                "benefits": "Enables structured experiment tracking, early detection of divergence or overfitting, and reproducible reporting of results."
+              },
+              "detection_logic": "Flag PyTorch scripts where train() or backward() calls exist with metric calculations (loss, accuracy, score), but no logging tool (TensorBoard, wandb, MLflow, Neptune) is used."
             },
-            "fix_guide": {
-              "summary": "Always call model.evaluate() on a held-out test set after training.",
-              "steps": [
-                "Call model.evaluate(X_test, y_test) and store the returned metrics.",
-                "Log test metrics alongside training metrics for complete reporting.",
-                "Use model.predict() + sklearn metrics for more detailed analysis.",
-                "Never evaluate on training data to report final performance."
-              ],
-              "benefits": "Provides an unbiased estimate of real-world model performance."
+            {
+              "name": "Missing Evaluation Mode",
+              "definition": "The model is not switched to eval() mode during validation or inference.",
+              "example": {
+                "bad_code": "for batch in val_loader:\n    output = model(batch)\n    val_loss += criterion(output, labels)",
+                "good_code": "model.eval()\nwith torch.no_grad():\n    for batch in val_loader:\n        output = model(batch)\n        val_loss += criterion(output, labels)\nmodel.train()"
+              },
+              "fix_guide": {
+                "summary": "Call model.eval() before validation/inference and model.train() before resuming training.",
+                "steps": [
+                  "Wrap the entire validation loop with model.eval() and model.train() around it.",
+                  "Always use torch.no_grad() during validation to save memory and speed.",
+                  "Be aware: model.eval() disables Dropout and switches BatchNorm to use running stats."
+                ],
+                "benefits": "Ensures correct behavior of stochastic layers during validation and avoids artificially low val loss."
+              }
             }
-          }
-        ]
-      },
-      "Hugging Face": {
-        "smells": [
-          {
-            "name": "Model Version Not Specified",
-            "definition": "A pre-trained model is loaded without specifying a revision tag.",
-            "example": {
-              "bad_code": "model = AutoModel.from_pretrained('bert-base-uncased')",
-              "good_code": "model = AutoModel.from_pretrained('bert-base-uncased', revision='v1.0')\n# Or use a specific commit hash:\nmodel = AutoModel.from_pretrained('bert-base-uncased', revision='a123bc4')"
+          ]
+        },
+        "TensorFlow": {
+          "smells": [
+            {
+              "name": "Missing Random Seed Setting",
+              "definition": "Random operations are used without calling tf.random.set_seed().",
+              "example": {
+                "bad_code": "model = tf.keras.Sequential([tf.keras.layers.Dense(64)])",
+                "good_code": "tf.random.set_seed(42)\nmodel = tf.keras.Sequential([tf.keras.layers.Dense(64)])"
+              },
+              "fix_guide": {
+                "summary": "Call tf.random.set_seed() at the start of every script to fix the global random state.",
+                "steps": [
+                  "Call tf.random.set_seed(SEED) before any model creation or data generation.",
+                  "Also set Python and NumPy seeds for full reproducibility.",
+                  "Combine with os.environ['TF_DETERMINISTIC_OPS'] = '1' for GPU determinism."
+                ],
+                "benefits": "Guarantees identical weight initializations and random operations across runs."
+              }
             },
-            "fix_guide": {
-              "summary": "Always pin model downloads to a specific revision or commit hash.",
-              "steps": [
-                "Find the desired revision tag or commit on the HuggingFace model hub.",
-                "Pass revision='<tag_or_commit>' to from_pretrained().",
-                "Store the revision identifier in your config or requirements file.",
-                "Combine with local_files_only=True in production to prevent accidental updates."
-              ],
-              "benefits": "Guarantees that the exact same model weights are used across all environments and runs."
-            }
-          },
-          {
-            "name": "Tokenizer Caching Not Used",
-            "definition": "A tokenizer is loaded without specifying cache_dir or local_files_only.",
-            "example": {
-              "bad_code": "tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')",
-              "good_code": "tokenizer = AutoTokenizer.from_pretrained(\n    'bert-base-uncased',\n    cache_dir='./model_cache',\n    local_files_only=False  # set True in offline environments\n)"
+            {
+              "name": "Unit Testing Checker",
+              "definition": "Detects the absence of structured unit tests for machine learning components, which can lead to undetected bugs, unstable model behavior, and unreliable code evolution.",
+              "example": {
+                "bad_code": "import tensorflow as tf\n\nmodel = tf.keras.Sequential([\n    tf.keras.layers.Dense(10, activation='relu'),\n    tf.keras.layers.Dense(1)\n])\n\nmodel.compile(optimizer='adam', loss='mse')\nmodel.fit(x_train, y_train, epochs=5)",
+                "good_code": "import pytest\nimport numpy as np\nimport tensorflow as tf\n\ndef build_model():\n    model = tf.keras.Sequential([\n        tf.keras.layers.Dense(10, activation='relu'),\n        tf.keras.layers.Dense(1)\n    ])\n    model.compile(optimizer='adam', loss='mse')\n    return model\n\ndef test_model_output_shape():\n    model = build_model()\n    x = np.random.rand(8, 5)\n    preds = model.predict(x)\n    assert preds.shape == (8, 1), f'Unexpected output shape: {preds.shape}'\n\ndef test_model_trains_without_error():\n    model = build_model()\n    x = np.random.rand(16, 5)\n    y = np.random.rand(16, 1)\n    history = model.fit(x, y, epochs=2, verbose=0)\n    assert 'loss' in history.history\n    assert history.history['loss'][-1] < history.history['loss'][0]"
+              },
+              "fix_guide": {
+                "summary": "Extract model construction and training steps into testable functions and write pytest unit tests covering output shapes, training behavior, and edge cases.",
+                "steps": [
+                  "Refactor model building into a standalone function (e.g., build_model()) so it can be instantiated independently in tests.",
+                  "Write a shape test: create a small random input tensor and assert that model.predict(x).shape matches the expected output dimensions.",
+                  "Write a training sanity test: fit the model on a tiny synthetic dataset for 2\u20133 epochs and assert that the loss decreases.",
+                  "Write a preprocessing test for each data transformation function: assert output dtype, shape, value range, and correct handling of null or edge-case inputs.",
+                  "Use tf.test.TestCase (TensorFlow) or plain pytest for test classes; use pytest fixtures to share model instances across tests.",
+                  "Add the test suite to CI so tests run automatically on every commit.",
+                  "Use pytest-cov to track test coverage and aim for at least 80% coverage of core ML logic."
+                ],
+                "benefits": "Catches regressions early when model architecture or preprocessing logic changes, documents expected behavior, and reduces debugging time in production."
+              }
             },
-            "fix_guide": {
-              "summary": "Set cache_dir to a persistent directory so tokenizers are not re-downloaded.",
-              "steps": [
-                "Pass cache_dir='./cache' to from_pretrained() for all tokenizer loads.",
-                "Set local_files_only=True in CI or offline environments.",
-                "Share the cache directory across team members or Docker containers.",
-                "Use HF_HOME environment variable to set a global default cache location."
-              ],
-              "benefits": "Reduces network dependency, speeds up loading, and enables offline operation."
-            }
-          },
-          {
-            "name": "Model Caching Not Used",
-            "definition": "A model is loaded without specifying cache_dir or local_files_only.",
-            "example": {
-              "bad_code": "model = AutoModel.from_pretrained('bert-base-uncased')",
-              "good_code": "model = AutoModel.from_pretrained(\n    'bert-base-uncased',\n    cache_dir='./model_cache'\n)"
+            {
+              "name": "Exception Handling Checker",
+              "definition": "Identifies missing or inadequate exception handling in machine learning code that may cause silent failures, crashes, or unclear error reporting during data processing and model execution.",
+              "example": {
+                "bad_code": "import tensorflow as tf\n\ndata = tf.io.read_file('missing_file.csv')\nparsed = tf.io.decode_csv(data)",
+                "good_code": "import tensorflow as tf\nimport logging\n\nlogger = logging.getLogger(__name__)\n\ndef load_and_parse(filepath: str):\n    try:\n        data = tf.io.read_file(filepath)\n    except tf.errors.NotFoundError as e:\n        logger.error(f'Data file not found: {filepath} \u2014 {e}')\n        raise FileNotFoundError(f'Required data file missing: {filepath}') from e\n    except tf.errors.PermissionDeniedError as e:\n        logger.error(f'Permission denied reading: {filepath}')\n        raise PermissionError(f'Cannot read file: {filepath}') from e\n\n    try:\n        parsed = tf.io.decode_csv(data, record_defaults=[[0.0]] * NUM_COLUMNS)\n    except tf.errors.InvalidArgumentError as e:\n        logger.error(f'CSV parsing failed \u2014 check schema: {e}')\n        raise ValueError(f'Malformed CSV at {filepath}') from e\n\n    return parsed"
+              },
+              "fix_guide": {
+                "summary": "Wrap all I/O, parsing, and model operations in try-except blocks that catch specific exceptions, log context, and re-raise with informative messages.",
+                "steps": [
+                  "Identify all critical operations: file reads, CSV/JSON parsing, model loading, predict/evaluate calls, and any external API calls.",
+                  "Wrap each critical operation in its own try-except block \u2014 do not catch everything in one broad except Exception block, as this hides the root cause.",
+                  "Catch specific exception types: tf.errors.NotFoundError for missing files, tf.errors.InvalidArgumentError for schema mismatches, tf.errors.ResourceExhaustedError for OOM errors.",
+                  "Log the exception with full context (file path, input shape, operation name) using Python's logging module before re-raising.",
+                  "Re-raise as a descriptive, domain-level exception (e.g., FileNotFoundError, ValueError) so callers receive actionable error messages.",
+                  "Add input validation before risky operations \u2014 check that files exist with tf.io.gfile.exists(), verify tensor shapes, and check for NaN values \u2014 to fail fast with a clear message.",
+                  "In production inference pipelines, add a top-level exception handler that logs the full traceback and returns a graceful error response rather than crashing the service."
+                ],
+                "benefits": "Transforms cryptic low-level TensorFlow errors into actionable messages, prevents silent data corruption from partial reads, and makes production pipelines resilient to missing or malformed inputs."
+              }
             },
-            "fix_guide": {
-              "summary": "Set cache_dir for all model downloads to avoid re-downloading large weights.",
-              "steps": [
-                "Pass cache_dir='./model_cache' to every from_pretrained() call.",
-                "Set the HF_HOME or TRANSFORMERS_CACHE environment variable globally.",
-                "Use snapshot_download() to pre-download models in setup scripts.",
-                "Store the cache on fast SSD storage for quick loading."
-              ],
-              "benefits": "Eliminates redundant downloads of large model weights, saving time and bandwidth."
-            }
-          },
-          {
-            "name": "Non-Deterministic Tokenization Settings",
-            "definition": "A tokenizer is loaded without explicitly setting parameters like truncation, padding, or max_length.",
-            "example": {
-              "bad_code": "tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')\ntokens = tokenizer(texts)",
-              "good_code": "tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')\ntokens = tokenizer(\n    texts,\n    truncation=True,\n    padding='max_length',\n    max_length=128,\n    return_tensors='pt'\n)"
+            {
+              "name": "Absence of Early Stopping",
+              "definition": "A model is trained for multiple epochs without an EarlyStopping callback.",
+              "example": {
+                "bad_code": "model.fit(X_train, y_train, epochs=100, validation_data=(X_val, y_val))",
+                "good_code": "early_stop = tf.keras.callbacks.EarlyStopping(\n    monitor='val_loss', patience=5, restore_best_weights=True\n)\nmodel.fit(X_train, y_train, epochs=100,\n          validation_data=(X_val, y_val), callbacks=[early_stop])"
+              },
+              "fix_guide": {
+                "summary": "Add an EarlyStopping callback that monitors validation loss.",
+                "steps": [
+                  "Create EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True).",
+                  "Pass it in the callbacks list to model.fit().",
+                  "Set restore_best_weights=True to revert to the epoch with best val_loss.",
+                  "Combine with ModelCheckpoint for additional safety."
+                ],
+                "benefits": "Prevents overfitting, reduces unnecessary training time, and returns the best model automatically."
+              }
             },
-            "fix_guide": {
-              "summary": "Always specify truncation, padding, max_length, and return_tensors explicitly.",
-              "steps": [
-                "Set truncation=True to prevent silent truncation or errors on long inputs.",
-                "Set padding='max_length' or padding='longest' consistently.",
-                "Fix max_length to the value used during pre-training or fine-tuning.",
-                "Set return_tensors='pt' or 'tf' to match your framework."
-              ],
-              "benefits": "Ensures identical tokenization behavior across training, evaluation, and production."
-            }
-          },
-          {
-            "name": "Inefficient Data Loading",
-            "definition": "Standard I/O is used instead of the HuggingFace datasets library or a DataLoader.",
-            "example": {
-              "bad_code": "import json\nwith open('data.json') as f:\n    data = json.load(f)",
-              "good_code": "from datasets import load_dataset\ndataset = load_dataset('json', data_files='data.json')\ndataset = dataset.map(tokenize_fn, batched=True, num_proc=4)"
+            {
+              "name": "Lack of Checkpointing",
+              "definition": "A model is trained without a ModelCheckpoint callback.",
+              "example": {
+                "bad_code": "model.fit(X_train, y_train, epochs=50)",
+                "good_code": "checkpoint = tf.keras.callbacks.ModelCheckpoint(\n    filepath='checkpoints/model_{epoch:02d}.h5',\n    save_best_only=True, monitor='val_loss'\n)\nmodel.fit(X_train, y_train, epochs=50, callbacks=[checkpoint])"
+              },
+              "fix_guide": {
+                "summary": "Add a ModelCheckpoint callback to save model weights at regular intervals.",
+                "steps": [
+                  "Create ModelCheckpoint with save_best_only=True and monitor='val_loss'.",
+                  "Use a filepath with {epoch} in the template for per-epoch checkpoints.",
+                  "Combine with EarlyStopping so the best checkpoint is the final model.",
+                  "Load the best checkpoint after training with model.load_weights(best_path)."
+                ],
+                "benefits": "Protects against training crashes and enables recovery to the best observed model state."
+              }
             },
-            "fix_guide": {
-              "summary": "Use the HuggingFace datasets library for efficient, scalable data loading.",
-              "steps": [
-                "Replace custom file I/O with load_dataset() or Dataset.from_dict().",
-                "Use .map(fn, batched=True, num_proc=N) for fast parallel preprocessing.",
-                "Use .set_format('torch') to get PyTorch tensors directly.",
-                "Use streaming=True for datasets too large to fit in memory."
-              ],
-              "benefits": "Provides memory mapping, caching, and multiprocessing out of the box."
-            }
-          },
-          {
-            "name": "Distributed Training Not Configured",
-            "definition": "TrainingArguments is used without configuring distributed training parameters.",
-            "example": {
-              "bad_code": "args = TrainingArguments(\n    output_dir='output',\n    num_train_epochs=3,\n    per_device_train_batch_size=16\n)",
-              "good_code": "args = TrainingArguments(\n    output_dir='output',\n    num_train_epochs=3,\n    per_device_train_batch_size=16,\n    local_rank=-1,\n    dataloader_num_workers=4\n)"
+            {
+              "name": "Inefficient Memory Management",
+              "definition": "Memory-intensive operations are performed without calling clear_session().",
+              "example": {
+                "bad_code": "for trial in range(10):\n    model = build_model()\n    model.fit(X_train, y_train)",
+                "good_code": "import gc\nfor trial in range(10):\n    tf.keras.backend.clear_session()\n    model = build_model()\n    model.fit(X_train, y_train)\n    del model\n    gc.collect()"
+              },
+              "fix_guide": {
+                "summary": "Call clear_session() between model builds in loops to release memory.",
+                "steps": [
+                  "Call tf.keras.backend.clear_session() at the start of each loop iteration.",
+                  "Also call del model and gc.collect() for Python garbage collection.",
+                  "Move training loops into a separate function to allow garbage collection on return.",
+                  "Monitor GPU memory with tf.config.experimental.get_memory_info('GPU:0')."
+                ],
+                "benefits": "Prevents memory leaks in hyperparameter search and batch evaluation workflows."
+              }
             },
-            "fix_guide": {
-              "summary": "Set distributed training parameters in TrainingArguments if multiple GPUs are available.",
-              "steps": [
-                "Set local_rank and n_gpu appropriately for multi-GPU setups.",
-                "Launch training with torchrun or accelerate launch instead of python train.py.",
-                "Use DeepSpeed integration via deepspeed=ds_config for large models.",
-                "Set dataloader_num_workers to match your CPU core count."
-              ],
-              "benefits": "Fully utilizes available hardware, reducing training time for large models."
-            }
-          },
-          {
-            "name": "Mixed Precision Not Enabled",
-            "definition": "TrainingArguments does not set fp16=True or bf16=True.",
-            "example": {
-              "bad_code": "args = TrainingArguments(output_dir='output', num_train_epochs=5)",
-              "good_code": "args = TrainingArguments(\n    output_dir='output',\n    num_train_epochs=5,\n    fp16=True  # or bf16=True on Ampere GPUs\n)"
+            {
+              "name": "Missing Numerical Mask (TensorFlow)",
+              "definition": "tf.math.log() is applied without masking inputs that may be zero or negative.",
+              "example": {
+                "bad_code": "probs = model(inputs)\nloss = -tf.math.log(probs)",
+                "good_code": "probs = model(inputs)\nprobs = tf.clip_by_value(probs, clip_value_min=1e-8, clip_value_max=1.0)\nloss = -tf.math.log(probs)"
+              },
+              "fix_guide": {
+                "summary": "Clip inputs to a positive range before applying tf.math.log.",
+                "steps": [
+                  "Use tf.clip_by_value(probs, 1e-8, 1.0) before log.",
+                  "Prefer tf.nn.softmax_cross_entropy_with_logits which is numerically stable.",
+                  "Use tf.keras.losses.BinaryCrossentropy(from_logits=True) for binary tasks."
+                ],
+                "benefits": "Prevents -inf loss values that cause NaN gradients and training collapse."
+              }
             },
-            "fix_guide": {
-              "summary": "Enable fp16 or bf16 training in TrainingArguments for supported hardware.",
-              "steps": [
-                "Set fp16=True on Volta/Turing GPUs (T4, V100, RTX).",
-                "Set bf16=True on Ampere GPUs (A100, A10) for more stable training.",
-                "Use fp16_opt_level='O1' with Apex for fine-grained control.",
-                "Monitor for loss spikes; add gradient clipping if instability occurs."
-              ],
-              "benefits": "Cuts GPU memory usage by ~50% and speeds up training by 1.5–3x."
-            }
-          },
-          {
-            "name": "Gradient Accumulation Not Configured",
-            "definition": "Training is configured without setting gradient_accumulation_steps > 1.",
-            "example": {
-              "bad_code": "args = TrainingArguments(\n    output_dir='output',\n    per_device_train_batch_size=4\n)",
-              "good_code": "args = TrainingArguments(\n    output_dir='output',\n    per_device_train_batch_size=4,\n    gradient_accumulation_steps=8  # effective batch size = 4 * 8 = 32\n)"
+            {
+              "name": "Python List Instead of TensorArray",
+              "definition": "Python lists are used to accumulate tensors in dynamic loops instead of tf.TensorArray.",
+              "example": {
+                "bad_code": "outputs = []\nfor step in tf.range(seq_len):\n    out = cell(inputs[step])\n    outputs.append(out)",
+                "good_code": "outputs = tf.TensorArray(dtype=tf.float32, size=seq_len)\nfor step in tf.range(seq_len):\n    out = cell(inputs[step])\n    outputs = outputs.write(step, out)\nresult = outputs.stack()"
+              },
+              "fix_guide": {
+                "summary": "Use tf.TensorArray for dynamic tensor accumulation inside tf.function or tf.while_loop.",
+                "steps": [
+                  "Create a TensorArray with the correct dtype and size before the loop.",
+                  "Use .write(index, value) inside the loop.",
+                  "Call .stack() after the loop to obtain a regular tensor.",
+                  "This is especially important when using @tf.function for graph compilation."
+                ],
+                "benefits": "Enables proper graph tracing and avoids Python-level tensor accumulation in TF graphs."
+              }
             },
-            "fix_guide": {
-              "summary": "Set gradient_accumulation_steps to achieve a larger effective batch size within GPU memory limits.",
-              "steps": [
-                "Determine the largest per_device_train_batch_size that fits in VRAM.",
-                "Set gradient_accumulation_steps = target_batch_size / per_device_batch_size.",
-                "Adjust learning rate proportionally to the effective batch size.",
-                "Note: accumulation increases training time proportionally."
-              ],
-              "benefits": "Enables training with large effective batch sizes on limited GPU memory."
-            }
-          },
-          {
-            "name": "Learning Rate Scheduler Not Detected",
-            "definition": "No lr_scheduler_type is specified in TrainingArguments.",
-            "example": {
-              "bad_code": "args = TrainingArguments(\n    output_dir='output',\n    learning_rate=5e-5\n)",
-              "good_code": "args = TrainingArguments(\n    output_dir='output',\n    learning_rate=5e-5,\n    lr_scheduler_type='cosine',\n    warmup_ratio=0.06\n)"
+            {
+              "name": "Threshold-Dependent Metrics Only (TensorFlow)",
+              "definition": "A classification model is evaluated with only basic metrics without AUC.",
+              "example": {
+                "bad_code": "model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",
+                "good_code": "model.compile(\n    optimizer='adam',\n    loss='binary_crossentropy',\n    metrics=['accuracy', tf.keras.metrics.AUC(name='auc')]\n)"
+              },
+              "fix_guide": {
+                "summary": "Add tf.keras.metrics.AUC() to model.compile() metrics.",
+                "steps": [
+                  "Add tf.keras.metrics.AUC() to the metrics list in model.compile().",
+                  "Use AUC(curve='PR') for Precision-Recall AUC on imbalanced datasets.",
+                  "Add Precision and Recall metrics for class-specific evaluation.",
+                  "Plot the ROC curve post-training using sklearn.metrics."
+                ],
+                "benefits": "Provides evaluation that is not misleadingly optimistic under class imbalance."
+              }
             },
-            "fix_guide": {
-              "summary": "Specify lr_scheduler_type and warmup_ratio in TrainingArguments.",
-              "steps": [
-                "Set lr_scheduler_type to 'linear', 'cosine', or 'polynomial'.",
-                "Set warmup_ratio=0.06 (6% warmup is a common default for fine-tuning).",
-                "Or set warmup_steps explicitly for precise warmup control.",
-                "Log the LR schedule to verify it behaves as expected."
-              ],
-              "benefits": "Prevents unstable early training and achieves better final model performance."
-            }
-          },
-          {
-            "name": "Missing Early Stopping (HuggingFace)",
-            "definition": "Training code does not include EarlyStoppingCallback, risking overfitting.",
-            "example": {
-              "bad_code": "trainer = Trainer(model=model, args=args, train_dataset=train_ds, eval_dataset=eval_ds)\ntrainer.train()",
-              "good_code": "from transformers import EarlyStoppingCallback\n\nargs = TrainingArguments(\n    output_dir='output',\n    evaluation_strategy='epoch',\n    load_best_model_at_end=True\n)\ntrainer = Trainer(\n    model=model,\n    args=args,\n    train_dataset=train_ds,\n    eval_dataset=eval_ds,\n    callbacks=[EarlyStoppingCallback(early_stopping_patience=3)]\n)\ntrainer.train()"
+            {
+              "name": "Missing Logging and Visualization",
+              "definition": "Training metrics (loss, accuracy, etc.) are not logged to TensorBoard or other logging tools, which prevents tracking and analyzing experiments.",
+              "example": {
+                "bad_code": "model.fit(X_train, y_train, epochs=20)\n# No logging callback provided",
+                "good_code": "import tensorflow as tf\ntb_callback = tf.keras.callbacks.TensorBoard(log_dir='./logs/exp_1', histogram_freq=1)\nmodel.fit(X_train, y_train, epochs=20, callbacks=[tb_callback])"
+              },
+              "fix_guide": {
+                "summary": "Add TensorBoard, CSVLogger, or another callback to track metrics during training.",
+                "steps": [
+                  "Create a TensorBoard callback with: TensorBoard(log_dir='./logs/exp_name', histogram_freq=1).",
+                  "Pass the callback in the callbacks list of model.fit().",
+                  "Optionally, use CSVLogger for lightweight logging to a CSV file.",
+                  "Launch TensorBoard with: tensorboard --logdir logs to visualize metrics."
+                ],
+                "benefits": "Enables experiment tracking, visual comparison of runs, gradient monitoring, and early detection of training issues."
+              },
+              "detection_logic": "Flag TensorFlow training scripts that call model.fit or train without passing a logging callback (TensorBoard, CSVLogger, MLflow, WandbCallback) while metrics like loss or accuracy are present."
             },
-            "fix_guide": {
-              "summary": "Add EarlyStoppingCallback with a patience value and enable evaluation.",
-              "steps": [
-                "Set evaluation_strategy='epoch' (or 'steps') in TrainingArguments.",
-                "Set load_best_model_at_end=True to restore the best checkpoint.",
-                "Add EarlyStoppingCallback(early_stopping_patience=3) to callbacks.",
-                "Set metric_for_best_model to the primary evaluation metric."
-              ],
-              "benefits": "Prevents overfitting during fine-tuning and automatically returns the best model checkpoint."
+            {
+              "name": "Missing Batch Normalization (TensorFlow)",
+              "definition": "A deep network does not include BatchNormalization layers.",
+              "example": {
+                "bad_code": "model = tf.keras.Sequential([\n    tf.keras.layers.Dense(256, activation='relu'),\n    tf.keras.layers.Dense(128, activation='relu'),\n    tf.keras.layers.Dense(10, activation='softmax')\n])",
+                "good_code": "model = tf.keras.Sequential([\n    tf.keras.layers.Dense(256), tf.keras.layers.BatchNormalization(), tf.keras.layers.Activation('relu'),\n    tf.keras.layers.Dense(128), tf.keras.layers.BatchNormalization(), tf.keras.layers.Activation('relu'),\n    tf.keras.layers.Dense(10, activation='softmax')\n])"
+              },
+              "fix_guide": {
+                "summary": "Insert BatchNormalization after Dense or Conv layers in deep architectures.",
+                "steps": [
+                  "Add tf.keras.layers.BatchNormalization() after each Dense or Conv layer.",
+                  "Place it between the linear transform and the activation function.",
+                  "Ensure model.fit() is called in training mode so BN learns statistics.",
+                  "Use model.predict() in inference mode so BN uses learned running statistics."
+                ],
+                "benefits": "Accelerates training, allows higher learning rates, and reduces internal covariate shift."
+              }
+            },
+            {
+              "name": "Missing Dropout (TensorFlow)",
+              "definition": "A model with multiple layers is trained without Dropout layers.",
+              "example": {
+                "bad_code": "model = tf.keras.Sequential([\n    tf.keras.layers.Dense(512, activation='relu'),\n    tf.keras.layers.Dense(1, activation='sigmoid')\n])",
+                "good_code": "model = tf.keras.Sequential([\n    tf.keras.layers.Dense(512, activation='relu'),\n    tf.keras.layers.Dropout(0.5),\n    tf.keras.layers.Dense(1, activation='sigmoid')\n])"
+              },
+              "fix_guide": {
+                "summary": "Add Dropout layers after hidden activations to regularize the model.",
+                "steps": [
+                  "Insert tf.keras.layers.Dropout(rate) after hidden Dense layers.",
+                  "Use rate=0.5 as a starting point; tune with validation performance.",
+                  "Dropout is automatically disabled during model.predict() (inference mode).",
+                  "Monitor train vs. val loss gap; a large gap suggests more dropout is needed."
+                ],
+                "benefits": "Reduces overfitting and often improves generalization without changing model capacity."
+              }
+            },
+            {
+              "name": "Missing Data Augmentation (TensorFlow)",
+              "definition": "A computer vision model is trained without image augmentation.",
+              "example": {
+                "bad_code": "model.fit(train_ds, epochs=30)",
+                "good_code": "augment = tf.keras.Sequential([\n    tf.keras.layers.RandomFlip('horizontal'),\n    tf.keras.layers.RandomRotation(0.1),\n    tf.keras.layers.RandomZoom(0.1)\n])\ntrain_ds = train_ds.map(lambda x, y: (augment(x, training=True), y))\nmodel.fit(train_ds, epochs=30)"
+              },
+              "fix_guide": {
+                "summary": "Apply tf.keras augmentation layers to the training dataset only.",
+                "steps": [
+                  "Create an augmentation pipeline using tf.keras.layers.RandomFlip, RandomRotation, etc.",
+                  "Apply augmentation via dataset.map() with training=True to activate randomness.",
+                  "Do not apply augmentation to the validation or test datasets.",
+                  "Alternatively, use ImageDataGenerator for a simpler API."
+                ],
+                "benefits": "Increases effective training set size and improves robustness to image variation."
+              }
+            },
+            {
+              "name": "Missing Learning Rate Scheduler (TensorFlow)",
+              "definition": "Training uses a fixed learning rate without any scheduler.",
+              "example": {
+                "bad_code": "model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.001), loss='mse')\nmodel.fit(X_train, y_train, epochs=50)",
+                "good_code": "lr_schedule = tf.keras.callbacks.ReduceLROnPlateau(\n    monitor='val_loss', factor=0.5, patience=3, min_lr=1e-6\n)\nmodel.fit(X_train, y_train, epochs=50,\n          validation_data=(X_val, y_val), callbacks=[lr_schedule])"
+              },
+              "fix_guide": {
+                "summary": "Add a ReduceLROnPlateau or LearningRateScheduler callback to model.fit().",
+                "steps": [
+                  "Use ReduceLROnPlateau for adaptive reduction on val_loss plateau.",
+                  "Use LearningRateScheduler for a predefined decay schedule.",
+                  "Use tf.keras.optimizers.schedules.CosineDecay for cosine annealing.",
+                  "Log LR with TensorBoard to verify schedule is applied correctly."
+                ],
+                "benefits": "Improves final accuracy by dynamically reducing LR when training stalls."
+              }
+            },
+            {
+              "name": "Missing Model Evaluation",
+              "definition": "A trained model is not evaluated using model.evaluate() on validation or test data.",
+              "example": {
+                "bad_code": "model.fit(X_train, y_train, epochs=20)\n# No evaluation call",
+                "good_code": "model.fit(X_train, y_train, epochs=20)\ntest_loss, test_acc = model.evaluate(X_test, y_test)\nprint(f'Test Loss: {test_loss:.4f}, Test Accuracy: {test_acc:.4f}')"
+              },
+              "fix_guide": {
+                "summary": "Always call model.evaluate() on a held-out test set after training.",
+                "steps": [
+                  "Call model.evaluate(X_test, y_test) and store the returned metrics.",
+                  "Log test metrics alongside training metrics for complete reporting.",
+                  "Use model.predict() + sklearn metrics for more detailed analysis.",
+                  "Never evaluate on training data to report final performance."
+                ],
+                "benefits": "Provides an unbiased estimate of real-world model performance."
+              }
             }
-          }
-        ]
+          ]
+        },
+        "Hugging Face": {
+          "smells": [
+            {
+              "name": "Model Versioning Issues",
+              "definition": "A pre-trained model is loaded without specifying a revision tag.",
+              "example": {
+                "bad_code": "model = AutoModel.from_pretrained('bert-base-uncased')",
+                "good_code": "model = AutoModel.from_pretrained('bert-base-uncased', revision='v1.0')\n# Or use a specific commit hash:\nmodel = AutoModel.from_pretrained('bert-base-uncased', revision='a123bc4')"
+              },
+              "fix_guide": {
+                "summary": "Always pin model downloads to a specific revision or commit hash.",
+                "steps": [
+                  "Find the desired revision tag or commit on the HuggingFace model hub.",
+                  "Pass revision='<tag_or_commit>' to from_pretrained().",
+                  "Store the revision identifier in your config or requirements file.",
+                  "Combine with local_files_only=True in production to prevent accidental updates."
+                ],
+                "benefits": "Guarantees that the exact same model weights are used across all environments and runs."
+              }
+            },
+            {
+              "name": "Missing Tokenizer and Model Caching",
+              "definition": "A tokenizer is loaded without specifying cache_dir or local_files_only.",
+              "example": {
+                "bad_code": "tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')",
+                "good_code": "tokenizer = AutoTokenizer.from_pretrained(\n    'bert-base-uncased',\n    cache_dir='./model_cache',\n    local_files_only=False  # set True in offline environments\n)"
+              },
+              "fix_guide": {
+                "summary": "Set cache_dir to a persistent directory so tokenizers are not re-downloaded.",
+                "steps": [
+                  "Pass cache_dir='./cache' to from_pretrained() for all tokenizer loads.",
+                  "Set local_files_only=True in CI or offline environments.",
+                  "Share the cache directory across team members or Docker containers.",
+                  "Use HF_HOME environment variable to set a global default cache location."
+                ],
+                "benefits": "Reduces network dependency, speeds up loading, and enables offline operation."
+              }
+            },
+            {
+              "name": "Missing Tokenizer and Model Caching",
+              "definition": "A model is loaded without specifying cache_dir or local_files_only.",
+              "example": {
+                "bad_code": "model = AutoModel.from_pretrained('bert-base-uncased')",
+                "good_code": "model = AutoModel.from_pretrained(\n    'bert-base-uncased',\n    cache_dir='./model_cache'\n)"
+              },
+              "fix_guide": {
+                "summary": "Set cache_dir for all model downloads to avoid re-downloading large weights.",
+                "steps": [
+                  "Pass cache_dir='./model_cache' to every from_pretrained() call.",
+                  "Set the HF_HOME or TRANSFORMERS_CACHE environment variable globally.",
+                  "Use snapshot_download() to pre-download models in setup scripts.",
+                  "Store the cache on fast SSD storage for quick loading."
+                ],
+                "benefits": "Eliminates redundant downloads of large model weights, saving time and bandwidth."
+              }
+            },
+            {
+              "name": "Inconsistent Tokenization Settings",
+              "definition": "A tokenizer is loaded without explicitly setting parameters like truncation, padding, or max_length.",
+              "example": {
+                "bad_code": "tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')\ntokens = tokenizer(texts)",
+                "good_code": "tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')\ntokens = tokenizer(\n    texts,\n    truncation=True,\n    padding='max_length',\n    max_length=128,\n    return_tensors='pt'\n)"
+              },
+              "fix_guide": {
+                "summary": "Always specify truncation, padding, max_length, and return_tensors explicitly.",
+                "steps": [
+                  "Set truncation=True to prevent silent truncation or errors on long inputs.",
+                  "Set padding='max_length' or padding='longest' consistently.",
+                  "Fix max_length to the value used during pre-training or fine-tuning.",
+                  "Set return_tensors='pt' or 'tf' to match your framework."
+                ],
+                "benefits": "Ensures identical tokenization behavior across training, evaluation, and production."
+              }
+            },
+            {
+              "name": "Inefficient Data Loading Practices",
+              "definition": "Standard I/O is used instead of the HuggingFace datasets library or a DataLoader.",
+              "example": {
+                "bad_code": "import json\nwith open('data.json') as f:\n    data = json.load(f)",
+                "good_code": "from datasets import load_dataset\ndataset = load_dataset('json', data_files='data.json')\ndataset = dataset.map(tokenize_fn, batched=True, num_proc=4)"
+              },
+              "fix_guide": {
+                "summary": "Use the HuggingFace datasets library for efficient, scalable data loading.",
+                "steps": [
+                  "Replace custom file I/O with load_dataset() or Dataset.from_dict().",
+                  "Use .map(fn, batched=True, num_proc=N) for fast parallel preprocessing.",
+                  "Use .set_format('torch') to get PyTorch tensors directly.",
+                  "Use streaming=True for datasets too large to fit in memory."
+                ],
+                "benefits": "Provides memory mapping, caching, and multiprocessing out of the box."
+              }
+            },
+            {
+              "name": "Lack of Distributed Training Configuration",
+              "definition": "TrainingArguments is used without configuring distributed training parameters.",
+              "example": {
+                "bad_code": "args = TrainingArguments(\n    output_dir='output',\n    num_train_epochs=3,\n    per_device_train_batch_size=16\n)",
+                "good_code": "args = TrainingArguments(\n    output_dir='output',\n    num_train_epochs=3,\n    per_device_train_batch_size=16,\n    local_rank=-1,\n    dataloader_num_workers=4\n)"
+              },
+              "fix_guide": {
+                "summary": "Set distributed training parameters in TrainingArguments if multiple GPUs are available.",
+                "steps": [
+                  "Set local_rank and n_gpu appropriately for multi-GPU setups.",
+                  "Launch training with torchrun or accelerate launch instead of python train.py.",
+                  "Use DeepSpeed integration via deepspeed=ds_config for large models.",
+                  "Set dataloader_num_workers to match your CPU core count."
+                ],
+                "benefits": "Fully utilizes available hardware, reducing training time for large models."
+              }
+            },
+            {
+              "name": "Missing Mixed Precision Training",
+              "definition": "TrainingArguments does not set fp16=True or bf16=True.",
+              "example": {
+                "bad_code": "args = TrainingArguments(output_dir='output', num_train_epochs=5)",
+                "good_code": "args = TrainingArguments(\n    output_dir='output',\n    num_train_epochs=5,\n    fp16=True  # or bf16=True on Ampere GPUs\n)"
+              },
+              "fix_guide": {
+                "summary": "Enable fp16 or bf16 training in TrainingArguments for supported hardware.",
+                "steps": [
+                  "Set fp16=True on Volta/Turing GPUs (T4, V100, RTX).",
+                  "Set bf16=True on Ampere GPUs (A100, A10) for more stable training.",
+                  "Use fp16_opt_level='O1' with Apex for fine-grained control.",
+                  "Monitor for loss spikes; add gradient clipping if instability occurs."
+                ],
+                "benefits": "Cuts GPU memory usage by ~50% and speeds up training by 1.5\u20133x."
+              }
+            },
+            {
+              "name": "Absence of Gradient Accumulation for Large Batches",
+              "definition": "Training is configured without setting gradient_accumulation_steps > 1.",
+              "example": {
+                "bad_code": "args = TrainingArguments(\n    output_dir='output',\n    per_device_train_batch_size=4\n)",
+                "good_code": "args = TrainingArguments(\n    output_dir='output',\n    per_device_train_batch_size=4,\n    gradient_accumulation_steps=8  # effective batch size = 4 * 8 = 32\n)"
+              },
+              "fix_guide": {
+                "summary": "Set gradient_accumulation_steps to achieve a larger effective batch size within GPU memory limits.",
+                "steps": [
+                  "Determine the largest per_device_train_batch_size that fits in VRAM.",
+                  "Set gradient_accumulation_steps = target_batch_size / per_device_batch_size.",
+                  "Adjust learning rate proportionally to the effective batch size.",
+                  "Note: accumulation increases training time proportionally."
+                ],
+                "benefits": "Enables training with large effective batch sizes on limited GPU memory."
+              }
+            },
+            {
+              "name": "Lack of Learning Rate Scheduling",
+              "definition": "No lr_scheduler_type is specified in TrainingArguments.",
+              "example": {
+                "bad_code": "args = TrainingArguments(\n    output_dir='output',\n    learning_rate=5e-5\n)",
+                "good_code": "args = TrainingArguments(\n    output_dir='output',\n    learning_rate=5e-5,\n    lr_scheduler_type='cosine',\n    warmup_ratio=0.06\n)"
+              },
+              "fix_guide": {
+                "summary": "Specify lr_scheduler_type and warmup_ratio in TrainingArguments.",
+                "steps": [
+                  "Set lr_scheduler_type to 'linear', 'cosine', or 'polynomial'.",
+                  "Set warmup_ratio=0.06 (6% warmup is a common default for fine-tuning).",
+                  "Or set warmup_steps explicitly for precise warmup control.",
+                  "Log the LR schedule to verify it behaves as expected."
+                ],
+                "benefits": "Prevents unstable early training and achieves better final model performance."
+              }
+            },
+            {
+              "name": "Missing Early Stopping Implementation",
+              "definition": "Training code does not include EarlyStoppingCallback, risking overfitting.",
+              "example": {
+                "bad_code": "trainer = Trainer(model=model, args=args, train_dataset=train_ds, eval_dataset=eval_ds)\ntrainer.train()",
+                "good_code": "from transformers import EarlyStoppingCallback\n\nargs = TrainingArguments(\n    output_dir='output',\n    evaluation_strategy='epoch',\n    load_best_model_at_end=True\n)\ntrainer = Trainer(\n    model=model,\n    args=args,\n    train_dataset=train_ds,\n    eval_dataset=eval_ds,\n    callbacks=[EarlyStoppingCallback(early_stopping_patience=3)]\n)\ntrainer.train()"
+              },
+              "fix_guide": {
+                "summary": "Add EarlyStoppingCallback with a patience value and enable evaluation.",
+                "steps": [
+                  "Set evaluation_strategy='epoch' (or 'steps') in TrainingArguments.",
+                  "Set load_best_model_at_end=True to restore the best checkpoint.",
+                  "Add EarlyStoppingCallback(early_stopping_patience=3) to callbacks.",
+                  "Set metric_for_best_model to the primary evaluation metric."
+                ],
+                "benefits": "Prevents overfitting during fine-tuning and automatically returns the best model checkpoint."
+              }
+            }
+          ]
+        }
       }
     }
   }
 }
-  }
